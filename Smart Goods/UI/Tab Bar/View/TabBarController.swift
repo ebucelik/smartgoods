@@ -5,6 +5,7 @@
 //  Created by Ing. Ebu Celik, BSc on 05.11.22.
 //
 
+import SwiftUI
 import UIKit
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate {
@@ -25,8 +26,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
     private func setupTabBarViews() {
         // MARK: My Requirement Tab
-        let myRequirementViewController = UIViewController()
-        myRequirementViewController.view.backgroundColor = .white
+        let myRequirementViewController = UIHostingController(rootView: MyRequirementView())
 
         let myRequirementTabBarItem = UITabBarItem(
             title: "My Requirement",
@@ -38,8 +38,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
 
         // MARK: Create Requirement Tab
-        let createRequirementViewController = UIViewController()
-        createRequirementViewController.view.backgroundColor = .white
+        let createRequirementViewController = UIHostingController(rootView: CreateRequirementView())
 
         let createRequirementTabBarItem = UITabBarItem(
             title: "Create Requirement",
@@ -50,8 +49,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         createRequirementViewController.tabBarItem = createRequirementTabBarItem
 
         // MARK: Account Tab
-        let accountViewController = UIViewController()
-        accountViewController.view.backgroundColor = .white
+        let accountViewController = UIHostingController(rootView: AccountView())
 
         let accountTabBarItem = UITabBarItem(
             title: "Account",
@@ -67,5 +65,33 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             createRequirementViewController,
             accountViewController
         ]
+    }
+}
+
+// TODO: Remove each view from this file when the actual view is implemented. Replace the object in the method on the top with the actual view object.
+struct MyRequirementView: View {
+    var body: some View {
+        VStack {
+            Text("My Requirement")
+        }
+        .background(.blue)
+    }
+}
+
+struct CreateRequirementView: View {
+    var body: some View {
+        VStack {
+            Text("Create Requirement")
+        }
+        .background(.yellow)
+    }
+}
+
+struct AccountView: View {
+    var body: some View {
+        VStack {
+            Text("Account")
+        }
+        .background(.red)
     }
 }
