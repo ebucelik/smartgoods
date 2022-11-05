@@ -9,19 +9,19 @@
 /* Begin PBXBuildFile section */
 		710E2D83291196E6003AC591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710E2D82291196E6003AC591 /* AppDelegate.swift */; };
 		710E2D85291196E6003AC591 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710E2D84291196E6003AC591 /* SceneDelegate.swift */; };
-		710E2D87291196E6003AC591 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710E2D86291196E6003AC591 /* ViewController.swift */; };
 		710E2D8C291196E7003AC591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 710E2D8B291196E7003AC591 /* Assets.xcassets */; };
 		710E2D8F291196E7003AC591 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 710E2D8D291196E7003AC591 /* LaunchScreen.storyboard */; };
+		71754E2E2916EDF9001A3176 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71754E2D2916EDF9001A3176 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		710E2D7F291196E6003AC591 /* Smart Goods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Goods.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		710E2D82291196E6003AC591 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		710E2D84291196E6003AC591 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		710E2D86291196E6003AC591 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		710E2D8B291196E7003AC591 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		710E2D8E291196E7003AC591 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		710E2D90291196E7003AC591 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71754E2D2916EDF9001A3176 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +54,54 @@
 		710E2D81291196E6003AC591 /* Smart Goods */ = {
 			isa = PBXGroup;
 			children = (
+				71754E282916ED6E001A3176 /* UI */,
 				710E2D82291196E6003AC591 /* AppDelegate.swift */,
 				710E2D84291196E6003AC591 /* SceneDelegate.swift */,
-				710E2D86291196E6003AC591 /* ViewController.swift */,
 				710E2D8B291196E7003AC591 /* Assets.xcassets */,
 				710E2D8D291196E7003AC591 /* LaunchScreen.storyboard */,
 				710E2D90291196E7003AC591 /* Info.plist */,
 			);
 			path = "Smart Goods";
+			sourceTree = "<group>";
+		};
+		71754E282916ED6E001A3176 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				71754E292916EDB6001A3176 /* Tab Bar */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		71754E292916EDB6001A3176 /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				71754E2C2916EDDE001A3176 /* Core */,
+				71754E2B2916EDD1001A3176 /* Service */,
+				71754E2A2916EDC5001A3176 /* View */,
+			);
+			path = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		71754E2A2916EDC5001A3176 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				71754E2D2916EDF9001A3176 /* TabBarController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71754E2B2916EDD1001A3176 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		71754E2C2916EDDE001A3176 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,7 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				710E2D87291196E6003AC591 /* ViewController.swift in Sources */,
+				71754E2E2916EDF9001A3176 /* TabBarController.swift in Sources */,
 				710E2D83291196E6003AC591 /* AppDelegate.swift in Sources */,
 				710E2D85291196E6003AC591 /* SceneDelegate.swift in Sources */,
 			);

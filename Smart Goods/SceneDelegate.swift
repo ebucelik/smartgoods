@@ -19,10 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         // Add ViewController programmatically instead of using StoryBoards.
-        let viewController = ViewController()
+        let tabBarController = TabBarController()
 
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = viewController
+        window.rootViewController = tabBarController
         window.makeKeyAndVisible()
 
         self.window = window
