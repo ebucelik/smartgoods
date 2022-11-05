@@ -24,7 +24,9 @@ struct MyRequirementView: View {
                     ForEach(requirements) { requirement in
                         HStack {
                             Text(requirement.text)
+                            
                             Spacer()
+                            
                             if requirement.status {
                                 Image(systemName: "checkmark.square.fill").foregroundColor(.green)
                             } else {
@@ -37,7 +39,9 @@ struct MyRequirementView: View {
                     ForEach(requirements) { requirement in
                         HStack {
                             Text(requirement.text)
+                            
                             Spacer()
+                            
                             if requirement.status {
                                 Image(systemName: "checkmark.square.fill").foregroundColor(.green)
                             } else {
