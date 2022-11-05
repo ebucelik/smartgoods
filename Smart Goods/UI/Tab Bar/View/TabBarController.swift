@@ -26,7 +26,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
     private func setupTabBarViews() {
         // MARK: My Requirement Tab
-        let myRequirementViewController = UIHostingController(rootView: MyRequirementView())
+        let myRequirementViewController = UIHostingController(rootView: MyRequirementView(requirements: MyRequirementView.mockRequirements))
 
         let myRequirementTabBarItem = UITabBarItem(
             title: "My Requirement",
@@ -69,14 +69,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 }
 
 // TODO: Remove each view from this file when the actual view is implemented. Replace the object in the method on the top with the actual view object.
-struct MyRequirementView: View {
-    var body: some View {
-        VStack {
-            Text("My Requirement")
-        }
-        .background(.blue)
-    }
-}
 
 struct CreateRequirementView: View {
     var body: some View {
