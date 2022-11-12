@@ -9,6 +9,8 @@ import Foundation
 
 class HTTPClient {
 
+    /// A public generic method which will be called by all the views (or their Logic Core's)
+    /// - Returns: The expected model which the http body response should have
     public func sendRequest<T: Codable>(call: Call, responseModel: T.Type) async throws -> T {
         return try await withCheckedThrowingContinuation { continuation in
             sendRequest(call: call, responseModel: responseModel) { result in
@@ -23,11 +25,14 @@ class HTTPClient {
         }
     }
 
+    /// A private generic method which sends a network HTTP request to a specified URL
+    /// - Parameters:
+    ///   - call: An abstract protocol which delivers the information needed to create an URLRequest
+    ///   - responseModel: The expected http body response should fit to this model
+    ///   - completion: Will be called either when there is an failure or when the response was successful
     private func sendRequest<T: Codable>(call: Call, responseModel: T.Type, completion: @escaping (Result<T, HTTPError>) -> Void) {
 
-        let urlString = call.httpScheme + call.host + call.path
-
-        guard var urlComponents = URLComponents(string: urlString) else {
+        guard var urlComponents = URLComponents(string: call.httpUrl) else {
             completion(.failure(HTTPError.invalidURL))
             return
         }
@@ -54,46 +59,52 @@ class HTTPClient {
         URLSession.shared.dataTask(with: urlRequest) { data, urlResponse, error in
             if error != nil {
                 completion(.failure(HTTPError.error(error?.localizedDescription ?? "")))
-            }
-
-            do {
-                guard let httpResponse = urlResponse as? HTTPURLResponse else {
-                    completion(.failure(HTTPError.noResponse))
-                    return
-                }
-
-                guard let data = data else { throw HTTPError.noResponse }
-
-                switch httpResponse.statusCode {
-                case 200...299:
-                    guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else { completion(.failure(HTTPError.decode))
+            } else {
+                do {
+                    guard let httpResponse = urlResponse as? HTTPURLResponse else {
+                        completion(.failure(HTTPError.noResponse))
                         return
                     }
 
-                    completion(.success(decodedResponse))
+                    guard let data = data else { throw HTTPError.noResponse }
 
-                case 300...399:
-                    completion(.failure(HTTPError.notModified))
+                    switch httpResponse.statusCode {
+                    case 200...299:
+                        guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else { completion(.failure(HTTPError.decode))
+                            return
+                        }
 
-                case 401:
-                    completion(.failure(HTTPError.unauthorized))
+                        completion(.success(decodedResponse))
 
-                case 404:
-                    completion(.failure(HTTPError.notFound))
+                    case 300...399:
+                        completion(.failure(HTTPError.notModified))
 
-                case 500...599:
-                    completion(.failure(HTTPError.serverError))
+                    case 401:
+                        completion(.failure(HTTPError.unauthorized))
 
-                default:
-                    completion(.failure(HTTPError.unexpectedStatusCode))
+                    case 404:
+                        completion(.failure(HTTPError.notFound))
+
+                    case 500...599:
+                        completion(.failure(HTTPError.serverError))
+
+                    default:
+                        completion(.failure(HTTPError.unexpectedStatusCode))
+                    }
+                } catch {
+                    completion(.failure(HTTPError.error(error.localizedDescription)))
                 }
-            } catch {
-                completion(.failure(HTTPError.error(error.localizedDescription)))
             }
         }
         .resume()
     }
 
+    /// Creates an URLRequest object
+    /// - Parameters:
+    ///   - url: URL of the ressource
+    ///   - httpMethod: Typical HTTP method like GET, POST, PUT
+    ///   - httpBody: The data that should be sent to the backend
+    /// - Returns: URLRequest
     private func createURLRequest(with url: URL, httpMethod: HTTPMethod, httpBody: Data?) -> URLRequest {
         var urlRequest = URLRequest(url: url)
 

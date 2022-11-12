@@ -22,4 +22,6 @@ public extension Call {
     var host: String { "localhost/api/v1/" }
 
     var httpMethod: HTTPMethod { .GET }
+
+    var httpUrl: String { httpScheme + host + path }
 }
