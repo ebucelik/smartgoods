@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ComposableArchitecture
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,7 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         // Add ViewController programmatically instead of using StoryBoards.
-        let tabBarController = TabBarController()
+        let tabBarController = TabBarController(
+            store: Store(
+                initialState: TabBarCore.State(),
+                reducer: TabBarCore()
+            )
+        )
 
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = tabBarController
