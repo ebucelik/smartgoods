@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7103E136292A6AC100A007A7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 7103E135292A6AC100A007A7 /* ComposableArchitecture */; };
+		7103E138292A6AC100A007A7 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 7103E137292A6AC100A007A7 /* Dependencies */; };
+		7103E13A292A6B4700A007A7 /* TabBarCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103E139292A6B4700A007A7 /* TabBarCore.swift */; };
 		710E2D83291196E6003AC591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710E2D82291196E6003AC591 /* AppDelegate.swift */; };
 		710E2D85291196E6003AC591 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710E2D84291196E6003AC591 /* SceneDelegate.swift */; };
 		710E2D8C291196E7003AC591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 710E2D8B291196E7003AC591 /* Assets.xcassets */; };
@@ -20,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7103E139292A6B4700A007A7 /* TabBarCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCore.swift; sourceTree = "<group>"; };
 		710E2D7F291196E6003AC591 /* Smart Goods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Goods.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		710E2D82291196E6003AC591 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		710E2D84291196E6003AC591 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7103E136292A6AC100A007A7 /* ComposableArchitecture in Frameworks */,
+				7103E138292A6AC100A007A7 /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +137,7 @@
 		71754E2C2916EDDE001A3176 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7103E139292A6B4700A007A7 /* TabBarCore.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -167,6 +174,10 @@
 			dependencies = (
 			);
 			name = "Smart Goods";
+			packageProductDependencies = (
+				7103E135292A6AC100A007A7 /* ComposableArchitecture */,
+				7103E137292A6AC100A007A7 /* Dependencies */,
+			);
 			productName = "Smart Goods";
 			productReference = 710E2D7F291196E6003AC591 /* Smart Goods.app */;
 			productType = "com.apple.product-type.application";
@@ -195,6 +206,9 @@
 				Base,
 			);
 			mainGroup = 710E2D76291196E6003AC591;
+			packageReferences = (
+				7103E134292A6AC100A007A7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 710E2D80291196E6003AC591 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -228,6 +242,7 @@
 				71742B5D291AF5260026B389 /* HTTPError.swift in Sources */,
 				710E2D83291196E6003AC591 /* AppDelegate.swift in Sources */,
 				71742B55291AEC840026B389 /* HTTPClient.swift in Sources */,
+				7103E13A292A6B4700A007A7 /* TabBarCore.swift in Sources */,
 				710E2D85291196E6003AC591 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +451,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7103E134292A6AC100A007A7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.46.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7103E135292A6AC100A007A7 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7103E134292A6AC100A007A7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		7103E137292A6AC100A007A7 /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7103E134292A6AC100A007A7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = Dependencies;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 710E2D77291196E6003AC591 /* Project object */;
 }

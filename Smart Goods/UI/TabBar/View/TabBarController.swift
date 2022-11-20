@@ -7,8 +7,25 @@
 
 import SwiftUI
 import UIKit
+import ComposableArchitecture
+import Combine
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate {
+
+    let store: Store<TabBarCore.State, TabBarCore.Action>
+    let viewStore: ViewStore<TabBarCore.State, TabBarCore.Action>
+    var cancellables: Set<AnyCancellable> = []
+
+    public init(store: Store<TabBarCore.State, TabBarCore.Action>) {
+        self.store = store
+        self.viewStore = ViewStore(store)
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +37,10 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewWillAppear(animated)
 
         tabBar.tintColor = .black
+
+        configureStateObservation()
+
+        checkUuid()
 
         setupTabBarViews()
     }
@@ -65,6 +86,20 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             createRequirementViewController,
             accountViewController
         ]
+    }
+
+    private func configureStateObservation() {
+        viewStore.publisher.isUuidAvailable
+            .sink { isUuidAvailable in
+                if let isUuidAvailable = isUuidAvailable {
+                    print(isUuidAvailable)
+                }
+            }
+            .store(in: &cancellables)
+    }
+
+    private func checkUuid() {
+        viewStore.send(.checkUuidAvailability("uuid"))
     }
 }
 
