@@ -16,6 +16,7 @@
 		71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B58291AECF80026B389 /* HTTPMethod.swift */; };
 		71742B5D291AF5260026B389 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B5C291AF5260026B389 /* HTTPError.swift */; };
 		71754E2E2916EDF9001A3176 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71754E2D2916EDF9001A3176 /* TabBarController.swift */; };
+		9340DFE9292A639500A66E9B /* CreateRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340DFE8292A639500A66E9B /* CreateRequirementView.swift */; };
 		934C77982916F76C00ED21DE /* MyRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C77972916F76C00ED21DE /* MyRequirementView.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		71742B58291AECF80026B389 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		71742B5C291AF5260026B389 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		71754E2D2916EDF9001A3176 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		9340DFE8292A639500A66E9B /* CreateRequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementView.swift; sourceTree = "<group>"; };
 		934C77972916F76C00ED21DE /* MyRequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequirementView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 		71754E282916ED6E001A3176 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				9340DFE6292A62C800A66E9B /* CreateRequirement */,
 				934C77952916F6E800ED21DE /* MyRequirement */,
 				71754E292916EDB6001A3176 /* TabBar */,
 			);
@@ -133,6 +136,22 @@
 			children = (
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		9340DFE6292A62C800A66E9B /* CreateRequirement */ = {
+			isa = PBXGroup;
+			children = (
+				9340DFE7292A632C00A66E9B /* View */,
+			);
+			path = CreateRequirement;
+			sourceTree = "<group>";
+		};
+		9340DFE7292A632C00A66E9B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9340DFE8292A639500A66E9B /* CreateRequirementView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		934C77952916F6E800ED21DE /* MyRequirement */ = {
@@ -225,6 +244,7 @@
 				71742B57291AECC50026B389 /* Call.swift in Sources */,
 				71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */,
 				71754E2E2916EDF9001A3176 /* TabBarController.swift in Sources */,
+				9340DFE9292A639500A66E9B /* CreateRequirementView.swift in Sources */,
 				71742B5D291AF5260026B389 /* HTTPError.swift in Sources */,
 				710E2D83291196E6003AC591 /* AppDelegate.swift in Sources */,
 				71742B55291AEC840026B389 /* HTTPClient.swift in Sources */,

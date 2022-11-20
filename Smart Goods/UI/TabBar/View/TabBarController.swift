@@ -70,15 +70,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
 // TODO: Remove each view from this file when the actual view is implemented. Replace the object in the method on the top with the actual view object.
 
-struct CreateRequirementView: View {
-    var body: some View {
-        VStack {
-            Text("Create Requirement")
-        }
-        .background(.yellow)
-    }
-}
-
 struct AccountView: View {
     var body: some View {
         VStack {
