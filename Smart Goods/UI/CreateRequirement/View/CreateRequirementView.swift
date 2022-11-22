@@ -10,29 +10,20 @@ import SwiftUI
 struct CreateRequirementView: View {
     
     enum schemes: String, CaseIterable, Identifiable {
-        case Rupp, none
-        
-        var name: Text {
-            switch self {
-            case .Rupp: return Text("Rupp's scheme")
-            case .none: return Text("No scheme")
-            }
-        }
+        case Rupp = "Rupp's scheme"
+        case none = "No scheme"
         
         var id: Self { self }
     }
-    
     @State private var selectedScheme: schemes = .Rupp
     
     var body: some View {
-        
         NavigationView {
             VStack {
                 VStack {
-                    
                     Picker("Scheme", selection: $selectedScheme) {
                         ForEach(schemes.allCases) { scheme in
-                            scheme.name
+                            Text(scheme.rawValue)
                         }
                     }
                     .pickerStyle(.segmented)
@@ -82,11 +73,15 @@ struct SubviewNone: View {
     @State public var requirement: String
     
     var body: some View {
-        TextField("Enter requirement ...", text: self.$requirement, axis: .vertical)
-            .lineLimit(5, reservesSpace: true)
-            .textFieldStyle(.roundedBorder)
-        
-        Spacer()
+        VStack (alignment: .leading) {
+            TextField("Enter requirement ...", text: self.$requirement, axis: .vertical)
+                .lineLimit(5, reservesSpace: true)
+                .textFieldStyle(.roundedBorder)
+            
+            Spacer()
+            
+            Text(requirement)
+        }
     }
 }
 
@@ -96,11 +91,25 @@ struct SubviewRupp: View {
     
     @State var systemName = "The system"
     
-    @State var priorityOptions = ["shall", "should", "will"]
-    @State var prioritySelected = "shall"
+    enum priorityOptions: String, CaseIterable, Identifiable {
+        
+        case shall = "shall"
+        case should = "should"
+        case will = "will"
+        
+        var id: Self { self }
+    }
+    @State private var prioritySelected: priorityOptions = .shall
     
-    @State var verbOptions = ["<process verb>", "provide <whom>", "be able to"]
-    @State var verbSelected = "<process verb>"
+    enum verbOptions: String, CaseIterable, Identifiable {
+        
+        case process = "<process verb>"
+        case provide = "provide <whom>"
+        case able = "be able to"
+        
+        var id: Self { self }
+    }
+    @State private var verbSelected: verbOptions = .process
     
     @State private var object = ""
     @State private var processVerb = ""
@@ -132,18 +141,18 @@ struct SubviewRupp: View {
                 .textInputAutocapitalization(.never)
             
             Picker("Priority", selection: $prioritySelected) {
-                ForEach(priorityOptions, id: \.self) { priority in
-                    Text(priority)
+                ForEach(priorityOptions.allCases) { priority in
+                    Text(priority.rawValue)
                 }
             }
             
             Picker("Verb", selection: $verbSelected) {
-                ForEach(verbOptions, id: \.self) { verb in
-                    Text(verb)
+                ForEach(verbOptions.allCases) { verb in
+                    Text(verb.rawValue)
                 }
             }
             
-            if (verbSelected == "provide <whom>") {
+            if (verbSelected == .provide) {
                 TextField("<whom>", text: $object)
                     .textFieldStyle(.roundedBorder)
                     .textInputAutocapitalization(.never)
@@ -160,10 +169,9 @@ struct SubviewRupp: View {
             
             Spacer()
             
-            let req = buildRequirement(prioritySelected: prioritySelected, verbSelected: verbSelected, object: object, processVerb: processVerb)
+            let requirement = buildRequirement(prioritySelected: prioritySelected.rawValue, verbSelected: verbSelected.rawValue, object: object, processVerb: processVerb)
             
-            Text(req)
+            Text(requirement)
         }
-        
     }
 }
