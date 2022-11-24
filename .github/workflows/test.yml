@@ -22,5 +22,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         
+      - name: Setup - Ruby and bundler dependencies
+        uses: ruby/setup-ruby@v1.57.0
+        with:
+          ruby-version: 2.7.0
+          bundler-cache: true
+
       - name: Run tests
         run: bundle exec fastlane test
