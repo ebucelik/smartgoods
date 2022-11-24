@@ -5,20 +5,24 @@ on:
       - 'main'
       - 'feature/**'
 jobs:
-  build:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2
+  build_test:
+    name: Run tests
+    runs-on: macOS-11
+    env:
+        # The XCode version to use. If you want to update it please refer to this document:
+        # https://docs.github.com/en/actions/reference/specifications-for-github-hosted-runners#supported-software
+        # and set proper version.
+        XCODE_VERSION: "13.0"
 
-      # Setup Xcode version we need for our build
-      - name: Setup - Xcode
-        run: sudo xcode-select -s /Applications/Xcode_12.4.app
-      
-      # Setup ruby
-      - name: Setup - Ruby and bundler dependencies
-        uses: ruby/setup-ruby@v1.57.0
-        with:
-          ruby-version: 2.7.2
-          bundler-cache: true
-          
-      - run: bundle exec fastlane test
+    steps:
+      - name: Select XCode
+        # Use XCODE_VERSION env variable to set the XCode version you want.
+        run: sudo xcode-select --switch /Applications/Xcode_${{ env.XCODE_VERSION }}.app
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Run tests
+        run: |
+          set -o pipefail
+          fastlane tests
