@@ -20,10 +20,10 @@ jobs:
         run: sudo xcode-select --switch /Applications/Xcode_${{ env.XCODE_VERSION }}.app
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         
       - name: Setup - Ruby and bundler dependencies
-        uses: ruby/setup-ruby@v2.7.2
+        uses: ruby/setup-ruby@v1.57.0
         with:
           ruby-version: 2.7.2
           bundler-cache: true
