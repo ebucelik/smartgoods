@@ -23,6 +23,4 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Run tests
-        run: |
-          set -o pipefail
-          fastlane tests
+        run: bundle exec fastlane test
