@@ -1,0 +1,43 @@
+name: Run tests
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  pull_request:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+  # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: macos-10.15
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      
+      # Setup Xcode version we need for our build
+      - name: Setup - Xcode
+        run: sudo xcode-select -s /Applications/Xcode_12.4.app
+      
+      # Setup ruby
+      - name: Setup - Ruby and bundler dependencies
+        uses: ruby/setup-ruby@v1.57.0
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true
+
+      # Runs test lane created earlier
+      - name: Run tests
+        run: bundle exec fastlane test
+      
+      # Publish the test results even in case of failure
+      - name: Publish Scan Report
+        uses: EnricoMi/publish-unit-test-result-action/composite@v1
+        if: always()
+        with:
+          files: '.scan_result/*.junit'
