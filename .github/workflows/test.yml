@@ -1,22 +1,19 @@
-name: iOS Unit Tests
+name: Unit Tests
 on:
   push:
     branches:
       - 'main'
       - 'feature/**'
+      - 'bugfix/**'
 jobs:
   build_test:
     name: Run tests
     runs-on: macOS-12
     env:
-        # The XCode version to use. If you want to update it please refer to this document:
-        # https://docs.github.com/en/actions/reference/specifications-for-github-hosted-runners#supported-software
-        # and set proper version.
         XCODE_VERSION: "14.0"
 
     steps:
-      - name: Select XCode
-        # Use XCODE_VERSION env variable to set the XCode version you want.
+      - name: Select Xcode version
         run: sudo xcode-select --switch /Applications/Xcode_${{ env.XCODE_VERSION }}.app
 
       - name: Checkout
@@ -28,5 +25,5 @@ jobs:
           ruby-version: 2.7.2
           bundler-cache: true
 
-      - name: Run tests
+      - name: Run Xcode tests
         run: bundle exec fastlane test
