@@ -19,8 +19,19 @@
 		71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B58291AECF80026B389 /* HTTPMethod.swift */; };
 		71742B5D291AF5260026B389 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B5C291AF5260026B389 /* HTTPError.swift */; };
 		71754E2E2916EDF9001A3176 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71754E2D2916EDF9001A3176 /* TabBarController.swift */; };
+		71E8DA2029301A6C0075F9F3 /* TabBarCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E8DA1F29301A6C0075F9F3 /* TabBarCoreTests.swift */; };
 		934C77982916F76C00ED21DE /* MyRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C77972916F76C00ED21DE /* MyRequirementView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		71E8DA2129301A6C0075F9F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 710E2D77291196E6003AC591 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 710E2D7E291196E6003AC591;
+			remoteInfo = "Smart Goods";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		7103E139292A6B4700A007A7 /* TabBarCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCore.swift; sourceTree = "<group>"; };
@@ -35,6 +46,8 @@
 		71742B58291AECF80026B389 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		71742B5C291AF5260026B389 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		71754E2D2916EDF9001A3176 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		71E8DA1D29301A6C0075F9F3 /* Smart GoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart GoodsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		71E8DA1F29301A6C0075F9F3 /* TabBarCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoreTests.swift; sourceTree = "<group>"; };
 		934C77972916F76C00ED21DE /* MyRequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequirementView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,6 +61,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		71E8DA1A29301A6C0075F9F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -55,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				710E2D81291196E6003AC591 /* Smart Goods */,
+				71E8DA1E29301A6C0075F9F3 /* Smart GoodsTests */,
 				710E2D80291196E6003AC591 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				710E2D7F291196E6003AC591 /* Smart Goods.app */,
+				71E8DA1D29301A6C0075F9F3 /* Smart GoodsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,6 +164,14 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		71E8DA1E29301A6C0075F9F3 /* Smart GoodsTests */ = {
+			isa = PBXGroup;
+			children = (
+				71E8DA1F29301A6C0075F9F3 /* TabBarCoreTests.swift */,
+			);
+			path = "Smart GoodsTests";
+			sourceTree = "<group>";
+		};
 		934C77952916F6E800ED21DE /* MyRequirement */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +212,24 @@
 			productReference = 710E2D7F291196E6003AC591 /* Smart Goods.app */;
 			productType = "com.apple.product-type.application";
 		};
+		71E8DA1C29301A6C0075F9F3 /* Smart GoodsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71E8DA2529301A6C0075F9F3 /* Build configuration list for PBXNativeTarget "Smart GoodsTests" */;
+			buildPhases = (
+				71E8DA1929301A6C0075F9F3 /* Sources */,
+				71E8DA1A29301A6C0075F9F3 /* Frameworks */,
+				71E8DA1B29301A6C0075F9F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71E8DA2229301A6C0075F9F3 /* PBXTargetDependency */,
+			);
+			name = "Smart GoodsTests";
+			productName = "Smart GoodsTests";
+			productReference = 71E8DA1D29301A6C0075F9F3 /* Smart GoodsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -189,11 +237,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					710E2D7E291196E6003AC591 = {
 						CreatedOnToolsVersion = 14.0;
+					};
+					71E8DA1C29301A6C0075F9F3 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 710E2D7E291196E6003AC591;
 					};
 				};
 			};
@@ -214,6 +266,7 @@
 			projectRoot = "";
 			targets = (
 				710E2D7E291196E6003AC591 /* Smart Goods */,
+				71E8DA1C29301A6C0075F9F3 /* Smart GoodsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -225,6 +278,13 @@
 			files = (
 				710E2D8F291196E7003AC591 /* LaunchScreen.storyboard in Resources */,
 				710E2D8C291196E7003AC591 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71E8DA1B29301A6C0075F9F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +307,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		71E8DA1929301A6C0075F9F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71E8DA2029301A6C0075F9F3 /* TabBarCoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		71E8DA2229301A6C0075F9F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 710E2D7E291196E6003AC591 /* Smart Goods */;
+			targetProxy = 71E8DA2129301A6C0075F9F3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		710E2D8D291196E7003AC591 /* LaunchScreen.storyboard */ = {
@@ -389,6 +465,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -416,6 +493,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -426,6 +504,44 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		71E8DA2329301A6C0075F9F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7UZH6B548Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ebucelik.Smart-GoodsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smart Goods.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Smart Goods";
+			};
+			name = Debug;
+		};
+		71E8DA2429301A6C0075F9F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7UZH6B548Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ebucelik.Smart-GoodsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smart Goods.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Smart Goods";
 			};
 			name = Release;
 		};
@@ -446,6 +562,15 @@
 			buildConfigurations = (
 				710E2D94291196E7003AC591 /* Debug */,
 				710E2D95291196E7003AC591 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71E8DA2529301A6C0075F9F3 /* Build configuration list for PBXNativeTarget "Smart GoodsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71E8DA2329301A6C0075F9F3 /* Debug */,
+				71E8DA2429301A6C0075F9F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
