@@ -57,7 +57,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
         myRequirementViewController.tabBarItem = myRequirementTabBarItem
 
-
         // MARK: Create Requirement Tab
         let createRequirementViewController = UIHostingController(rootView: CreateRequirementView())
 
@@ -80,7 +79,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
         accountViewController.tabBarItem = accountTabBarItem
 
-
         self.viewControllers = [
             myRequirementViewController,
             createRequirementViewController,
@@ -89,10 +87,10 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     }
 
     private func configureStateObservation() {
-        viewStore.publisher.isUuidAvailable
-            .sink { isUuidAvailable in
-                if let isUuidAvailable = isUuidAvailable {
-                    print(isUuidAvailable)
+        viewStore.publisher.uuid
+            .sink { uuid in
+                if let uuid = uuid {
+                    print(uuid)
                 }
             }
             .store(in: &cancellables)
