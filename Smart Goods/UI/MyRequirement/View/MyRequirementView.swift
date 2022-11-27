@@ -20,22 +20,7 @@ struct MyRequirementView: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Project 1")) {
-                    ForEach(requirements) { requirement in
-                        HStack {
-                            Text(requirement.text)
-                            
-                            Spacer()
-                            
-                            if requirement.status {
-                                Image(systemName: "checkmark.square.fill").foregroundColor(.green)
-                            } else {
-                                Image(systemName: "xmark.square.fill").foregroundColor(.red)
-                            }
-                        }
-                    }
-                }
-                Section(header: Text("Project 2")) {
+                Section(header: Text("")) {
                     ForEach(requirements) { requirement in
                         HStack {
                             Text(requirement.text)
