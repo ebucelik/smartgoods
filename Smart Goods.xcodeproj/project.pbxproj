@@ -16,6 +16,8 @@
 		71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B58291AECF80026B389 /* HTTPMethod.swift */; };
 		71742B5D291AF5260026B389 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B5C291AF5260026B389 /* HTTPError.swift */; };
 		71754E2E2916EDF9001A3176 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71754E2D2916EDF9001A3176 /* TabBarController.swift */; };
+		932458882933C4C900D67176 /* SubviewNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932458872933C4C900D67176 /* SubviewNone.swift */; };
+		9324588A2933C51600D67176 /* SubviewRupp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932458892933C51600D67176 /* SubviewRupp.swift */; };
 		9340DFE9292A639500A66E9B /* CreateRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340DFE8292A639500A66E9B /* CreateRequirementView.swift */; };
 		934C77982916F76C00ED21DE /* MyRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C77972916F76C00ED21DE /* MyRequirementView.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,8 @@
 		71742B58291AECF80026B389 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		71742B5C291AF5260026B389 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		71754E2D2916EDF9001A3176 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		932458872933C4C900D67176 /* SubviewNone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewNone.swift; sourceTree = "<group>"; };
+		932458892933C51600D67176 /* SubviewRupp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewRupp.swift; sourceTree = "<group>"; };
 		9340DFE8292A639500A66E9B /* CreateRequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementView.swift; sourceTree = "<group>"; };
 		934C77972916F76C00ED21DE /* MyRequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequirementView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				9340DFE8292A639500A66E9B /* CreateRequirementView.swift */,
+				932458872933C4C900D67176 /* SubviewNone.swift */,
+				932458892933C51600D67176 /* SubviewRupp.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -241,7 +247,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				934C77982916F76C00ED21DE /* MyRequirementView.swift in Sources */,
+				932458882933C4C900D67176 /* SubviewNone.swift in Sources */,
 				71742B57291AECC50026B389 /* Call.swift in Sources */,
+				9324588A2933C51600D67176 /* SubviewRupp.swift in Sources */,
 				71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */,
 				71754E2E2916EDF9001A3176 /* TabBarController.swift in Sources */,
 				9340DFE9292A639500A66E9B /* CreateRequirementView.swift in Sources */,
