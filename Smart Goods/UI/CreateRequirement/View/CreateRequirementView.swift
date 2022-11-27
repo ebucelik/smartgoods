@@ -4,20 +4,19 @@
 //
 //  Created by Lisa-Marie Pleyer on 20.11.22.
 //
-
 import SwiftUI
 
 struct CreateRequirementView: View {
-    
+
     enum schemes: String, CaseIterable, Identifiable {
         case rupp = "Rupp's scheme"
         case none = "No scheme"
-        
+
         var id: Self { self }
     }
-    
+
     @State private var selectedScheme: schemes = .rupp
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -28,19 +27,17 @@ struct CreateRequirementView: View {
                         }
                     }
                     .pickerStyle(.segmented)
-                    
+
                     switch (selectedScheme) {
                     case .none:
                         SubviewNone(requirement: "")
                     case .rupp:
                         SubviewRupp(requirement: "")
-                    default:
-                        EmptyView()
                     }
                 }
                 .padding()
                 .navigationBarTitle("Create Requirement")
-                
+
                 HStack (alignment: .bottom){
                     Button("Check") {
                         //TODO
@@ -49,7 +46,7 @@ struct CreateRequirementView: View {
                     .background(.blue)
                     .cornerRadius(15)
                     .foregroundColor(.white)
-                    
+
                     Button("Save") {
                         //TODO
                     }

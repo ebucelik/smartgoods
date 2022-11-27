@@ -19,9 +19,9 @@
 		71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B58291AECF80026B389 /* HTTPMethod.swift */; };
 		71742B5D291AF5260026B389 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B5C291AF5260026B389 /* HTTPError.swift */; };
 		71754E2E2916EDF9001A3176 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71754E2D2916EDF9001A3176 /* TabBarController.swift */; };
-		932458882933C4C900D67176 /* SubviewNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932458872933C4C900D67176 /* SubviewNone.swift */; };
-		9324588A2933C51600D67176 /* SubviewRupp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932458892933C51600D67176 /* SubviewRupp.swift */; };
-		9340DFE9292A639500A66E9B /* CreateRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340DFE8292A639500A66E9B /* CreateRequirementView.swift */; };
+		71E775B02933EAC20016FC15 /* CreateRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775AF2933EAC20016FC15 /* CreateRequirementView.swift */; };
+		71E775B22933EAD00016FC15 /* SubviewRupp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775B12933EAD00016FC15 /* SubviewRupp.swift */; };
+		71E775B42933EAD90016FC15 /* SubviewNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775B32933EAD90016FC15 /* SubviewNone.swift */; };
 		71E8DA2029301A6C0075F9F3 /* TabBarCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E8DA1F29301A6C0075F9F3 /* TabBarCoreTests.swift */; };
 		934C77982916F76C00ED21DE /* MyRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C77972916F76C00ED21DE /* MyRequirementView.swift */; };
 /* End PBXBuildFile section */
@@ -49,9 +49,9 @@
 		71742B58291AECF80026B389 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		71742B5C291AF5260026B389 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		71754E2D2916EDF9001A3176 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		932458872933C4C900D67176 /* SubviewNone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewNone.swift; sourceTree = "<group>"; };
-		932458892933C51600D67176 /* SubviewRupp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewRupp.swift; sourceTree = "<group>"; };
-		9340DFE8292A639500A66E9B /* CreateRequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementView.swift; sourceTree = "<group>"; };
+		71E775AF2933EAC20016FC15 /* CreateRequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementView.swift; sourceTree = "<group>"; };
+		71E775B12933EAD00016FC15 /* SubviewRupp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewRupp.swift; sourceTree = "<group>"; };
+		71E775B32933EAD90016FC15 /* SubviewNone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewNone.swift; sourceTree = "<group>"; };
 		71E8DA1D29301A6C0075F9F3 /* Smart GoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart GoodsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71E8DA1F29301A6C0075F9F3 /* TabBarCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoreTests.swift; sourceTree = "<group>"; };
 		934C77972916F76C00ED21DE /* MyRequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequirementView.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		71754E282916ED6E001A3176 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				9340DFE6292A62C800A66E9B /* CreateRequirement */,
+				71E775AD2933EA560016FC15 /* CreateRequirement */,
 				934C77952916F6E800ED21DE /* MyRequirement */,
 				71754E292916EDB6001A3176 /* TabBar */,
 			);
@@ -171,22 +171,24 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		9340DFE6292A62C800A66E9B /* CreateRequirement */ = {
+		71E775AD2933EA560016FC15 /* CreateRequirement */ = {
 			isa = PBXGroup;
 			children = (
-				9340DFE7292A632C00A66E9B /* View */,
+				71E775AE2933EAB40016FC15 /* View */,
 			);
 			path = CreateRequirement;
 			sourceTree = "<group>";
 		};
-		9340DFE7292A632C00A66E9B /* View */ = {
+		71E775AE2933EAB40016FC15 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9340DFE8292A639500A66E9B /* CreateRequirementView.swift */,
-				932458872933C4C900D67176 /* SubviewNone.swift */,
-				932458892933C51600D67176 /* SubviewRupp.swift */,
+				71E775AF2933EAC20016FC15 /* CreateRequirementView.swift */,
+				71E775B12933EAD00016FC15 /* SubviewRupp.swift */,
+				71E775B32933EAD90016FC15 /* SubviewNone.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
 		71E8DA1E29301A6C0075F9F3 /* Smart GoodsTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,13 +321,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				934C77982916F76C00ED21DE /* MyRequirementView.swift in Sources */,
-				932458882933C4C900D67176 /* SubviewNone.swift in Sources */,
 				71742B57291AECC50026B389 /* Call.swift in Sources */,
-				9324588A2933C51600D67176 /* SubviewRupp.swift in Sources */,
 				71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */,
+				71E775B22933EAD00016FC15 /* SubviewRupp.swift in Sources */,
 				71754E2E2916EDF9001A3176 /* TabBarController.swift in Sources */,
-				9340DFE9292A639500A66E9B /* CreateRequirementView.swift in Sources */,
+				71E775B42933EAD90016FC15 /* SubviewNone.swift in Sources */,
 				71742B5D291AF5260026B389 /* HTTPError.swift in Sources */,
+				71E775B02933EAC20016FC15 /* CreateRequirementView.swift in Sources */,
 				710E2D83291196E6003AC591 /* AppDelegate.swift in Sources */,
 				71742B55291AEC840026B389 /* HTTPClient.swift in Sources */,
 				7103E13A292A6B4700A007A7 /* TabBarCore.swift in Sources */,
