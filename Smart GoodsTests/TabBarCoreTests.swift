@@ -12,16 +12,14 @@ import ComposableArchitecture
 @MainActor
 final class TabBarCoreTests: XCTestCase {
 
-    func testIsUuidAvailable() async {
+    func testSetUuid() async {
         let store = TestStore(
             initialState: TabBarCore.State(),
             reducer: TabBarCore()
         )
 
-        await store.send(.checkUuidAvailability("uuid"))
-
-        await store.receive(.setUuidAvailability(true)) {
-            $0.isUuidAvailable = true
+        await store.send(.setUuid("uuid")) {
+            $0.uuid = "uuid"
         }
     }
 }
