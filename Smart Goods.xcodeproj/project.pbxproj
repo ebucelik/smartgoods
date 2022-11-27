@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7103E136292A6AC100A007A7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 7103E135292A6AC100A007A7 /* ComposableArchitecture */; };
+		7103E138292A6AC100A007A7 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 7103E137292A6AC100A007A7 /* Dependencies */; };
+		7103E13A292A6B4700A007A7 /* TabBarCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103E139292A6B4700A007A7 /* TabBarCore.swift */; };
 		710E2D83291196E6003AC591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710E2D82291196E6003AC591 /* AppDelegate.swift */; };
 		710E2D85291196E6003AC591 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710E2D84291196E6003AC591 /* SceneDelegate.swift */; };
 		710E2D8C291196E7003AC591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 710E2D8B291196E7003AC591 /* Assets.xcassets */; };
@@ -19,10 +22,22 @@
 		932458882933C4C900D67176 /* SubviewNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932458872933C4C900D67176 /* SubviewNone.swift */; };
 		9324588A2933C51600D67176 /* SubviewRupp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932458892933C51600D67176 /* SubviewRupp.swift */; };
 		9340DFE9292A639500A66E9B /* CreateRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340DFE8292A639500A66E9B /* CreateRequirementView.swift */; };
+		71E8DA2029301A6C0075F9F3 /* TabBarCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E8DA1F29301A6C0075F9F3 /* TabBarCoreTests.swift */; };
 		934C77982916F76C00ED21DE /* MyRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C77972916F76C00ED21DE /* MyRequirementView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		71E8DA2129301A6C0075F9F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 710E2D77291196E6003AC591 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 710E2D7E291196E6003AC591;
+			remoteInfo = "Smart Goods";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		7103E139292A6B4700A007A7 /* TabBarCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCore.swift; sourceTree = "<group>"; };
 		710E2D7F291196E6003AC591 /* Smart Goods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Goods.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		710E2D82291196E6003AC591 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		710E2D84291196E6003AC591 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,11 +52,22 @@
 		932458872933C4C900D67176 /* SubviewNone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewNone.swift; sourceTree = "<group>"; };
 		932458892933C51600D67176 /* SubviewRupp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewRupp.swift; sourceTree = "<group>"; };
 		9340DFE8292A639500A66E9B /* CreateRequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementView.swift; sourceTree = "<group>"; };
+		71E8DA1D29301A6C0075F9F3 /* Smart GoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart GoodsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		71E8DA1F29301A6C0075F9F3 /* TabBarCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoreTests.swift; sourceTree = "<group>"; };
 		934C77972916F76C00ED21DE /* MyRequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequirementView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		710E2D7C291196E6003AC591 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7103E136292A6AC100A007A7 /* ComposableArchitecture in Frameworks */,
+				7103E138292A6AC100A007A7 /* Dependencies in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71E8DA1A29301A6C0075F9F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -55,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				710E2D81291196E6003AC591 /* Smart Goods */,
+				71E8DA1E29301A6C0075F9F3 /* Smart GoodsTests */,
 				710E2D80291196E6003AC591 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				710E2D7F291196E6003AC591 /* Smart Goods.app */,
+				71E8DA1D29301A6C0075F9F3 /* Smart GoodsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,6 +166,7 @@
 		71754E2C2916EDDE001A3176 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7103E139292A6B4700A007A7 /* TabBarCore.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -158,6 +187,12 @@
 				932458892933C51600D67176 /* SubviewRupp.swift */,
 			);
 			path = View;
+		71E8DA1E29301A6C0075F9F3 /* Smart GoodsTests */ = {
+			isa = PBXGroup;
+			children = (
+				71E8DA1F29301A6C0075F9F3 /* TabBarCoreTests.swift */,
+			);
+			path = "Smart GoodsTests";
 			sourceTree = "<group>";
 		};
 		934C77952916F6E800ED21DE /* MyRequirement */ = {
@@ -192,9 +227,31 @@
 			dependencies = (
 			);
 			name = "Smart Goods";
+			packageProductDependencies = (
+				7103E135292A6AC100A007A7 /* ComposableArchitecture */,
+				7103E137292A6AC100A007A7 /* Dependencies */,
+			);
 			productName = "Smart Goods";
 			productReference = 710E2D7F291196E6003AC591 /* Smart Goods.app */;
 			productType = "com.apple.product-type.application";
+		};
+		71E8DA1C29301A6C0075F9F3 /* Smart GoodsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71E8DA2529301A6C0075F9F3 /* Build configuration list for PBXNativeTarget "Smart GoodsTests" */;
+			buildPhases = (
+				71E8DA1929301A6C0075F9F3 /* Sources */,
+				71E8DA1A29301A6C0075F9F3 /* Frameworks */,
+				71E8DA1B29301A6C0075F9F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71E8DA2229301A6C0075F9F3 /* PBXTargetDependency */,
+			);
+			name = "Smart GoodsTests";
+			productName = "Smart GoodsTests";
+			productReference = 71E8DA1D29301A6C0075F9F3 /* Smart GoodsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -203,11 +260,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					710E2D7E291196E6003AC591 = {
 						CreatedOnToolsVersion = 14.0;
+					};
+					71E8DA1C29301A6C0075F9F3 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 710E2D7E291196E6003AC591;
 					};
 				};
 			};
@@ -220,11 +281,15 @@
 				Base,
 			);
 			mainGroup = 710E2D76291196E6003AC591;
+			packageReferences = (
+				7103E134292A6AC100A007A7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 710E2D80291196E6003AC591 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				710E2D7E291196E6003AC591 /* Smart Goods */,
+				71E8DA1C29301A6C0075F9F3 /* Smart GoodsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -236,6 +301,13 @@
 			files = (
 				710E2D8F291196E7003AC591 /* LaunchScreen.storyboard in Resources */,
 				710E2D8C291196E7003AC591 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71E8DA1B29301A6C0075F9F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,11 +328,28 @@
 				71742B5D291AF5260026B389 /* HTTPError.swift in Sources */,
 				710E2D83291196E6003AC591 /* AppDelegate.swift in Sources */,
 				71742B55291AEC840026B389 /* HTTPClient.swift in Sources */,
+				7103E13A292A6B4700A007A7 /* TabBarCore.swift in Sources */,
 				710E2D85291196E6003AC591 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		71E8DA1929301A6C0075F9F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71E8DA2029301A6C0075F9F3 /* TabBarCoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		71E8DA2229301A6C0075F9F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 710E2D7E291196E6003AC591 /* Smart Goods */;
+			targetProxy = 71E8DA2129301A6C0075F9F3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		710E2D8D291196E7003AC591 /* LaunchScreen.storyboard */ = {
@@ -402,6 +491,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -429,6 +519,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -439,6 +530,44 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		71E8DA2329301A6C0075F9F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7UZH6B548Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ebucelik.Smart-GoodsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smart Goods.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Smart Goods";
+			};
+			name = Debug;
+		};
+		71E8DA2429301A6C0075F9F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7UZH6B548Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ebucelik.Smart-GoodsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smart Goods.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Smart Goods";
 			};
 			name = Release;
 		};
@@ -463,7 +592,40 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		71E8DA2529301A6C0075F9F3 /* Build configuration list for PBXNativeTarget "Smart GoodsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71E8DA2329301A6C0075F9F3 /* Debug */,
+				71E8DA2429301A6C0075F9F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7103E134292A6AC100A007A7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.46.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7103E135292A6AC100A007A7 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7103E134292A6AC100A007A7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		7103E137292A6AC100A007A7 /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7103E134292A6AC100A007A7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = Dependencies;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 710E2D77291196E6003AC591 /* Project object */;
 }
