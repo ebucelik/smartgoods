@@ -5,6 +5,7 @@
 //  Created by Lisa-Marie Pleyer on 20.11.22.
 //
 import SwiftUI
+import ComposableArchitecture
 
 struct CreateRequirementView: View {
 
@@ -17,45 +18,59 @@ struct CreateRequirementView: View {
 
     @State private var selectedScheme: schemes = .rupp
 
+    let store: StoreOf<CreateRequirementCore>
+
+    public init(store: StoreOf<CreateRequirementCore>) {
+        self.store = store
+    }
+
     var body: some View {
-        NavigationView {
-            VStack {
+        WithViewStore(store, observe: { $0 }) { viewStore in
+            NavigationView {
                 VStack {
-                    Picker("Scheme", selection: $selectedScheme) {
-                        ForEach(schemes.allCases) { scheme in
-                            Text(scheme.rawValue)
+                    VStack {
+                        Picker("Scheme", selection: $selectedScheme) {
+                            ForEach(schemes.allCases) { scheme in
+                                Text(scheme.rawValue)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+
+                        switch (selectedScheme) {
+                        case .none:
+                            SubviewNone(requirement: "")
+                        case .rupp:
+                            SubviewRupp(requirement: viewStore.binding(\.$requirement))
                         }
                     }
-                    .pickerStyle(.segmented)
+                    .padding()
+                    .navigationBarTitle("Create Requirement")
 
-                    switch (selectedScheme) {
-                    case .none:
-                        SubviewNone(requirement: "")
-                    case .rupp:
-                        SubviewRupp(requirement: "")
-                    }
-                }
-                .padding()
-                .navigationBarTitle("Create Requirement")
+                    HStack (alignment: .bottom){
+                        Button("Check") {
+                            //TODO
+                        }
+                        .padding()
+                        .background(.blue)
+                        .cornerRadius(15)
+                        .foregroundColor(.white)
 
-                HStack (alignment: .bottom){
-                    Button("Check") {
-                        //TODO
+                        Button(action: { viewStore.send(.saveRequirement) }) {
+                            if viewStore.requirementSaved == .loading {
+                                ProgressView()
+                                    .progressViewStyle(.circular)
+                                    .tint(.white)
+                            } else {
+                                Text("Save")
+                            }
+                        }
+                        .padding()
+                        .background(.blue)
+                        .cornerRadius(15)
+                        .foregroundColor(.white)
                     }
                     .padding()
-                    .background(.blue)
-                    .cornerRadius(15)
-                    .foregroundColor(.white)
-
-                    Button("Save") {
-                        //TODO
-                    }
-                    .padding()
-                    .background(.blue)
-                    .cornerRadius(15)
-                    .foregroundColor(.white)
                 }
-                .padding()
             }
         }
     }
@@ -63,6 +78,11 @@ struct CreateRequirementView: View {
 
 struct CreateRequirementView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateRequirementView()
+        CreateRequirementView(
+            store: Store(
+                initialState: CreateRequirementCore.State(requirement: ""),
+                reducer: CreateRequirementCore()
+            )
+        )
     }
 }

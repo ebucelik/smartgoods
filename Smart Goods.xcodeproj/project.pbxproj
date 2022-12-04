@@ -14,6 +14,8 @@
 		710E2D85291196E6003AC591 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710E2D84291196E6003AC591 /* SceneDelegate.swift */; };
 		710E2D8C291196E7003AC591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 710E2D8B291196E7003AC591 /* Assets.xcassets */; };
 		710E2D8F291196E7003AC591 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 710E2D8D291196E7003AC591 /* LaunchScreen.storyboard */; };
+		71469DA2293B6EE000EF8225 /* CreateRequirementCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71469DA1293B6EE000EF8225 /* CreateRequirementCore.swift */; };
+		71469DA5293B6F5900EF8225 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71469DA4293B6F5900EF8225 /* Loadable.swift */; };
 		71742B55291AEC840026B389 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B54291AEC840026B389 /* HTTPClient.swift */; };
 		71742B57291AECC50026B389 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B56291AECC50026B389 /* Call.swift */; };
 		71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B58291AECF80026B389 /* HTTPMethod.swift */; };
@@ -44,6 +46,8 @@
 		710E2D8B291196E7003AC591 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		710E2D8E291196E7003AC591 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		710E2D90291196E7003AC591 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71469DA1293B6EE000EF8225 /* CreateRequirementCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementCore.swift; sourceTree = "<group>"; };
+		71469DA4293B6F5900EF8225 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		71742B54291AEC840026B389 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		71742B56291AECC50026B389 /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
 		71742B58291AECF80026B389 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 		710E2D81291196E6003AC591 /* Smart Goods */ = {
 			isa = PBXGroup;
 			children = (
+				71469DA3293B6F4900EF8225 /* Common */,
 				71742B53291AEC5B0026B389 /* Network */,
 				71754E282916ED6E001A3176 /* UI */,
 				710E2D82291196E6003AC591 /* AppDelegate.swift */,
@@ -107,6 +112,22 @@
 				710E2D90291196E7003AC591 /* Info.plist */,
 			);
 			path = "Smart Goods";
+			sourceTree = "<group>";
+		};
+		71469DA0293B6EC900EF8225 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				71469DA1293B6EE000EF8225 /* CreateRequirementCore.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		71469DA3293B6F4900EF8225 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				71469DA4293B6F5900EF8225 /* Loadable.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		71742B53291AEC5B0026B389 /* Network */ = {
@@ -174,6 +195,7 @@
 		71E775AD2933EA560016FC15 /* CreateRequirement */ = {
 			isa = PBXGroup;
 			children = (
+				71469DA0293B6EC900EF8225 /* Core */,
 				71E775AE2933EAB40016FC15 /* View */,
 			);
 			path = CreateRequirement;
@@ -320,6 +342,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71469DA2293B6EE000EF8225 /* CreateRequirementCore.swift in Sources */,
+				71469DA5293B6F5900EF8225 /* Loadable.swift in Sources */,
 				934C77982916F76C00ED21DE /* MyRequirementView.swift in Sources */,
 				71742B57291AECC50026B389 /* Call.swift in Sources */,
 				71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */,

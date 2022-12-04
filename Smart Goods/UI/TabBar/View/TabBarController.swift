@@ -58,7 +58,14 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         myRequirementViewController.tabBarItem = myRequirementTabBarItem
 
         // MARK: Create Requirement Tab
-        let createRequirementViewController = UIHostingController(rootView: CreateRequirementView())
+        let createRequirementViewController = UIHostingController(
+            rootView: CreateRequirementView(
+                store: Store(
+                    initialState: CreateRequirementCore.State(requirement: ""),
+                    reducer: CreateRequirementCore()
+                )
+            )
+        )
 
         let createRequirementTabBarItem = UITabBarItem(
             title: "Create Requirement",

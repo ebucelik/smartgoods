@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SubviewRupp: View {
 
-    @State public var requirement: String
+    @Binding var requirement: String
 
     @State var systemName = "The system"
 
@@ -54,6 +54,8 @@ struct SubviewRupp: View {
 
         requirement += details + "."
 
+        self.requirement = requirement
+
         return(requirement)
     }
 
@@ -92,18 +94,18 @@ struct SubviewRupp: View {
 
             Spacer()
 
-            let requirement = buildRequirement(prioritySelected: prioritySelected.rawValue,
-                                               verbSelected: verbSelected.rawValue,
-                                               object: object,
-                                               processVerb: processVerb)
-
-            Text(requirement)
+            Text(
+                buildRequirement(prioritySelected: prioritySelected.rawValue,
+                                 verbSelected: verbSelected.rawValue,
+                                 object: object,
+                                 processVerb: processVerb)
+            )
         }
     }
 }
 
 struct SubviewRupp_Previews: PreviewProvider {
     static var previews: some View {
-        SubviewRupp(requirement: "")
+        SubviewRupp(requirement: .constant(""))
     }
 }
