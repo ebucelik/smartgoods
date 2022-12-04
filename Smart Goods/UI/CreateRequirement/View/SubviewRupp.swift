@@ -8,13 +8,7 @@
 import SwiftUI
 
 struct SubviewRupp: View {
-
-    @Binding var requirement: String
-
-    @State var systemName = "The system"
-
     enum priorityOptions: String, CaseIterable, Identifiable {
-
         case shall = "shall"
         case should = "should"
         case will = "will"
@@ -22,10 +16,7 @@ struct SubviewRupp: View {
         var id: Self { self }
     }
 
-    @State private var prioritySelected: priorityOptions = .shall
-
     enum verbOptions: String, CaseIterable, Identifiable {
-
         case process = "<process verb>"
         case provide = "provide <whom>"
         case able = "be able to"
@@ -33,13 +24,90 @@ struct SubviewRupp: View {
         var id: Self { self }
     }
 
+    @Binding var requirement: String
+
+    @State private var systemName = "The system"
+    @State private var prioritySelected: priorityOptions = .shall
     @State private var verbSelected: verbOptions = .process
 
     @State private var object = ""
     @State private var processVerb = ""
     @State private var details = ""
 
-    func buildRequirement(prioritySelected: String, verbSelected: String, object: String, processVerb: String) -> String {
+    var body: some View {
+        VStack (alignment: .leading) {
+            RoundedVStack {
+                TextField("The System", text: $systemName)
+                    .textInputAutocapitalization(.never)
+                    .padding()
+            }
+
+            RoundedVStack {
+                Picker("Priority", selection: $prioritySelected) {
+                    ForEach(priorityOptions.allCases) { priority in
+                        Text(priority.rawValue)
+                    }
+                }
+                .padding(.all, 8)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .tint(.black)
+            }
+
+            RoundedVStack {
+                Picker("Verb", selection: $verbSelected) {
+                    ForEach(verbOptions.allCases) { verb in
+                        Text(verb.rawValue)
+                    }
+                }
+                .padding(.all, 8)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .tint(.black)
+            }
+
+            if (verbSelected == .provide) {
+                RoundedVStack {
+                    TextField("<whom>", text: $object)
+                        .textInputAutocapitalization(.never)
+                        .padding()
+                }
+
+                RoundedVStack {
+                    Text("with the ability to")
+                        .padding()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+            } else {
+                RoundedVStack {
+                    TextField("<process verb>", text: $processVerb)
+                        .textInputAutocapitalization(.never)
+                        .padding()
+                }
+            }
+
+            RoundedVStack {
+                TextField("<details>", text: $details)
+                    .textInputAutocapitalization(.never)
+                    .padding()
+            }
+
+            Spacer()
+
+            Text("Preview:")
+            RoundedVStack {
+                Text(
+                    buildRequirement(prioritySelected: prioritySelected.rawValue,
+                                     verbSelected: verbSelected.rawValue,
+                                     object: object,
+                                     processVerb: processVerb)
+                )
+                .padding()
+                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
+    }
+
+    private func buildRequirement(prioritySelected: String, verbSelected: String, object: String, processVerb: String) -> String {
         var requirement: String = ""
 
         requirement = systemName + " " + prioritySelected + " "
@@ -57,50 +125,6 @@ struct SubviewRupp: View {
         self.requirement = requirement
 
         return(requirement)
-    }
-
-    var body: some View {
-        VStack (alignment: .leading) {
-            TextField("The System", text: $systemName)
-                .textFieldStyle(.roundedBorder)
-                .textInputAutocapitalization(.never)
-
-            Picker("Priority", selection: $prioritySelected) {
-                ForEach(priorityOptions.allCases) { priority in
-                    Text(priority.rawValue)
-                }
-            }
-
-            Picker("Verb", selection: $verbSelected) {
-                ForEach(verbOptions.allCases) { verb in
-                    Text(verb.rawValue)
-                }
-            }
-
-            if (verbSelected == .provide) {
-                TextField("<whom>", text: $object)
-                    .textFieldStyle(.roundedBorder)
-                    .textInputAutocapitalization(.never)
-                Text("with the ability to")
-            } else {
-                TextField("<process verb>", text: $processVerb)
-                    .textFieldStyle(.roundedBorder)
-                    .textInputAutocapitalization(.never)
-            }
-
-            TextField("<details>", text: $details)
-                .textFieldStyle(.roundedBorder)
-                .textInputAutocapitalization(.never)
-
-            Spacer()
-
-            Text(
-                buildRequirement(prioritySelected: prioritySelected.rawValue,
-                                 verbSelected: verbSelected.rawValue,
-                                 object: object,
-                                 processVerb: processVerb)
-            )
-        }
     }
 }
 

@@ -61,7 +61,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let createRequirementViewController = UIHostingController(
             rootView: CreateRequirementView(
                 store: Store(
-                    initialState: CreateRequirementCore.State(requirement: ""),
+                    initialState: CreateRequirementCore.State(customRequirement: "", requirement: ""),
                     reducer: CreateRequirementCore()
                 )
             )
