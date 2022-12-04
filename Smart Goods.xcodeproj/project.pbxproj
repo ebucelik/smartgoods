@@ -27,6 +27,7 @@
 		71E8DA2029301A6C0075F9F3 /* TabBarCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E8DA1F29301A6C0075F9F3 /* TabBarCoreTests.swift */; };
 		71F1CA1C293CC3F0005300C2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F1CA1B293CC3F0005300C2 /* LoadingView.swift */; };
 		71F1CA1E293CC72D005300C2 /* RoundedVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F1CA1D293CC72D005300C2 /* RoundedVStack.swift */; };
+		71F1CA20293CD4BB005300C2 /* CreateRequirementCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F1CA1F293CD4BB005300C2 /* CreateRequirementCoreTests.swift */; };
 		934C77982916F76C00ED21DE /* MyRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C77972916F76C00ED21DE /* MyRequirementView.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		71E8DA1F29301A6C0075F9F3 /* TabBarCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoreTests.swift; sourceTree = "<group>"; };
 		71F1CA1B293CC3F0005300C2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		71F1CA1D293CC72D005300C2 /* RoundedVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedVStack.swift; sourceTree = "<group>"; };
+		71F1CA1F293CD4BB005300C2 /* CreateRequirementCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementCoreTests.swift; sourceTree = "<group>"; };
 		934C77972916F76C00ED21DE /* MyRequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequirementView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				71E8DA1F29301A6C0075F9F3 /* TabBarCoreTests.swift */,
+				71F1CA1F293CD4BB005300C2 /* CreateRequirementCoreTests.swift */,
 			);
 			path = "Smart GoodsTests";
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71F1CA20293CD4BB005300C2 /* CreateRequirementCoreTests.swift in Sources */,
 				71E8DA2029301A6C0075F9F3 /* TabBarCoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
