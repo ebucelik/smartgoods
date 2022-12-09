@@ -8,7 +8,7 @@ Accepted
 
 ## Context
 
-In order to split the view and the business logic we need to use a certain design pattern to fulfill this goal. In particular, the TheComposableArchitecture (TSA) library was build based on the design pattern Model View Intent (MVI). The library perfectly fits with the concept of SwiftUI (declarative programming) and it gives us the possibility to define a finite set of actions that can be taken by the user on the view or by any side effects. 
+In order to split the view and the business logic we need to use a certain design pattern to fulfill this goal. In particular, the TheComposableArchitecture (TCA) library was build based on the design pattern Model View Intent (MVI). The library perfectly fits with the concept of SwiftUI (declarative programming) and it gives us the possibility to define a finite set of actions that can be taken by the user on the view or by any side effects. 
 
 Should we use this library or use an older approach like MVVM or MVC.
 
