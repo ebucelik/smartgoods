@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum HTTPError: Error {
+public enum HTTPError: Error, Equatable {
     case error(String)
     case unauthorized
     case notFound
