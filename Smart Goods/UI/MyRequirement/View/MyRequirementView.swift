@@ -35,7 +35,8 @@ struct MyRequirementView: View {
                         }
                     }
                 }
-            }.navigationBarTitle("My Requirements")
+            }
+            .navigationBarTitle("My Requirements")
         }
     }
 }

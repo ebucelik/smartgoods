@@ -21,6 +21,8 @@
 		71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B58291AECF80026B389 /* HTTPMethod.swift */; };
 		71742B5D291AF5260026B389 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B5C291AF5260026B389 /* HTTPError.swift */; };
 		71754E2E2916EDF9001A3176 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71754E2D2916EDF9001A3176 /* TabBarController.swift */; };
+		71CB9DBF29479A48004C37D3 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CB9DBE29479A48004C37D3 /* AppColor.swift */; };
+		71CB9DC12947A345004C37D3 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CB9DC02947A345004C37D3 /* UIColor+Extensions.swift */; };
 		71E775B02933EAC20016FC15 /* CreateRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775AF2933EAC20016FC15 /* CreateRequirementView.swift */; };
 		71E775B22933EAD00016FC15 /* SubviewRupp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775B12933EAD00016FC15 /* SubviewRupp.swift */; };
 		71E775B42933EAD90016FC15 /* SubviewNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775B32933EAD90016FC15 /* SubviewNone.swift */; };
@@ -56,6 +58,8 @@
 		71742B58291AECF80026B389 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		71742B5C291AF5260026B389 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		71754E2D2916EDF9001A3176 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		71CB9DBE29479A48004C37D3 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		71CB9DC02947A345004C37D3 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		71E775AF2933EAC20016FC15 /* CreateRequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementView.swift; sourceTree = "<group>"; };
 		71E775B12933EAD00016FC15 /* SubviewRupp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewRupp.swift; sourceTree = "<group>"; };
 		71E775B32933EAD90016FC15 /* SubviewNone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewNone.swift; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 				71469DA4293B6F5900EF8225 /* Loadable.swift */,
 				71F1CA1B293CC3F0005300C2 /* LoadingView.swift */,
 				71F1CA1D293CC72D005300C2 /* RoundedVStack.swift */,
+				71CB9DBE29479A48004C37D3 /* AppColor.swift */,
+				71CB9DC02947A345004C37D3 /* UIColor+Extensions.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -354,9 +360,11 @@
 				71469DA2293B6EE000EF8225 /* CreateRequirementCore.swift in Sources */,
 				71469DA5293B6F5900EF8225 /* Loadable.swift in Sources */,
 				934C77982916F76C00ED21DE /* MyRequirementView.swift in Sources */,
+				71CB9DBF29479A48004C37D3 /* AppColor.swift in Sources */,
 				71742B57291AECC50026B389 /* Call.swift in Sources */,
 				71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */,
 				71E775B22933EAD00016FC15 /* SubviewRupp.swift in Sources */,
+				71CB9DC12947A345004C37D3 /* UIColor+Extensions.swift in Sources */,
 				71754E2E2916EDF9001A3176 /* TabBarController.swift in Sources */,
 				71E775B42933EAD90016FC15 /* SubviewNone.swift in Sources */,
 				71F1CA1C293CC3F0005300C2 /* LoadingView.swift in Sources */,
