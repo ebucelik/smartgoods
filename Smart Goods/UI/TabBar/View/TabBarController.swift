@@ -36,13 +36,28 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        tabBar.tintColor = .black
+        tabBar.tintColor = AppColor.primary
+        tabBar.isTranslucent = true
 
         configureStateObservation()
 
         checkUuid()
 
+        setupNavigationBar()
+
         setupTabBarViews()
+    }
+
+    private func setupNavigationBar() {
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = AppColor.primary
+        appearance.titleTextAttributes = [.foregroundColor: AppColor.secondary]
+        appearance.largeTitleTextAttributes = [.foregroundColor: AppColor.secondary]
+
+        UINavigationBar.appearance().tintColor = AppColor.secondary
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
 
     private func setupTabBarViews() {
@@ -50,7 +65,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let myRequirementViewController = UIHostingController(rootView: MyRequirementView(requirements: MyRequirementView.mockRequirements))
 
         let myRequirementTabBarItem = UITabBarItem(
-            title: "My Requirement",
+            title: nil,
             image: UIImage(systemName: "house.fill"),
             tag: 0
         )
@@ -68,7 +83,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         )
 
         let createRequirementTabBarItem = UITabBarItem(
-            title: "Create Requirement",
+            title: nil,
             image: UIImage(systemName: "square.and.pencil"),
             tag: 1
         )
@@ -79,7 +94,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let accountViewController = UIHostingController(rootView: AccountView())
 
         let accountTabBarItem = UITabBarItem(
-            title: "Account",
+            title: nil,
             image: UIImage(systemName: "person.fill"),
             tag: 2
         )

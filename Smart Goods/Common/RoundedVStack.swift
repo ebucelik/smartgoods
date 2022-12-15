@@ -13,10 +13,12 @@ struct RoundedVStack<Content: View>: View {
     var body: some View {
         VStack {
             content
+                .background(AppColor.background.color)
+                .cornerRadius(8)
         }
         .overlay(
             RoundedRectangle(cornerRadius: 8)
-                .stroke(.gray.opacity(0.3))
+                .stroke(AppColor.primary.color.opacity(0.5))
         )
     }
 }
