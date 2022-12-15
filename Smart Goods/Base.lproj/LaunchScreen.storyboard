@@ -15,13 +15,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="R2r-LK-lbr">
-                                <rect key="frame" x="-0.83606557377038371" y="297.67717528375806" width="392.99999999999977" height="258.99999999992974"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="R2r-LK-lbr">
+                                <rect key="frame" x="-1" y="297.66666666666669" width="393" height="259.00000000000006"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.1725490093" green="0.3686274886" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.25882352941176467" green="0.19607843137254902" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R2r-LK-lbr" secondAttribute="trailing" constant="0.83999999999999997" id="4X0-cI-Wf0"/>
+                            <constraint firstItem="R2r-LK-lbr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="238.68000000000001" id="Hq4-3Q-MkG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="R2r-LK-lbr" secondAttribute="bottom" constant="261.31999999999999" id="WVc-aP-82N"/>
+                            <constraint firstItem="R2r-LK-lbr" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-0.83999999999999997" id="nO4-Rt-b3r"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -20,24 +20,42 @@ struct MyRequirementView: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("")) {
+                Section(
+                    header: Text("Your Requirements")
+                        .font(.body.monospaced().bold())
+                        .foregroundColor(AppColor.primary.color)
+                        .padding(.top, 24)
+                ) {
                     ForEach(requirements) { requirement in
-                        HStack {
-                            Text(requirement.text)
-                            
-                            Spacer()
-                            
-                            if requirement.status {
-                                Image(systemName: "checkmark.square.fill").foregroundColor(.green)
-                            } else {
-                                Image(systemName: "xmark.square.fill").foregroundColor(.red)
-                            }
-                        }
+                        requirementBody(requirement)
                     }
+                    .listRowSeparator(.hidden)
                 }
             }
-            .navigationBarTitle("My Requirements")
+            .navigationTitle(Text("Smart Goods"))
+            .background(AppColor.background.color)
+            .scrollContentBackground(.hidden)
         }
+    }
+
+    @ViewBuilder
+    private func requirementBody(_ requirement: Requirement) -> some View {
+        HStack {
+            Text(requirement.text)
+
+            Spacer()
+
+            if requirement.status {
+                Image(systemName: "checkmark.square.fill").foregroundColor(.green)
+            } else {
+                Image(systemName: "xmark.square.fill").foregroundColor(.red)
+            }
+        }
+        .padding()
+        .listRowInsets(EdgeInsets(top: 8, leading: 1, bottom: 8, trailing: 5))
+        .background(AppColor.secondary.color)
+        .cornerRadius(15)
+        .shadow(radius: 2, x: 5, y: 5)
     }
 }
 

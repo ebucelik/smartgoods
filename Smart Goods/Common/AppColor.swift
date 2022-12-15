@@ -8,5 +8,10 @@
 import UIKit
 
 struct AppColor {
-    static let primary = #colorLiteral(red: 0.06666666667, green: 0.3725490196, blue: 0.5137254902, alpha: 1)
+    static let primary = #colorLiteral(red: 0.2588235294, green: 0.1960784314, blue: 0.3137254902, alpha: 1)
+    static let secondary = #colorLiteral(red: 0.9254901961, green: 0.9176470588, blue: 0.9647058824, alpha: 1)
+    static let tertiary = #colorLiteral(red: 0.9607843137, green: 0.8901960784, blue: 0.8235294118, alpha: 1)
+    static let quaternary = #colorLiteral(red: 0.3490196078, green: 0.7215686275, blue: 0.6156862745, alpha: 1)
+    static let quinary = #colorLiteral(red: 0.8509803922, green: 0.8392156863, blue: 0.8588235294, alpha: 1)
+    static let background = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 }

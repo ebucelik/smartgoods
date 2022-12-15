@@ -12,12 +12,10 @@ struct SubviewNone: View {
     @Binding var requirement: String
 
     var body: some View {
-        VStack (alignment: .leading) {
+        RoundedVStack {
             TextField("Enter a custom requirement ...", text: self.$requirement, axis: .vertical)
                 .lineLimit(5, reservesSpace: true)
                 .textFieldStyle(.roundedBorder)
-
-            Spacer()
         }
     }
 }

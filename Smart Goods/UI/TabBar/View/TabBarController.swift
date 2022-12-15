@@ -51,10 +51,10 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     private func setupNavigationBar() {
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = AppColor.primary
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.titleTextAttributes = [.foregroundColor: AppColor.secondary]
+        appearance.largeTitleTextAttributes = [.foregroundColor: AppColor.secondary]
 
-        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().tintColor = AppColor.secondary
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
@@ -65,7 +65,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let myRequirementViewController = UIHostingController(rootView: MyRequirementView(requirements: MyRequirementView.mockRequirements))
 
         let myRequirementTabBarItem = UITabBarItem(
-            title: "My Requirement",
+            title: nil,
             image: UIImage(systemName: "house.fill"),
             tag: 0
         )
@@ -83,7 +83,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         )
 
         let createRequirementTabBarItem = UITabBarItem(
-            title: "Create Requirement",
+            title: nil,
             image: UIImage(systemName: "square.and.pencil"),
             tag: 1
         )
@@ -94,7 +94,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let accountViewController = UIHostingController(rootView: AccountView())
 
         let accountTabBarItem = UITabBarItem(
-            title: "Account",
+            title: nil,
             image: UIImage(systemName: "person.fill"),
             tag: 2
         )
