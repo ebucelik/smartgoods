@@ -21,6 +21,8 @@
 		71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B58291AECF80026B389 /* HTTPMethod.swift */; };
 		71742B5D291AF5260026B389 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B5C291AF5260026B389 /* HTTPError.swift */; };
 		71754E2E2916EDF9001A3176 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71754E2D2916EDF9001A3176 /* TabBarController.swift */; };
+		71BA43C3294DD37F003534B6 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BA43C2294DD37F003534B6 /* AccountView.swift */; };
+		71BA43C5294DD60E003534B6 /* AccountCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BA43C4294DD60E003534B6 /* AccountCore.swift */; };
 		71CB9DBF29479A48004C37D3 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CB9DBE29479A48004C37D3 /* AppColor.swift */; };
 		71CB9DC12947A345004C37D3 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CB9DC02947A345004C37D3 /* UIColor+Extensions.swift */; };
 		71E775B02933EAC20016FC15 /* CreateRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775AF2933EAC20016FC15 /* CreateRequirementView.swift */; };
@@ -58,6 +60,8 @@
 		71742B58291AECF80026B389 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		71742B5C291AF5260026B389 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		71754E2D2916EDF9001A3176 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		71BA43C2294DD37F003534B6 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		71BA43C4294DD60E003534B6 /* AccountCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCore.swift; sourceTree = "<group>"; };
 		71CB9DBE29479A48004C37D3 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		71CB9DC02947A345004C37D3 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		71E775AF2933EAC20016FC15 /* CreateRequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementView.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 		71754E282916ED6E001A3176 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				71BA43BF294DD352003534B6 /* Account */,
 				71E775AD2933EA560016FC15 /* CreateRequirement */,
 				934C77952916F6E800ED21DE /* MyRequirement */,
 				71754E292916EDB6001A3176 /* TabBar */,
@@ -204,6 +209,31 @@
 				7103E139292A6B4700A007A7 /* TabBarCore.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		71BA43BF294DD352003534B6 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				71BA43C1294DD369003534B6 /* View */,
+				71BA43C0294DD35E003534B6 /* Core */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		71BA43C0294DD35E003534B6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				71BA43C4294DD60E003534B6 /* AccountCore.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		71BA43C1294DD369003534B6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				71BA43C2294DD37F003534B6 /* AccountView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		71E775AD2933EA560016FC15 /* CreateRequirement */ = {
@@ -370,10 +400,12 @@
 				71F1CA1C293CC3F0005300C2 /* LoadingView.swift in Sources */,
 				71742B5D291AF5260026B389 /* HTTPError.swift in Sources */,
 				71E775B02933EAC20016FC15 /* CreateRequirementView.swift in Sources */,
+				71BA43C3294DD37F003534B6 /* AccountView.swift in Sources */,
 				71F1CA1E293CC72D005300C2 /* RoundedVStack.swift in Sources */,
 				710E2D83291196E6003AC591 /* AppDelegate.swift in Sources */,
 				71742B55291AEC840026B389 /* HTTPClient.swift in Sources */,
 				7103E13A292A6B4700A007A7 /* TabBarCore.swift in Sources */,
+				71BA43C5294DD60E003534B6 /* AccountCore.swift in Sources */,
 				710E2D85291196E6003AC591 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

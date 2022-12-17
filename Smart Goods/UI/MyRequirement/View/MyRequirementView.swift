@@ -18,7 +18,7 @@ struct MyRequirementView: View {
     let requirements: [Requirement]
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 Section(
                     header: Text("Your Requirements")
@@ -55,7 +55,6 @@ struct MyRequirementView: View {
         .listRowInsets(EdgeInsets(top: 8, leading: 1, bottom: 8, trailing: 5))
         .background(AppColor.secondary.color)
         .cornerRadius(15)
-        .shadow(radius: 2, x: 5, y: 5)
     }
 }
 
