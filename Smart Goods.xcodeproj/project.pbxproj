@@ -28,7 +28,6 @@
 		716DB8D6295C95A3003BF4A9 /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8D5295C95A3003BF4A9 /* Requirement.swift */; };
 		716DB8D8295C9668003BF4A9 /* MyRequirementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8D7295C9668003BF4A9 /* MyRequirementService.swift */; };
 		716DB8DA295C968C003BF4A9 /* MyRequirementCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8D9295C968C003BF4A9 /* MyRequirementCall.swift */; };
-		716DB8DD295C9880003BF4A9 /* SwiftHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 716DB8DC295C9880003BF4A9 /* SwiftHelper */; };
 		71742B55291AEC840026B389 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B54291AEC840026B389 /* HTTPClient.swift */; };
 		71742B57291AECC50026B389 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B56291AECC50026B389 /* Call.swift */; };
 		71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B58291AECF80026B389 /* HTTPMethod.swift */; };
@@ -38,6 +37,7 @@
 		71BA43C5294DD60E003534B6 /* AccountCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BA43C4294DD60E003534B6 /* AccountCore.swift */; };
 		71CB9DBF29479A48004C37D3 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CB9DBE29479A48004C37D3 /* AppColor.swift */; };
 		71CB9DC12947A345004C37D3 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CB9DC02947A345004C37D3 /* UIColor+Extensions.swift */; };
+		71CC1AA4295CF9EF0095B55C /* SwiftHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 71CC1AA3295CF9EF0095B55C /* SwiftHelper */; };
 		71E775B02933EAC20016FC15 /* CreateRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775AF2933EAC20016FC15 /* CreateRequirementView.swift */; };
 		71E775B22933EAD00016FC15 /* SubviewRupp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775B12933EAD00016FC15 /* SubviewRupp.swift */; };
 		71E775B42933EAD90016FC15 /* SubviewNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775B32933EAD90016FC15 /* SubviewNone.swift */; };
@@ -106,7 +106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7103E136292A6AC100A007A7 /* ComposableArchitecture in Frameworks */,
-				716DB8DD295C9880003BF4A9 /* SwiftHelper in Frameworks */,
+				71CC1AA4295CF9EF0095B55C /* SwiftHelper in Frameworks */,
 				7103E138292A6AC100A007A7 /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,7 +361,7 @@
 			packageProductDependencies = (
 				7103E135292A6AC100A007A7 /* ComposableArchitecture */,
 				7103E137292A6AC100A007A7 /* Dependencies */,
-				716DB8DC295C9880003BF4A9 /* SwiftHelper */,
+				71CC1AA3295CF9EF0095B55C /* SwiftHelper */,
 			);
 			productName = "Smart Goods";
 			productReference = 710E2D7F291196E6003AC591 /* Smart Goods.app */;
@@ -415,7 +415,7 @@
 			mainGroup = 710E2D76291196E6003AC591;
 			packageReferences = (
 				7103E134292A6AC100A007A7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
-				716DB8DB295C9880003BF4A9 /* XCRemoteSwiftPackageReference "SwiftHelper" */,
+				71CC1AA2295CF9EF0095B55C /* XCRemoteSwiftPackageReference "SwiftHelper" */,
 			);
 			productRefGroup = 710E2D80291196E6003AC591 /* Products */;
 			projectDirPath = "";
@@ -774,7 +774,7 @@
 				version = 0.46.0;
 			};
 		};
-		716DB8DB295C9880003BF4A9 /* XCRemoteSwiftPackageReference "SwiftHelper" */ = {
+		71CC1AA2295CF9EF0095B55C /* XCRemoteSwiftPackageReference "SwiftHelper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ebucelik/SwiftHelper.git";
 			requirement = {
@@ -795,9 +795,9 @@
 			package = 7103E134292A6AC100A007A7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = Dependencies;
 		};
-		716DB8DC295C9880003BF4A9 /* SwiftHelper */ = {
+		71CC1AA3295CF9EF0095B55C /* SwiftHelper */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 716DB8DB295C9880003BF4A9 /* XCRemoteSwiftPackageReference "SwiftHelper" */;
+			package = 71CC1AA2295CF9EF0095B55C /* XCRemoteSwiftPackageReference "SwiftHelper" */;
 			productName = SwiftHelper;
 		};
 /* End XCSwiftPackageProductDependency section */
