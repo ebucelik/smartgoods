@@ -64,6 +64,15 @@
       }
     },
     {
+      "identity" : "swifthelper",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ebucelik/SwiftHelper.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "0259270e65287c3e0bb7b77f073222c934435219"
+      }
+    },
+    {
       "identity" : "xctest-dynamic-overlay",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/xctest-dynamic-overlay",

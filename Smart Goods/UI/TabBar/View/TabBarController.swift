@@ -128,7 +128,14 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
     private func setupTabBarViews() {
         // MARK: My Requirement Tab
-        let myRequirementViewController = UIHostingController(rootView: MyRequirementView(requirements: MyRequirementView.mockRequirements))
+        let myRequirementViewController = UIHostingController(
+            rootView: MyRequirementView(
+                store: Store(
+                    initialState: MyRequirementCore.State(),
+                    reducer: MyRequirementCore()
+                )
+            )
+        )
 
         let myRequirementTabBarItem = UITabBarItem(
             title: nil,

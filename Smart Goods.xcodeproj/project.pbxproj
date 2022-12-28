@@ -23,6 +23,12 @@
 		716DB8C9295C5461003BF4A9 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8C8295C5461003BF4A9 /* DispatchQueue+Extensions.swift */; };
 		716DB8CB295C57B9003BF4A9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8CA295C57B9003BF4A9 /* ErrorView.swift */; };
 		716DB8CD295C5A99003BF4A9 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8CC295C5A99003BF4A9 /* UserDefaults+Extensions.swift */; };
+		716DB8D1295C9551003BF4A9 /* MyRequirementCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8D0295C9551003BF4A9 /* MyRequirementCore.swift */; };
+		716DB8D3295C955B003BF4A9 /* MyRequirementServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8D2295C955B003BF4A9 /* MyRequirementServiceProtocol.swift */; };
+		716DB8D6295C95A3003BF4A9 /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8D5295C95A3003BF4A9 /* Requirement.swift */; };
+		716DB8D8295C9668003BF4A9 /* MyRequirementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8D7295C9668003BF4A9 /* MyRequirementService.swift */; };
+		716DB8DA295C968C003BF4A9 /* MyRequirementCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8D9295C968C003BF4A9 /* MyRequirementCall.swift */; };
+		716DB8DD295C9880003BF4A9 /* SwiftHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 716DB8DC295C9880003BF4A9 /* SwiftHelper */; };
 		71742B55291AEC840026B389 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B54291AEC840026B389 /* HTTPClient.swift */; };
 		71742B57291AECC50026B389 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B56291AECC50026B389 /* Call.swift */; };
 		71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B58291AECF80026B389 /* HTTPMethod.swift */; };
@@ -67,6 +73,11 @@
 		716DB8C8295C5461003BF4A9 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
 		716DB8CA295C57B9003BF4A9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		716DB8CC295C5A99003BF4A9 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		716DB8D0295C9551003BF4A9 /* MyRequirementCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequirementCore.swift; sourceTree = "<group>"; };
+		716DB8D2295C955B003BF4A9 /* MyRequirementServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequirementServiceProtocol.swift; sourceTree = "<group>"; };
+		716DB8D5295C95A3003BF4A9 /* Requirement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requirement.swift; sourceTree = "<group>"; };
+		716DB8D7295C9668003BF4A9 /* MyRequirementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequirementService.swift; sourceTree = "<group>"; };
+		716DB8D9295C968C003BF4A9 /* MyRequirementCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequirementCall.swift; sourceTree = "<group>"; };
 		71742B54291AEC840026B389 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		71742B56291AECC50026B389 /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
 		71742B58291AECF80026B389 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -91,6 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7103E136292A6AC100A007A7 /* ComposableArchitecture in Frameworks */,
+				716DB8DD295C9880003BF4A9 /* SwiftHelper in Frameworks */,
 				7103E138292A6AC100A007A7 /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,6 +181,32 @@
 				716DB8C2295C4C22003BF4A9 /* UuidCall.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		716DB8CE295C953B003BF4A9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				716DB8D0295C9551003BF4A9 /* MyRequirementCore.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		716DB8CF295C953F003BF4A9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				716DB8D2295C955B003BF4A9 /* MyRequirementServiceProtocol.swift */,
+				716DB8D7295C9668003BF4A9 /* MyRequirementService.swift */,
+				716DB8D9295C968C003BF4A9 /* MyRequirementCall.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		716DB8D4295C9596003BF4A9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				716DB8D5295C95A3003BF4A9 /* Requirement.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		71742B53291AEC5B0026B389 /* Network */ = {
@@ -258,6 +296,9 @@
 		934C77952916F6E800ED21DE /* MyRequirement */ = {
 			isa = PBXGroup;
 			children = (
+				716DB8D4295C9596003BF4A9 /* Models */,
+				716DB8CF295C953F003BF4A9 /* Service */,
+				716DB8CE295C953B003BF4A9 /* Core */,
 				934C77962916F74600ED21DE /* View */,
 			);
 			path = MyRequirement;
@@ -290,6 +331,7 @@
 			packageProductDependencies = (
 				7103E135292A6AC100A007A7 /* ComposableArchitecture */,
 				7103E137292A6AC100A007A7 /* Dependencies */,
+				716DB8DC295C9880003BF4A9 /* SwiftHelper */,
 			);
 			productName = "Smart Goods";
 			productReference = 710E2D7F291196E6003AC591 /* Smart Goods.app */;
@@ -343,6 +385,7 @@
 			mainGroup = 710E2D76291196E6003AC591;
 			packageReferences = (
 				7103E134292A6AC100A007A7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				716DB8DB295C9880003BF4A9 /* XCRemoteSwiftPackageReference "SwiftHelper" */,
 			);
 			productRefGroup = 710E2D80291196E6003AC591 /* Products */;
 			projectDirPath = "";
@@ -386,17 +429,22 @@
 				716DB8C5295C4F13003BF4A9 /* DependencyValues.swift in Sources */,
 				71CB9DBF29479A48004C37D3 /* AppColor.swift in Sources */,
 				716DB8CB295C57B9003BF4A9 /* ErrorView.swift in Sources */,
+				716DB8D1295C9551003BF4A9 /* MyRequirementCore.swift in Sources */,
 				71742B57291AECC50026B389 /* Call.swift in Sources */,
 				71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */,
+				716DB8D3295C955B003BF4A9 /* MyRequirementServiceProtocol.swift in Sources */,
+				716DB8D8295C9668003BF4A9 /* MyRequirementService.swift in Sources */,
 				716DB8C7295C4F3A003BF4A9 /* TabBarServiceProtocol.swift in Sources */,
 				71E775B22933EAD00016FC15 /* SubviewRupp.swift in Sources */,
 				71CB9DC12947A345004C37D3 /* UIColor+Extensions.swift in Sources */,
 				716DB8CD295C5A99003BF4A9 /* UserDefaults+Extensions.swift in Sources */,
+				716DB8DA295C968C003BF4A9 /* MyRequirementCall.swift in Sources */,
 				71754E2E2916EDF9001A3176 /* TabBarController.swift in Sources */,
 				71E775B42933EAD90016FC15 /* SubviewNone.swift in Sources */,
 				71F1CA1C293CC3F0005300C2 /* LoadingView.swift in Sources */,
 				716DB8C9295C5461003BF4A9 /* DispatchQueue+Extensions.swift in Sources */,
 				71742B5D291AF5260026B389 /* HTTPError.swift in Sources */,
+				716DB8D6295C95A3003BF4A9 /* Requirement.swift in Sources */,
 				71E775B02933EAC20016FC15 /* CreateRequirementView.swift in Sources */,
 				71F1CA1E293CC72D005300C2 /* RoundedVStack.swift in Sources */,
 				710E2D83291196E6003AC591 /* AppDelegate.swift in Sources */,
@@ -694,6 +742,14 @@
 				version = 0.46.0;
 			};
 		};
+		716DB8DB295C9880003BF4A9 /* XCRemoteSwiftPackageReference "SwiftHelper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ebucelik/SwiftHelper.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -706,6 +762,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7103E134292A6AC100A007A7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = Dependencies;
+		};
+		716DB8DC295C9880003BF4A9 /* SwiftHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 716DB8DB295C9880003BF4A9 /* XCRemoteSwiftPackageReference "SwiftHelper" */;
+			productName = SwiftHelper;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
