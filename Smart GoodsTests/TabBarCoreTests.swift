@@ -12,14 +12,34 @@ import ComposableArchitecture
 @MainActor
 final class TabBarCoreTests: XCTestCase {
 
-    func testSetUuid() async {
+    func testUuidAvailability() async {
+        // Arrange
         let store = TestStore(
             initialState: TabBarCore.State(),
             reducer: TabBarCore()
         )
+        let expectedUuid = "uuid"
 
-        await store.send(.setUuid("uuid")) {
-            $0.uuid = "uuid"
+        store.dependencies.tabBarService = .testValue
+        store.dependencies.mainScheduler = .testValue
+
+        // Act
+        await store.send(.checkUuidAvailability(expectedUuid))
+
+        await store.receive(.createUuid(expectedUuid))
+        await store.receive(.createRemoteUser(expectedUuid))
+        await store.receive(.uuidStateChanged(.loading)) { state in
+            //Assert
+            state.uuidState = .loading
         }
+
+        _ = XCTWaiter.wait(for: [expectation(description: "loading")], timeout: 1)
+
+        await store.receive(.uuidStateChanged(.loaded(expectedUuid))) { state in
+            //Assert
+            state.uuidState = .loaded(expectedUuid)
+        }
+
+        await store.finish()
     }
 }

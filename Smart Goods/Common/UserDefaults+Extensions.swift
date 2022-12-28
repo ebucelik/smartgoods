@@ -8,7 +8,7 @@
 import Foundation
 
 extension UserDefaults {
-    static func removeFromUserDefaults() {
+    static func removeAllDataFromUserDefaults() {
         let domain = Bundle.main.bundleIdentifier!
         UserDefaults.standard.removePersistentDomain(forName: domain)
         UserDefaults.standard.synchronize()

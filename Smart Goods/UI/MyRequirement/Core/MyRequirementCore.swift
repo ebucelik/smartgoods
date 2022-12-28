@@ -15,7 +15,7 @@ class MyRequirementCore: ReducerProtocol {
         var requirementsState: Loadable<[Requirement]> = .none
     }
 
-    enum Action {
+    enum Action: Equatable {
         case fetchRequirements
         case requirementsStateChanged(Loadable<[Requirement]>)
     }
@@ -26,8 +26,16 @@ class MyRequirementCore: ReducerProtocol {
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
         case .fetchRequirements:
-            guard let uuid = UserDefaults.standard.object(forKey: "uuid") as? String else {
-                return EffectTask(value: .requirementsStateChanged(.error(.notFound)))
+            let uuid: String
+
+            if isRunningTest {
+                uuid = "uuid"
+            } else {
+                guard let uuidString = UserDefaults.standard.object(forKey: "uuid") as? String else {
+                    return EffectTask(value: .requirementsStateChanged(.error(.notFound)))
+                }
+
+                uuid = uuidString
             }
 
             return EffectTask.run { [self, uuid = uuid] send in

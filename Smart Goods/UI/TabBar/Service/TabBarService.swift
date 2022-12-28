@@ -18,4 +18,5 @@ class TabBarService: HTTPClient, TabBarServiceProtocol {
 
 extension TabBarService: DependencyKey {
     static let liveValue: TabBarService = TabBarService()
+    static let testValue: TabBarService = TabBarServiceMock()
 }

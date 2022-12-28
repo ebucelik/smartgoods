@@ -36,9 +36,15 @@ struct TabBarCore: ReducerProtocol {
             return EffectTask(value: .uuidStateChanged(.loaded(uuid)))
 
         case let .createUuid(forKey):
-            let uuid = UUID().uuidString
+            let uuid: String
 
-            UserDefaults.standard.set(uuid, forKey: forKey)
+            if isRunningTest {
+                uuid = "uuid"
+            } else {
+                uuid = UUID().uuidString
+
+                UserDefaults.standard.set(uuid, forKey: forKey)
+            }
 
             return EffectTask(value: .createRemoteUser(uuid))
 

@@ -38,6 +38,10 @@
 		71CB9DBF29479A48004C37D3 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CB9DBE29479A48004C37D3 /* AppColor.swift */; };
 		71CB9DC12947A345004C37D3 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CB9DC02947A345004C37D3 /* UIColor+Extensions.swift */; };
 		71CC1AA4295CF9EF0095B55C /* SwiftHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 71CC1AA3295CF9EF0095B55C /* SwiftHelper */; };
+		71CC1AA6295CFC6B0095B55C /* TabBarServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC1AA5295CFC6B0095B55C /* TabBarServiceMock.swift */; };
+		71CC1AA8295CFED10095B55C /* MyRequirementServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC1AA7295CFED10095B55C /* MyRequirementServiceMock.swift */; };
+		71CC1AAA295D00CA0095B55C /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC1AA9295D00CA0095B55C /* Environment.swift */; };
+		71CC1AAC295D083F0095B55C /* MyRequirementCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC1AAB295D083F0095B55C /* MyRequirementCoreTests.swift */; };
 		71E775B02933EAC20016FC15 /* CreateRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775AF2933EAC20016FC15 /* CreateRequirementView.swift */; };
 		71E775B22933EAD00016FC15 /* SubviewRupp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775B12933EAD00016FC15 /* SubviewRupp.swift */; };
 		71E775B42933EAD90016FC15 /* SubviewNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775B32933EAD90016FC15 /* SubviewNone.swift */; };
@@ -89,6 +93,10 @@
 		71BA43C4294DD60E003534B6 /* AccountCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCore.swift; sourceTree = "<group>"; };
 		71CB9DBE29479A48004C37D3 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		71CB9DC02947A345004C37D3 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		71CC1AA5295CFC6B0095B55C /* TabBarServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarServiceMock.swift; sourceTree = "<group>"; };
+		71CC1AA7295CFED10095B55C /* MyRequirementServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequirementServiceMock.swift; sourceTree = "<group>"; };
+		71CC1AA9295D00CA0095B55C /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		71CC1AAB295D083F0095B55C /* MyRequirementCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequirementCoreTests.swift; sourceTree = "<group>"; };
 		71E775AF2933EAC20016FC15 /* CreateRequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementView.swift; sourceTree = "<group>"; };
 		71E775B12933EAD00016FC15 /* SubviewRupp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewRupp.swift; sourceTree = "<group>"; };
 		71E775B32933EAD90016FC15 /* SubviewNone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewNone.swift; sourceTree = "<group>"; };
@@ -173,6 +181,7 @@
 				716DB8C8295C5461003BF4A9 /* DispatchQueue+Extensions.swift */,
 				716DB8CA295C57B9003BF4A9 /* ErrorView.swift */,
 				716DB8CC295C5A99003BF4A9 /* UserDefaults+Extensions.swift */,
+				71CC1AA9295D00CA0095B55C /* Environment.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -183,6 +192,7 @@
 				716DB8C6295C4F3A003BF4A9 /* TabBarServiceProtocol.swift */,
 				716DB8C0295C4B77003BF4A9 /* TabBarService.swift */,
 				716DB8C2295C4C22003BF4A9 /* UuidCall.swift */,
+				71CC1AA5295CFC6B0095B55C /* TabBarServiceMock.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -201,6 +211,7 @@
 				716DB8D2295C955B003BF4A9 /* MyRequirementServiceProtocol.swift */,
 				716DB8D7295C9668003BF4A9 /* MyRequirementService.swift */,
 				716DB8D9295C968C003BF4A9 /* MyRequirementCall.swift */,
+				71CC1AA7295CFED10095B55C /* MyRequirementServiceMock.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -319,6 +330,7 @@
 			children = (
 				71E8DA1F29301A6C0075F9F3 /* TabBarCoreTests.swift */,
 				71F1CA1F293CD4BB005300C2 /* CreateRequirementCoreTests.swift */,
+				71CC1AAB295D083F0095B55C /* MyRequirementCoreTests.swift */,
 			);
 			path = "Smart GoodsTests";
 			sourceTree = "<group>";
@@ -469,11 +481,13 @@
 				71CB9DC12947A345004C37D3 /* UIColor+Extensions.swift in Sources */,
 				716DB8CD295C5A99003BF4A9 /* UserDefaults+Extensions.swift in Sources */,
 				716DB8DA295C968C003BF4A9 /* MyRequirementCall.swift in Sources */,
+				71CC1AA6295CFC6B0095B55C /* TabBarServiceMock.swift in Sources */,
 				71754E2E2916EDF9001A3176 /* TabBarController.swift in Sources */,
 				71E775B42933EAD90016FC15 /* SubviewNone.swift in Sources */,
 				71F1CA1C293CC3F0005300C2 /* LoadingView.swift in Sources */,
 				716DB8C9295C5461003BF4A9 /* DispatchQueue+Extensions.swift in Sources */,
 				71742B5D291AF5260026B389 /* HTTPError.swift in Sources */,
+				71CC1AAA295D00CA0095B55C /* Environment.swift in Sources */,
 				716DB8D6295C95A3003BF4A9 /* Requirement.swift in Sources */,
 				71E775B02933EAC20016FC15 /* CreateRequirementView.swift in Sources */,
 				71BA43C3294DD37F003534B6 /* AccountView.swift in Sources */,
@@ -481,6 +495,7 @@
 				710E2D83291196E6003AC591 /* AppDelegate.swift in Sources */,
 				71742B55291AEC840026B389 /* HTTPClient.swift in Sources */,
 				7103E13A292A6B4700A007A7 /* TabBarCore.swift in Sources */,
+				71CC1AA8295CFED10095B55C /* MyRequirementServiceMock.swift in Sources */,
 				71BA43C5294DD60E003534B6 /* AccountCore.swift in Sources */,
 				710E2D85291196E6003AC591 /* SceneDelegate.swift in Sources */,
 			);
@@ -492,6 +507,7 @@
 			files = (
 				71F1CA20293CD4BB005300C2 /* CreateRequirementCoreTests.swift in Sources */,
 				71E8DA2029301A6C0075F9F3 /* TabBarCoreTests.swift in Sources */,
+				71CC1AAC295D083F0095B55C /* MyRequirementCoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

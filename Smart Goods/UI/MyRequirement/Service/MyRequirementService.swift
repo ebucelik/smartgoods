@@ -18,5 +18,6 @@ class MyRequirementService: HTTPClient, MyRequirementServiceProtocol {
 }
 
 extension MyRequirementService: DependencyKey {
-    static let liveValue = MyRequirementService()
+    static let liveValue: MyRequirementService = MyRequirementService()
+    static let testValue: MyRequirementService = MyRequirementServiceMock()
 }
