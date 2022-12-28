@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct LoadingView: View {
+    let tint: Color
+
+    init(tint: Color = .white) {
+        self.tint = tint
+    }
+
     var body: some View {
         ProgressView()
             .progressViewStyle(.circular)
-            .tint(.white)
+            .tint(tint)
     }
 }

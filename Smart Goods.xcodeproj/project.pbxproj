@@ -16,6 +16,13 @@
 		710E2D8F291196E7003AC591 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 710E2D8D291196E7003AC591 /* LaunchScreen.storyboard */; };
 		71469DA2293B6EE000EF8225 /* CreateRequirementCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71469DA1293B6EE000EF8225 /* CreateRequirementCore.swift */; };
 		71469DA5293B6F5900EF8225 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71469DA4293B6F5900EF8225 /* Loadable.swift */; };
+		716DB8C1295C4B77003BF4A9 /* TabBarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8C0295C4B77003BF4A9 /* TabBarService.swift */; };
+		716DB8C3295C4C22003BF4A9 /* UuidCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8C2295C4C22003BF4A9 /* UuidCall.swift */; };
+		716DB8C5295C4F13003BF4A9 /* DependencyValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8C4295C4F13003BF4A9 /* DependencyValues.swift */; };
+		716DB8C7295C4F3A003BF4A9 /* TabBarServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8C6295C4F3A003BF4A9 /* TabBarServiceProtocol.swift */; };
+		716DB8C9295C5461003BF4A9 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8C8295C5461003BF4A9 /* DispatchQueue+Extensions.swift */; };
+		716DB8CB295C57B9003BF4A9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8CA295C57B9003BF4A9 /* ErrorView.swift */; };
+		716DB8CD295C5A99003BF4A9 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8CC295C5A99003BF4A9 /* UserDefaults+Extensions.swift */; };
 		71742B55291AEC840026B389 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B54291AEC840026B389 /* HTTPClient.swift */; };
 		71742B57291AECC50026B389 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B56291AECC50026B389 /* Call.swift */; };
 		71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71742B58291AECF80026B389 /* HTTPMethod.swift */; };
@@ -53,6 +60,13 @@
 		710E2D90291196E7003AC591 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71469DA1293B6EE000EF8225 /* CreateRequirementCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementCore.swift; sourceTree = "<group>"; };
 		71469DA4293B6F5900EF8225 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
+		716DB8C0295C4B77003BF4A9 /* TabBarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarService.swift; sourceTree = "<group>"; };
+		716DB8C2295C4C22003BF4A9 /* UuidCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuidCall.swift; sourceTree = "<group>"; };
+		716DB8C4295C4F13003BF4A9 /* DependencyValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyValues.swift; sourceTree = "<group>"; };
+		716DB8C6295C4F3A003BF4A9 /* TabBarServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarServiceProtocol.swift; sourceTree = "<group>"; };
+		716DB8C8295C5461003BF4A9 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
+		716DB8CA295C57B9003BF4A9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		716DB8CC295C5A99003BF4A9 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		71742B54291AEC840026B389 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		71742B56291AECC50026B389 /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
 		71742B58291AECF80026B389 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -140,24 +154,29 @@
 				71F1CA1D293CC72D005300C2 /* RoundedVStack.swift */,
 				71CB9DBE29479A48004C37D3 /* AppColor.swift */,
 				71CB9DC02947A345004C37D3 /* UIColor+Extensions.swift */,
+				716DB8C8295C5461003BF4A9 /* DispatchQueue+Extensions.swift */,
+				716DB8CA295C57B9003BF4A9 /* ErrorView.swift */,
+				716DB8CC295C5A99003BF4A9 /* UserDefaults+Extensions.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		716DB8BF295C4B54003BF4A9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				716DB8C6295C4F3A003BF4A9 /* TabBarServiceProtocol.swift */,
+				716DB8C0295C4B77003BF4A9 /* TabBarService.swift */,
+				716DB8C2295C4C22003BF4A9 /* UuidCall.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		71742B53291AEC5B0026B389 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				71742B5B291AF4D30026B389 /* Base */,
-				71742B5A291AF4C50026B389 /* Services */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		71742B5A291AF4C50026B389 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		71742B5B291AF4D30026B389 /* Base */ = {
@@ -167,6 +186,7 @@
 				71742B58291AECF80026B389 /* HTTPMethod.swift */,
 				71742B56291AECC50026B389 /* Call.swift */,
 				71742B5C291AF5260026B389 /* HTTPError.swift */,
+				716DB8C4295C4F13003BF4A9 /* DependencyValues.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -184,6 +204,7 @@
 		71754E292916EDB6001A3176 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				716DB8BF295C4B54003BF4A9 /* Service */,
 				71754E2C2916EDDE001A3176 /* Core */,
 				71754E2A2916EDC5001A3176 /* View */,
 			);
@@ -357,17 +378,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				716DB8C3295C4C22003BF4A9 /* UuidCall.swift in Sources */,
+				716DB8C1295C4B77003BF4A9 /* TabBarService.swift in Sources */,
 				71469DA2293B6EE000EF8225 /* CreateRequirementCore.swift in Sources */,
 				71469DA5293B6F5900EF8225 /* Loadable.swift in Sources */,
 				934C77982916F76C00ED21DE /* MyRequirementView.swift in Sources */,
+				716DB8C5295C4F13003BF4A9 /* DependencyValues.swift in Sources */,
 				71CB9DBF29479A48004C37D3 /* AppColor.swift in Sources */,
+				716DB8CB295C57B9003BF4A9 /* ErrorView.swift in Sources */,
 				71742B57291AECC50026B389 /* Call.swift in Sources */,
 				71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */,
+				716DB8C7295C4F3A003BF4A9 /* TabBarServiceProtocol.swift in Sources */,
 				71E775B22933EAD00016FC15 /* SubviewRupp.swift in Sources */,
 				71CB9DC12947A345004C37D3 /* UIColor+Extensions.swift in Sources */,
+				716DB8CD295C5A99003BF4A9 /* UserDefaults+Extensions.swift in Sources */,
 				71754E2E2916EDF9001A3176 /* TabBarController.swift in Sources */,
 				71E775B42933EAD90016FC15 /* SubviewNone.swift in Sources */,
 				71F1CA1C293CC3F0005300C2 /* LoadingView.swift in Sources */,
+				716DB8C9295C5461003BF4A9 /* DispatchQueue+Extensions.swift in Sources */,
 				71742B5D291AF5260026B389 /* HTTPError.swift in Sources */,
 				71E775B02933EAC20016FC15 /* CreateRequirementView.swift in Sources */,
 				71F1CA1E293CC72D005300C2 /* RoundedVStack.swift in Sources */,

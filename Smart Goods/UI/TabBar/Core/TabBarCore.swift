@@ -10,18 +10,20 @@ import ComposableArchitecture
 
 struct TabBarCore: ReducerProtocol {
     struct State: Equatable {
-        var uuid: String? = nil
+        var uuidState: Loadable<String> = .none
     }
 
     enum Action: Equatable {
         case checkUuidAvailability(String)
         case createUuid(String)
-        case setUuid(String)
+        case createRemoteUser(String)
+        case uuidStateChanged(Loadable<String>)
     }
 
-    struct Environment {
-        // Services
-    }
+    @Dependency(\.tabBarService) var service
+    @Dependency(\.mainScheduler) var scheduler
+
+    struct DebounceId: Hashable {}
 
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
@@ -31,17 +33,34 @@ struct TabBarCore: ReducerProtocol {
                 return EffectTask(value: .createUuid(forKey))
             }
 
-            return EffectTask(value: .setUuid(uuid))
+            return EffectTask(value: .uuidStateChanged(.loaded(uuid)))
 
         case let .createUuid(forKey):
             let uuid = UUID().uuidString
 
             UserDefaults.standard.set(uuid, forKey: forKey)
 
-            return EffectTask(value: .setUuid(uuid))
+            return EffectTask(value: .createRemoteUser(uuid))
 
-        case let .setUuid(uuid):
-            state.uuid = uuid
+        case let .createRemoteUser(uuid):
+
+            return EffectTask.run { [uuid = uuid] send in
+                try await service.setUuid(with: uuid)
+
+                await send(.uuidStateChanged(.loaded(uuid)))
+            } catch: { error, send in
+                if let httpError = error as? HTTPError {
+                    await send(.uuidStateChanged(.error(httpError)))
+                } else {
+                    await send(.uuidStateChanged(.error(.error(error.localizedDescription))))
+                }
+            }
+            .debounce(id: DebounceId(), for: 1, scheduler: self.scheduler)
+            .prepend(.uuidStateChanged(.loading))
+            .eraseToEffect()
+
+        case let .uuidStateChanged(uuidState):
+            state.uuidState = uuidState
 
             return .none
         }

@@ -16,6 +16,23 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     let viewStore: ViewStore<TabBarCore.State, TabBarCore.Action>
     var cancellables: Set<AnyCancellable> = []
 
+    // MARK: Views
+    let loadingView: UIView = {
+        let loadingView = UIHostingController(rootView: LoadingView(tint: .black))
+        loadingView.view.translatesAutoresizingMaskIntoConstraints = false
+        loadingView.view.backgroundColor = AppColor.background
+        loadingView.view.isHidden = true
+        return loadingView.view
+    }()
+
+    let errorView: UIView = {
+        let errorView = UIHostingController(rootView: ErrorView())
+        errorView.view.translatesAutoresizingMaskIntoConstraints = false
+        errorView.view.backgroundColor = AppColor.background
+        errorView.view.isHidden = false
+        return errorView.view
+    }()
+
     public init(store: Store<TabBarCore.State, TabBarCore.Action>) {
         self.store = store
         self.viewStore = ViewStore(store)
@@ -31,6 +48,29 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
 
         self.delegate = self
+
+        configureView()
+
+        setupConstraints()
+    }
+
+    private func configureView() {
+        view.addSubview(loadingView)
+        view.addSubview(errorView)
+    }
+
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            loadingView.topAnchor.constraint(equalTo: view.topAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
+            errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            errorView.topAnchor.constraint(equalTo: view.topAnchor),
+            errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            errorView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +86,32 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         setupNavigationBar()
 
         setupTabBarViews()
+    }
+
+    private func configureStateObservation() {
+        viewStore.publisher.uuidState
+            .sink { [self] uuidState in
+                switch uuidState {
+                case .loaded:
+                    loadingView.isHidden = true
+                    errorView.isHidden = true
+
+                case .loading, .none:
+                    loadingView.isHidden = false
+                    errorView.isHidden = true
+
+                case let .error(error):
+                    loadingView.isHidden = true
+                    errorView.isHidden = false // TODO: Show the incoming error in the view.
+
+                    print(error)
+                }
+            }
+            .store(in: &cancellables)
+    }
+
+    private func checkUuid() {
+        viewStore.send(.checkUuidAvailability("uuid"))
     }
 
     private func setupNavigationBar() {
@@ -106,20 +172,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             createRequirementViewController,
             accountViewController
         ]
-    }
-
-    private func configureStateObservation() {
-        viewStore.publisher.uuid
-            .sink { uuid in
-                if let uuid = uuid {
-                    print(uuid)
-                }
-            }
-            .store(in: &cancellables)
-    }
-
-    private func checkUuid() {
-        viewStore.send(.checkUuidAvailability("uuid"))
     }
 }
 
