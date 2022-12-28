@@ -26,7 +26,7 @@ struct CreateRequirementView: View {
 
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
-            NavigationView {
+            NavigationStack {
                 VStack {
                     ScrollView {
                         VStack {
@@ -78,7 +78,6 @@ struct CreateRequirementView: View {
             .cornerRadius(8)
             .foregroundColor(AppColor.secondary.color)
             .font(.body.monospaced().bold())
-            .shadow(radius: 2, x: 5, y: 5)
 
             Button(action: { viewStore.send(.saveRequirement(selectedScheme)) }) {
                 if viewStore.requirementSaved == .loading {
@@ -93,7 +92,6 @@ struct CreateRequirementView: View {
             .cornerRadius(8)
             .foregroundColor(AppColor.secondary.color)
             .font(.body.monospaced().bold())
-            .shadow(radius: 2, x: 5, y: 5)
         }
     }
 }

@@ -91,7 +91,14 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         createRequirementViewController.tabBarItem = createRequirementTabBarItem
 
         // MARK: Account Tab
-        let accountViewController = UIHostingController(rootView: AccountView())
+        let accountViewController = UIHostingController(
+            rootView: AccountView(
+                store: Store(
+                    initialState: AccountCore.State(),
+                    reducer: AccountCore()
+                )
+            )
+        )
 
         let accountTabBarItem = UITabBarItem(
             title: nil,
@@ -120,16 +127,5 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
     private func checkUuid() {
         viewStore.send(.checkUuidAvailability("uuid"))
-    }
-}
-
-// TODO: Remove each view from this file when the actual view is implemented. Replace the object in the method on the top with the actual view object.
-
-struct AccountView: View {
-    var body: some View {
-        VStack {
-            Text("Account")
-        }
-        .background(.red)
     }
 }
