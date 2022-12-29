@@ -12,7 +12,7 @@ import ComposableArchitecture
 @MainActor
 final class TabBarCoreTests: XCTestCase {
 
-    func testUuidAvailability() async {
+    func testUuidAvailable() async {
         // Arrange
         let store = TestStore(
             initialState: TabBarCore.State(),

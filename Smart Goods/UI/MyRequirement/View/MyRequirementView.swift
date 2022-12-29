@@ -19,41 +19,55 @@ struct MyRequirementView: View {
     var body: some View {
         WithViewStore(store) { viewStore in
             NavigationView {
-                switch viewStore.requirementsState {
-                case let .loaded(requirements):
-                    List {
+                List {
+                    switch viewStore.requirementsState {
+                    case .loaded, .loading, .none:
                         Section(
                             header: Text("Your Requirements")
                                 .font(.body.monospaced().bold())
                                 .foregroundColor(AppColor.primary.color)
                                 .padding(.top, 24)
                         ) {
-                            if requirements.isEmpty {
+                            if viewStore.requirements.isEmpty {
                                 Text("Currently no requirements created.")
                                     .font(.body.monospaced())
                                     .foregroundColor(AppColor.primary.color)
                                     .padding(.top, 24)
                             }
 
-                            ForEach(requirements) { requirement in
+                            ForEach(viewStore.requirements) { requirement in
                                 requirementBody(requirement)
                             }
                             .listRowSeparator(.hidden)
                         }
+
+                    case let .error(error):
+                        ErrorView(
+                            error: error.localizedDescription,
+                            action: { viewStore.send(.fetchRequirements) }
+                        )
                     }
-                    .navigationTitle(Text("Smart Goods"))
-                    .background(AppColor.background.color)
-                    .scrollContentBackground(.hidden)
-
-                case .loading, .none:
-                    LoadingView(tint: .black)
-
-                case let .error(error):
-                    ErrorView(error: error.localizedDescription)
+                }
+                .frame(maxHeight: .infinity)
+                .navigationTitle(Text("Smart Goods"))
+                .background(AppColor.background.color)
+                .scrollContentBackground(.hidden)
+                .refreshable {
+                    viewStore.send(.fetchRequirements)
+                }
+                .overlay {
+                    if viewStore.requirementsState.isLoading {
+                        LoadingView(
+                            tint: AppColor.primary.color,
+                            fullScreen: true
+                        )
+                    }
                 }
             }
             .onAppear {
-                viewStore.send(.fetchRequirements)
+                if case .none = viewStore.requirementsState {
+                    viewStore.send(.fetchRequirements)
+                }
             }
         }
     }

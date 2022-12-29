@@ -9,6 +9,7 @@ import Foundation
 
 class HTTPClient {
 
+    // TODO: Remove the noRespone parameter when backend team returns valid decodable responses.
     /// A public generic method which will be called by all the views (or their Logic Core's)
     /// - Returns: The expected model which the http body response should have
     public func sendRequest<T: Codable>(call: Call, responseModel: T.Type, noResponse: Bool = false) async throws -> T {

@@ -18,7 +18,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
     // MARK: Views
     let loadingView: UIView = {
-        let loadingView = UIHostingController(rootView: LoadingView(tint: .black))
+        let loadingView = UIHostingController(rootView: LoadingView(tint: AppColor.primary.color))
         loadingView.view.translatesAutoresizingMaskIntoConstraints = false
         loadingView.view.backgroundColor = AppColor.background
         loadingView.view.isHidden = true

@@ -10,9 +10,5 @@ import Foundation
 struct UuidCall: Call {
     var path = "/user/registration/"
 
-    var parameters: [String : String]? = nil
-
-    var httpBody: Data? = nil
-
-    var httpMethod: HTTPMethod = .POST
+    let httpMethod: HTTPMethod = .POST
 }

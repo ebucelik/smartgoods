@@ -7,24 +7,16 @@
 
 import Foundation
 
-public enum Loadable<Item> where Item: Codable, Item: Equatable {
+public enum Loadable<Item>: Equatable where Item: Codable, Item: Equatable {
     case loading
     case loaded(Item)
     case error(HTTPError)
     case none
-}
 
-extension Loadable: Equatable {
-    public static func == (lhs: Loadable<Item>, rhs: Loadable<Item>) -> Bool {
-        switch(lhs, rhs) {
-        case (.none, .none):
+    var isLoading: Bool {
+        switch self {
+        case .loading, .none:
             return true
-        case (.loading, .loading):
-            return true
-        case (let .loaded(itemLhs), let .loaded(itemRhs)):
-            return itemLhs == itemRhs
-        case (let .error(errorLhs), let .error(errorRhs)):
-            return errorLhs == errorRhs
         default:
             return false
         }

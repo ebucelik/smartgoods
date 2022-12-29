@@ -9,8 +9,4 @@ import Foundation
 
 struct MyRequirementCall: Call {
     var path = "/smartgoods/list/all/"
-
-    var parameters: [String : String]? = nil
-
-    var httpBody: Data? = nil
 }

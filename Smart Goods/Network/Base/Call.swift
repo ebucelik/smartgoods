@@ -23,5 +23,9 @@ public extension Call {
 
     var httpMethod: HTTPMethod { .GET }
 
+    var parameters: [String: String]? { nil }
+
+    var httpBody: Data? { nil }
+
     var httpUrl: String { httpScheme + host + path }
 }

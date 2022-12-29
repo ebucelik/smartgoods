@@ -35,6 +35,7 @@ final class MyRequirementCoreTests: XCTestCase {
             state in
             //Assert
             state.requirementsState = .loaded(expectedRequirements)
+            state.requirements = expectedRequirements
         }
     }
 }

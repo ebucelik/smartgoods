@@ -13,6 +13,7 @@ class MyRequirementCore: ReducerProtocol {
 
     struct State: Equatable {
         var requirementsState: Loadable<[Requirement]> = .none
+        var requirements: [Requirement] = []
     }
 
     enum Action: Equatable {
@@ -22,6 +23,8 @@ class MyRequirementCore: ReducerProtocol {
 
     @Dependency(\.myRequirementService) var service
     @Dependency(\.mainScheduler) var scheduler
+
+    struct DebounceId: Hashable {}
 
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
@@ -49,11 +52,16 @@ class MyRequirementCore: ReducerProtocol {
                     await send(.requirementsStateChanged(.error(.error(error.localizedDescription))))
                 }
             }
+            .debounce(id: DebounceId(), for: 1, scheduler: self.scheduler)
             .prepend(.requirementsStateChanged(.loading))
             .eraseToEffect()
 
         case let .requirementsStateChanged(requirementsState):
             state.requirementsState = requirementsState
+
+            if case let .loaded(requirements) = requirementsState {
+                state.requirements = requirements
+            }
 
             return .none
         }
