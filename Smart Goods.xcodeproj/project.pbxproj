@@ -37,7 +37,6 @@
 		71BA43C5294DD60E003534B6 /* AccountCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BA43C4294DD60E003534B6 /* AccountCore.swift */; };
 		71CB9DBF29479A48004C37D3 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CB9DBE29479A48004C37D3 /* AppColor.swift */; };
 		71CB9DC12947A345004C37D3 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CB9DC02947A345004C37D3 /* UIColor+Extensions.swift */; };
-		71CC1AA4295CF9EF0095B55C /* SwiftHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 71CC1AA3295CF9EF0095B55C /* SwiftHelper */; };
 		71CC1AA6295CFC6B0095B55C /* TabBarServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC1AA5295CFC6B0095B55C /* TabBarServiceMock.swift */; };
 		71CC1AA8295CFED10095B55C /* MyRequirementServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC1AA7295CFED10095B55C /* MyRequirementServiceMock.swift */; };
 		71CC1AAA295D00CA0095B55C /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC1AA9295D00CA0095B55C /* Environment.swift */; };
@@ -114,7 +113,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7103E136292A6AC100A007A7 /* ComposableArchitecture in Frameworks */,
-				71CC1AA4295CF9EF0095B55C /* SwiftHelper in Frameworks */,
 				7103E138292A6AC100A007A7 /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,7 +371,6 @@
 			packageProductDependencies = (
 				7103E135292A6AC100A007A7 /* ComposableArchitecture */,
 				7103E137292A6AC100A007A7 /* Dependencies */,
-				71CC1AA3295CF9EF0095B55C /* SwiftHelper */,
 			);
 			productName = "Smart Goods";
 			productReference = 710E2D7F291196E6003AC591 /* Smart Goods.app */;
@@ -427,7 +424,6 @@
 			mainGroup = 710E2D76291196E6003AC591;
 			packageReferences = (
 				7103E134292A6AC100A007A7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
-				71CC1AA2295CF9EF0095B55C /* XCRemoteSwiftPackageReference "SwiftHelper" */,
 			);
 			productRefGroup = 710E2D80291196E6003AC591 /* Products */;
 			projectDirPath = "";
@@ -790,14 +786,6 @@
 				version = 0.46.0;
 			};
 		};
-		71CC1AA2295CF9EF0095B55C /* XCRemoteSwiftPackageReference "SwiftHelper" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ebucelik/SwiftHelper.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -810,11 +798,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7103E134292A6AC100A007A7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = Dependencies;
-		};
-		71CC1AA3295CF9EF0095B55C /* SwiftHelper */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 71CC1AA2295CF9EF0095B55C /* XCRemoteSwiftPackageReference "SwiftHelper" */;
-			productName = SwiftHelper;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
