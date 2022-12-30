@@ -17,11 +17,15 @@ public protocol Call {
 }
 
 public extension Call {
-    var httpScheme: String { "http://" }
+    var httpScheme: String { "https://" }
 
-    var host: String { "localhost/api/v1/" }
+    var host: String { "smartgoods-project.osc-fr1.scalingo.io/api" }
 
     var httpMethod: HTTPMethod { .GET }
+
+    var parameters: [String: String]? { nil }
+
+    var httpBody: Data? { nil }
 
     var httpUrl: String { httpScheme + host + path }
 }

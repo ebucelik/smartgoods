@@ -18,6 +18,7 @@ public enum HTTPError: Error, Equatable {
     case notModified
     case serverError
     case unexpectedStatusCode
+    case methodNotAllowed
 
     var message: String {
         switch self {

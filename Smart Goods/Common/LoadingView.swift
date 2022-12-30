@@ -8,9 +8,31 @@
 import SwiftUI
 
 struct LoadingView: View {
+    let tint: Color
+    let fullScreen: Bool
+
+    init(tint: Color = AppColor.background.color, fullScreen: Bool = false) {
+        self.tint = tint
+        self.fullScreen = fullScreen
+    }
+
     var body: some View {
-        ProgressView()
-            .progressViewStyle(.circular)
-            .tint(.white)
+        if fullScreen {
+            VStack {
+                Spacer()
+
+                ProgressView()
+                    .progressViewStyle(.circular)
+                    .tint(tint)
+
+                Spacer()
+            }
+            .frame(maxWidth: .infinity)
+            .background(AppColor.background.color)
+        } else {
+            ProgressView()
+                .progressViewStyle(.circular)
+                .tint(tint)
+        }
     }
 }

@@ -9,11 +9,12 @@ import Foundation
 
 class HTTPClient {
 
+    // TODO: Remove the noRespone parameter when backend team returns valid decodable responses.
     /// A public generic method which will be called by all the views (or their Logic Core's)
     /// - Returns: The expected model which the http body response should have
-    public func sendRequest<T: Codable>(call: Call, responseModel: T.Type) async throws -> T {
+    public func sendRequest<T: Codable>(call: Call, responseModel: T.Type, noResponse: Bool = false) async throws -> T {
         return try await withCheckedThrowingContinuation { continuation in
-            sendRequest(call: call, responseModel: responseModel) { result in
+            sendRequest(call: call, responseModel: responseModel, noResponse: noResponse) { result in
                 switch result {
                 case let .success(response):
                     continuation.resume(returning: response)
@@ -30,7 +31,7 @@ class HTTPClient {
     ///   - call: An abstract protocol which delivers the information needed to create an URLRequest
     ///   - responseModel: The expected http body response should fit to this model
     ///   - completion: Will be called either when there is an failure or when the response was successful
-    private func sendRequest<T: Codable>(call: Call, responseModel: T.Type, completion: @escaping (Result<T, HTTPError>) -> Void) {
+    private func sendRequest<T: Codable>(call: Call, responseModel: T.Type, noResponse: Bool, completion: @escaping (Result<T, HTTPError>) -> Void) {
 
         guard var urlComponents = URLComponents(string: call.httpUrl) else {
             completion(.failure(HTTPError.invalidURL))
@@ -70,11 +71,22 @@ class HTTPClient {
 
                     switch httpResponse.statusCode {
                     case 200...299:
-                        guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else { completion(.failure(HTTPError.decode))
-                            return
-                        }
+                        if !noResponse {
+                            guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else { completion(.failure(HTTPError.decode))
+                                return
+                            }
 
-                        completion(.success(decodedResponse))
+                            completion(.success(decodedResponse))
+                        } else {
+                            let success = "success"
+
+                            guard let decodedModel = success as? T else {
+                                completion(.failure(.decode))
+                                return
+                            }
+
+                            completion(.success(decodedModel))
+                        }
 
                     case 300...399:
                         completion(.failure(HTTPError.notModified))
@@ -84,6 +96,9 @@ class HTTPClient {
 
                     case 404:
                         completion(.failure(HTTPError.notFound))
+
+                    case 405:
+                        completion(.failure(HTTPError.methodNotAllowed))
 
                     case 500...599:
                         completion(.failure(HTTPError.serverError))
