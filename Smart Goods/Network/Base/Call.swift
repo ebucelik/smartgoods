@@ -13,7 +13,7 @@ public protocol Call {
     var path: String { get }
     var httpMethod: HTTPMethod { get }
     var parameters: [String: String]? { get }
-    var httpBody: Data? { get }
+    var httpBody: Encodable? { get }
 }
 
 public extension Call {
@@ -25,7 +25,7 @@ public extension Call {
 
     var parameters: [String: String]? { nil }
 
-    var httpBody: Data? { nil }
+    var httpBody: Encodable? { nil }
 
     var httpUrl: String { httpScheme + host + path }
 }

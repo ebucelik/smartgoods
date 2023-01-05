@@ -23,4 +23,9 @@ extension DependencyValues {
         get { self[MyRequirementService.self] }
         set { self[MyRequirementService.self] = newValue }
     }
+    
+    var createRequirementService: CreateRequirementService {
+        get { self[CreateRequirementService.self] }
+        set { self[CreateRequirementService.self] = newValue }
+    }
 }

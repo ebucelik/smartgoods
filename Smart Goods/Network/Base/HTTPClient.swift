@@ -120,7 +120,7 @@ class HTTPClient {
     ///   - httpMethod: Typical HTTP method like GET, POST, PUT
     ///   - httpBody: The data that should be sent to the backend
     /// - Returns: URLRequest
-    private func createURLRequest(with url: URL, httpMethod: HTTPMethod, httpBody: Data?) -> URLRequest {
+    private func createURLRequest(with url: URL, httpMethod: HTTPMethod, httpBody: Encodable?) -> URLRequest {
         var urlRequest = URLRequest(url: url)
 
         urlRequest.httpMethod = httpMethod.rawValue
