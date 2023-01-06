@@ -10,12 +10,16 @@ import ComposableArchitecture
 
 class CreateRequirementService: HTTPClient, CreateRequirementServiceProtocol {
     
-    func saveRequirement(call: SaveRequirementCall) async throws -> Requirement {
-        try await sendRequest(call: call, responseModel: Requirement.self)
+    func saveRequirement(_ requirement: Requirement) async throws -> Requirement {
+        let call = SaveRequirementCall(httpBody: requirement)
+        
+        return try await sendRequest(call: call, responseModel: Requirement.self)
     }
     
-    func checkRequirement(call: CheckRequirementCall) async throws -> Bool {
-        try await sendRequest(call: call, responseModel: Bool.self)
+    func checkRequirement(_ requirement: Requirement) async throws -> Bool {
+        let call = CheckRequirementCall(httpBody: requirement)
+        
+        return try await sendRequest(call: call, responseModel: Bool.self)
     }
 }
 

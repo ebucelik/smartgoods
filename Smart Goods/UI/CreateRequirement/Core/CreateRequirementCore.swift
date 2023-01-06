@@ -51,11 +51,9 @@ struct CreateRequirementCore: ReducerProtocol {
             case let .saveRequirement(scheme):
 
                 let requirement = getRequirement(by: scheme, state)
-
-                let call = SaveRequirementCall(httpBody: requirement)
                 
                 return EffectTask.run { send in
-                    let requirement = try await service.saveRequirement(call: call)
+                    let requirement = try await service.saveRequirement(requirement)
                     
                     await send(.requirementSavedStateChange(.loaded(requirement)))
                 } catch: { error, send in
@@ -74,10 +72,8 @@ struct CreateRequirementCore: ReducerProtocol {
 
                 let requirement = getRequirement(by: scheme, state)
                 
-                let call = CheckRequirementCall(httpBody: requirement)
-                
                 return EffectTask.run { send in
-                    let isValid = try await service.checkRequirement(call: call)
+                    let isValid = try await service.checkRequirement(requirement)
                     
                     await send(.requirementCheckedStateChange(.loaded(isValid)))
                 } catch: { error, send in

@@ -8,6 +8,6 @@
 import Foundation
 
 protocol CreateRequirementServiceProtocol {
-    func saveRequirement(call: SaveRequirementCall) async throws -> Requirement
-    func checkRequirement(call: CheckRequirementCall) async throws -> Bool
+    func saveRequirement(_ requirement: Requirement) async throws -> Requirement
+    func checkRequirement(_ requirement: Requirement) async throws -> Bool
 }

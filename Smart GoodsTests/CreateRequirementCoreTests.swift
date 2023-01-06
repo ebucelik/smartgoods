@@ -19,6 +19,8 @@ final class CreateRequirementCoreTests: XCTestCase {
             ),
             reducer: CreateRequirementCore()
         )
+        
+        let expectedRequirement = Requirement.mockRequirement
 
         await store.send(.saveRequirement(.rupp))
 
@@ -28,8 +30,8 @@ final class CreateRequirementCoreTests: XCTestCase {
             $0.requirementSaved = .loading
         }
 
-        await store.receive(.requirementSavedStateChange(.loaded(true))) {
-            $0.requirementSaved = .loaded(true)
+        await store.receive(.requirementSavedStateChange(.loaded(expectedRequirement))) {
+            $0.requirementSaved = .loaded(expectedRequirement)
         }
 
         await store.finish()
