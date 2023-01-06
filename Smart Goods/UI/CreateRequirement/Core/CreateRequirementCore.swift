@@ -9,26 +9,38 @@ import Foundation
 import ComposableArchitecture
 
 struct CreateRequirementCore: ReducerProtocol {
+    
+    enum Scheme: String, CaseIterable, Identifiable {
+        case rupp = "Rupp's scheme"
+        case none = "No scheme"
+
+        var id: Self { self }
+    }
+    
     struct State: Equatable {
         @BindableState var customRequirement: String
         @BindableState var requirement: String
+        
+        @BindableState var selectedScheme: Scheme = .rupp
+        @BindableState var showCheckAlert: Bool = false
 
-        var requirementSaved: Loadable<Bool> = .none
+        var requirementSaved: Loadable<Requirement> = .none
         var requirementChecked: Loadable<Bool> = .none
     }
 
     enum Action: BindableAction, Equatable {
-        case saveRequirement(CreateRequirementView.Scheme)
-        case requirementSavedStateChange(Loadable<Bool>)
+        case saveRequirement(Scheme)
+        case requirementSavedStateChange(Loadable<Requirement>)
 
-        case checkRequirement(CreateRequirementView.Scheme)
+        case checkRequirement(Scheme)
         case requirementCheckedStateChange(Loadable<Bool>)
 
         case binding(BindingAction<State>)
     }
-
-    struct Environment { }
-
+    
+    @Dependency(\.createRequirementService) var service
+    @Dependency(\.mainScheduler) var scheduler
+    
     struct DebounceId: Hashable { }
 
     var body: some ReducerProtocol<State, Action> {
@@ -39,12 +51,15 @@ struct CreateRequirementCore: ReducerProtocol {
             case let .saveRequirement(scheme):
 
                 let requirement = getRequirement(by: scheme, state)
-
-                // TODO: do backend call
-                return EffectTask(
-                    value: .requirementSavedStateChange(.loaded(true))
-                )
-                .debounce(id: DebounceId(), for: 1, scheduler: DispatchQueue.main)
+                
+                return EffectTask.run { send in
+                    let requirement = try await service.saveRequirement(requirement)
+                    
+                    await send(.requirementSavedStateChange(.loaded(requirement)))
+                } catch: { error, send in
+                    await send(.requirementSavedStateChange(.error(.error(error.localizedDescription))))
+                }
+                .debounce(id: DebounceId(), for: 1, scheduler: self.scheduler)
                 .prepend(.requirementSavedStateChange(.loading))
                 .eraseToEffect()
 
@@ -56,12 +71,15 @@ struct CreateRequirementCore: ReducerProtocol {
             case let .checkRequirement(scheme):
 
                 let requirement = getRequirement(by: scheme, state)
-
-                // TODO: do backend call
-                return EffectTask(
-                    value: .requirementCheckedStateChange(.loaded(true))
-                )
-                .debounce(id: DebounceId(), for: 1, scheduler: DispatchQueue.main)
+                
+                return EffectTask.run { send in
+                    let isValid = try await service.checkRequirement(requirement)
+                    
+                    await send(.requirementCheckedStateChange(.loaded(isValid)))
+                } catch: { error, send in
+                    await send(.requirementCheckedStateChange(.error(.error(error.localizedDescription))))
+                }
+                .debounce(id: DebounceId(), for: 1, scheduler: self.scheduler)
                 .prepend(.requirementCheckedStateChange(.loading))
                 .eraseToEffect()
 
@@ -76,12 +94,15 @@ struct CreateRequirementCore: ReducerProtocol {
         }
     }
 
-    private func getRequirement(by scheme: CreateRequirementView.Scheme, _ state: State) -> String {
+    private func getRequirement(by scheme: Scheme, _ state: State) -> Requirement {
+        
+        let uuid = UserDefaults.standard.object(forKey: "uuid") as? String
+        
         switch scheme {
         case .rupp:
-            return state.requirement
+            return Requirement(id: nil, requirement: state.requirement, userUUID: uuid ?? "", isRupp: nil)
         case .none:
-            return state.customRequirement
+            return Requirement(id: nil, requirement: state.customRequirement, userUUID: uuid ?? "", isRupp: nil)
         }
     }
 }

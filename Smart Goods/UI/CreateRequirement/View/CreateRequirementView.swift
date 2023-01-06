@@ -9,15 +9,6 @@ import ComposableArchitecture
 
 struct CreateRequirementView: View {
 
-    enum Scheme: String, CaseIterable, Identifiable {
-        case rupp = "Rupp's scheme"
-        case none = "No scheme"
-
-        var id: Self { self }
-    }
-
-    @State private var selectedScheme: Scheme = .rupp
-
     let store: StoreOf<CreateRequirementCore>
 
     public init(store: StoreOf<CreateRequirementCore>) {
@@ -30,15 +21,15 @@ struct CreateRequirementView: View {
                 VStack {
                     ScrollView {
                         VStack {
-                            Picker("Scheme", selection: $selectedScheme) {
-                                ForEach(Scheme.allCases) { scheme in
+                            Picker("Scheme", selection: viewStore.binding(\.$selectedScheme)) {
+                                ForEach(CreateRequirementCore.Scheme.allCases) { scheme in
                                     Text(scheme.rawValue)
                                 }
                             }
                             .pickerStyle(.segmented)
                             .padding(.bottom)
 
-                            switch (selectedScheme) {
+                            switch (viewStore.selectedScheme) {
                             case .none:
                                 SubviewNone(requirement: viewStore.binding(\.$customRequirement))
                             case .rupp:
@@ -65,11 +56,19 @@ struct CreateRequirementView: View {
     @ViewBuilder
     private func saveAndCheckButtonBody(_ viewStore: ViewStoreOf<CreateRequirementCore>) -> some View {
         HStack(alignment: .bottom) {
-            Button(action: { viewStore.send(.checkRequirement(selectedScheme)) }) {
-                if viewStore.requirementChecked == .loading {
+            Button(action: { viewStore.send(.checkRequirement(viewStore.selectedScheme)) }) {
+                switch viewStore.requirementChecked {
+                case .loading:
                     LoadingView()
-                } else {
+                case .loaded, .none:
                     Text("CHECK")
+                        .onAppear {
+                            if case .loaded = viewStore.requirementChecked {
+                                viewStore.send(.set(\.$showCheckAlert, true))
+                            }
+                        }
+                case .error:
+                    Text("ERROR")
                 }
             }
             .padding()
@@ -78,12 +77,20 @@ struct CreateRequirementView: View {
             .cornerRadius(8)
             .foregroundColor(AppColor.secondary.color)
             .font(.body.monospaced().bold())
+            .alert(isPresented: viewStore.binding(\.$showCheckAlert)) {
+                Alert(title: viewStore.requirementChecked == .loaded(true) ?
+                      Text("Valid requirement") :
+                        Text("Not a valid requirement"))
+            }
 
-            Button(action: { viewStore.send(.saveRequirement(selectedScheme)) }) {
-                if viewStore.requirementSaved == .loading {
+            Button(action: { viewStore.send(.saveRequirement(viewStore.selectedScheme)) }) {
+                switch viewStore.requirementSaved {
+                case .loading:
                     LoadingView()
-                } else {
+                case .loaded, .none:
                     Text("SAVE")
+                case .error:
+                    Text("ERROR")
                 }
             }
             .padding()
