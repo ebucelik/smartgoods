@@ -79,12 +79,11 @@ struct MyRequirementView: View {
 
             Spacer()
 
-            // TODO: Check status from backend. Talk to backend.
-//            if requirement.status {
-//                Image(systemName: "checkmark.square.fill").foregroundColor(.green)
-//            } else {
-//                Image(systemName: "xmark.square.fill").foregroundColor(.red)
-//            }
+            if requirement.ruppScheme {
+                Text("OK")
+                    .foregroundColor(.green)
+                    .bold()
+            }
         }
         .padding()
         .listRowInsets(EdgeInsets(top: 8, leading: 1, bottom: 8, trailing: 5))
