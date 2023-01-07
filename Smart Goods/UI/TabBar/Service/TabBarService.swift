@@ -9,10 +9,10 @@ import ComposableArchitecture
 
 class TabBarService: HTTPClient, TabBarServiceProtocol {
     func setUuid(with uuid: String) async throws {
-        var call = UuidCall()
-        call.path.append(uuid)
+        let register = Register(uuid: uuid)
+        let call = UuidCall(httpBody: register)
 
-        _ = try await sendRequest(call: call, responseModel: String.self, noResponse: true)
+        _ = try await sendRequest(call: call, responseModel: Message.self)
     }
 }
 

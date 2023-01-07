@@ -24,13 +24,13 @@ struct CreateRequirementCore: ReducerProtocol {
         @BindableState var selectedScheme: Scheme = .rupp
         @BindableState var showCheckAlert: Bool = false
 
-        var requirementSaved: Loadable<Requirement> = .none
+        var requirementSaved: Loadable<Message> = .none
         var requirementChecked: Loadable<Bool> = .none
     }
 
     enum Action: BindableAction, Equatable {
         case saveRequirement(Scheme)
-        case requirementSavedStateChange(Loadable<Requirement>)
+        case requirementSavedStateChange(Loadable<Message>)
 
         case checkRequirement(Scheme)
         case requirementCheckedStateChange(Loadable<Bool>)
@@ -53,9 +53,10 @@ struct CreateRequirementCore: ReducerProtocol {
             case let .saveRequirement(scheme):
 
                 let requirement = getRequirement(by: scheme, state)
+                let uuid = getUuid()
                 
                 return EffectTask.run { send in
-                    let requirement = try await service.saveRequirement(requirement)
+                    let requirement = try await service.saveRequirement(requirement, for: uuid)
                     
                     await send(.requirementSavedStateChange(.loaded(requirement)))
                 } catch: { error, send in
@@ -102,15 +103,16 @@ struct CreateRequirementCore: ReducerProtocol {
         }
     }
 
-    private func getRequirement(by scheme: Scheme, _ state: State) -> Requirement {
-        
-        let uuid = UserDefaults.standard.object(forKey: "uuid") as? String
-        
+    private func getRequirement(by scheme: Scheme, _ state: State) -> String {
         switch scheme {
         case .rupp:
-            return Requirement(id: nil, requirement: state.requirement, userUUID: uuid ?? "", isRupp: nil)
+            return state.requirement
         case .none:
-            return Requirement(id: nil, requirement: state.customRequirement, userUUID: uuid ?? "", isRupp: nil)
+            return state.customRequirement
         }
+    }
+
+    private func getUuid() -> String {
+        return UserDefaults.standard.object(forKey: "uuid") as? String ?? ""
     }
 }

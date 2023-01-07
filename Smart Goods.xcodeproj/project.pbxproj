@@ -17,6 +17,8 @@
 		71469DA2293B6EE000EF8225 /* CreateRequirementCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71469DA1293B6EE000EF8225 /* CreateRequirementCore.swift */; };
 		71469DA5293B6F5900EF8225 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71469DA4293B6F5900EF8225 /* Loadable.swift */; };
 		714FCC7B29699A0400AA3F48 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FCC7A29699A0400AA3F48 /* View+Extensions.swift */; };
+		714FCC7E2969ADE300AA3F48 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FCC7D2969ADE300AA3F48 /* Register.swift */; };
+		714FCC812969AE8600AA3F48 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FCC802969AE8600AA3F48 /* Message.swift */; };
 		716DB8C1295C4B77003BF4A9 /* TabBarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8C0295C4B77003BF4A9 /* TabBarService.swift */; };
 		716DB8C3295C4C22003BF4A9 /* UuidCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8C2295C4C22003BF4A9 /* UuidCall.swift */; };
 		716DB8C5295C4F13003BF4A9 /* DependencyValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8C4295C4F13003BF4A9 /* DependencyValues.swift */; };
@@ -45,7 +47,6 @@
 		71E775B02933EAC20016FC15 /* CreateRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775AF2933EAC20016FC15 /* CreateRequirementView.swift */; };
 		71E775B22933EAD00016FC15 /* SubviewRupp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775B12933EAD00016FC15 /* SubviewRupp.swift */; };
 		71E775B42933EAD90016FC15 /* SubviewNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775B32933EAD90016FC15 /* SubviewNone.swift */; };
-		71E8DA2029301A6C0075F9F3 /* TabBarCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E8DA1F29301A6C0075F9F3 /* TabBarCoreTests.swift */; };
 		71F1CA1C293CC3F0005300C2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F1CA1B293CC3F0005300C2 /* LoadingView.swift */; };
 		71F1CA1E293CC72D005300C2 /* RoundedVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F1CA1D293CC72D005300C2 /* RoundedVStack.swift */; };
 		71F1CA20293CD4BB005300C2 /* CreateRequirementCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F1CA1F293CD4BB005300C2 /* CreateRequirementCoreTests.swift */; };
@@ -78,6 +79,8 @@
 		71469DA1293B6EE000EF8225 /* CreateRequirementCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementCore.swift; sourceTree = "<group>"; };
 		71469DA4293B6F5900EF8225 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		714FCC7A29699A0400AA3F48 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		714FCC7D2969ADE300AA3F48 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		714FCC802969AE8600AA3F48 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		716DB8C0295C4B77003BF4A9 /* TabBarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarService.swift; sourceTree = "<group>"; };
 		716DB8C2295C4C22003BF4A9 /* UuidCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuidCall.swift; sourceTree = "<group>"; };
 		716DB8C4295C4F13003BF4A9 /* DependencyValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyValues.swift; sourceTree = "<group>"; };
@@ -107,7 +110,6 @@
 		71E775B12933EAD00016FC15 /* SubviewRupp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewRupp.swift; sourceTree = "<group>"; };
 		71E775B32933EAD90016FC15 /* SubviewNone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewNone.swift; sourceTree = "<group>"; };
 		71E8DA1D29301A6C0075F9F3 /* Smart GoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart GoodsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		71E8DA1F29301A6C0075F9F3 /* TabBarCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoreTests.swift; sourceTree = "<group>"; };
 		71F1CA1B293CC3F0005300C2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		71F1CA1D293CC72D005300C2 /* RoundedVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedVStack.swift; sourceTree = "<group>"; };
 		71F1CA1F293CD4BB005300C2 /* CreateRequirementCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementCoreTests.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		71469DA3293B6F4900EF8225 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				714FCC7F2969AE7E00AA3F48 /* Models */,
 				714FCC79296999EE00AA3F48 /* Extensions */,
 				71469DA4293B6F5900EF8225 /* Loadable.swift */,
 				71F1CA1B293CC3F0005300C2 /* LoadingView.swift */,
@@ -203,6 +206,22 @@
 				714FCC7A29699A0400AA3F48 /* View+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		714FCC7C2969ADD300AA3F48 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				714FCC7D2969ADE300AA3F48 /* Register.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		714FCC7F2969AE7E00AA3F48 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				714FCC802969AE8600AA3F48 /* Message.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		716DB8BF295C4B54003BF4A9 /* Service */ = {
@@ -277,6 +296,7 @@
 		71754E292916EDB6001A3176 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				714FCC7C2969ADD300AA3F48 /* Models */,
 				716DB8BF295C4B54003BF4A9 /* Service */,
 				71754E2C2916EDDE001A3176 /* Core */,
 				71754E2A2916EDC5001A3176 /* View */,
@@ -348,7 +368,6 @@
 		71E8DA1E29301A6C0075F9F3 /* Smart GoodsTests */ = {
 			isa = PBXGroup;
 			children = (
-				71E8DA1F29301A6C0075F9F3 /* TabBarCoreTests.swift */,
 				71F1CA1F293CD4BB005300C2 /* CreateRequirementCoreTests.swift */,
 				71CC1AAB295D083F0095B55C /* MyRequirementCoreTests.swift */,
 			);
@@ -503,6 +522,7 @@
 				71CB9DBF29479A48004C37D3 /* AppColor.swift in Sources */,
 				716DB8CB295C57B9003BF4A9 /* ErrorView.swift in Sources */,
 				716DB8D1295C9551003BF4A9 /* MyRequirementCore.swift in Sources */,
+				714FCC812969AE8600AA3F48 /* Message.swift in Sources */,
 				714FCC7B29699A0400AA3F48 /* View+Extensions.swift in Sources */,
 				71742B57291AECC50026B389 /* Call.swift in Sources */,
 				71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */,
@@ -511,6 +531,7 @@
 				93E453AA295F33DE00F43259 /* CreateRequirementService.swift in Sources */,
 				716DB8C7295C4F3A003BF4A9 /* TabBarServiceProtocol.swift in Sources */,
 				71E775B22933EAD00016FC15 /* SubviewRupp.swift in Sources */,
+				714FCC7E2969ADE300AA3F48 /* Register.swift in Sources */,
 				71CB9DC12947A345004C37D3 /* UIColor+Extensions.swift in Sources */,
 				716DB8CD295C5A99003BF4A9 /* UserDefaults+Extensions.swift in Sources */,
 				716DB8DA295C968C003BF4A9 /* MyRequirementCall.swift in Sources */,
@@ -542,7 +563,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				71F1CA20293CD4BB005300C2 /* CreateRequirementCoreTests.swift in Sources */,
-				71E8DA2029301A6C0075F9F3 /* TabBarCoreTests.swift in Sources */,
 				71CC1AAC295D083F0095B55C /* MyRequirementCoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

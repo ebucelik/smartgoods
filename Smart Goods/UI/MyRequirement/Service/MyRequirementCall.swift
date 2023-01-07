@@ -8,5 +8,5 @@
 import Foundation
 
 struct MyRequirementCall: Call {
-    var path = "/smartgoods/list/all/"
+    var path = "/requirement/list/all/"
 }

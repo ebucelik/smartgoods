@@ -8,11 +8,11 @@
 import Foundation
 
 class CreateRequirementServiceMock: CreateRequirementService {
-    override func saveRequirement(_ requirement: Requirement) async throws -> Requirement {
-        return Requirement.mockRequirement
+    override func saveRequirement(_ requirement: String, for uuid: String) async throws -> Message {
+        return Message.mockSuccess
     }
     
-    override func checkRequirement(_ requirement: Requirement) async throws -> Bool {
+    override func checkRequirement(_ requirement: String) async throws -> Bool {
         return true
     }
 }
