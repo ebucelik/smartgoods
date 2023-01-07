@@ -93,6 +93,7 @@ struct MyRequirementView: View {
     }
 }
 
+#if DEBUG
 struct MyRequirementView_Previews: PreviewProvider {
     static var previews: some View {
         MyRequirementView(
@@ -103,4 +104,4 @@ struct MyRequirementView_Previews: PreviewProvider {
         )
     }
 }
-
+#endif

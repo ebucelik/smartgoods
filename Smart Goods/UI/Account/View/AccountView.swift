@@ -62,6 +62,7 @@ struct AccountView: View {
     }
 }
 
+#if DEBUG
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
         AccountView(
@@ -72,3 +73,4 @@ struct AccountView_Previews: PreviewProvider {
         )
     }
 }
+#endif

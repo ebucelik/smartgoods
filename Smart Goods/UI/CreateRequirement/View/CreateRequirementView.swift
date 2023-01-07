@@ -19,16 +19,16 @@ struct CreateRequirementView: View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             NavigationStack {
                 VStack {
+                    Picker("Scheme", selection: viewStore.binding(\.$selectedScheme)) {
+                        ForEach(CreateRequirementCore.Scheme.allCases) { scheme in
+                            Text(scheme.rawValue)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .padding(.bottom)
+
                     ScrollView {
                         VStack {
-                            Picker("Scheme", selection: viewStore.binding(\.$selectedScheme)) {
-                                ForEach(CreateRequirementCore.Scheme.allCases) { scheme in
-                                    Text(scheme.rawValue)
-                                }
-                            }
-                            .pickerStyle(.segmented)
-                            .padding(.bottom)
-
                             switch (viewStore.selectedScheme) {
                             case .none:
                                 SubviewNone(requirement: viewStore.binding(\.$customRequirement))
@@ -40,15 +40,17 @@ struct CreateRequirementView: View {
                     }
                     .background(AppColor.secondary.color)
                     .cornerRadius(8)
-                    .padding(.horizontal, 20)
+                    .onTapGesture {
+                        hideKeyboard()
+                    }
 
                     saveAndCheckButtonBody(viewStore)
                         .padding(.top, 8)
-                        .padding(.horizontal, 20)
                 }
                 .background(AppColor.background.color)
                 .navigationTitle(Text("Create Requirement"))
                 .padding(.vertical, 24)
+                .padding(.horizontal, 20)
             }
         }
     }
@@ -56,19 +58,23 @@ struct CreateRequirementView: View {
     @ViewBuilder
     private func saveAndCheckButtonBody(_ viewStore: ViewStoreOf<CreateRequirementCore>) -> some View {
         HStack(alignment: .bottom) {
-            Button(action: { viewStore.send(.checkRequirement(viewStore.selectedScheme)) }) {
+            Button(action: {
+                hideKeyboard()
+
+                viewStore.send(.checkRequirement(viewStore.selectedScheme))
+            }) {
                 switch viewStore.requirementChecked {
                 case .loading:
                     LoadingView()
                 case .loaded, .none:
-                    Text("CHECK")
+                    Text("Check")
                         .onAppear {
                             if case .loaded = viewStore.requirementChecked {
                                 viewStore.send(.set(\.$showCheckAlert, true))
                             }
                         }
                 case .error:
-                    Text("ERROR")
+                    Text("Error")
                 }
             }
             .padding()
@@ -83,14 +89,18 @@ struct CreateRequirementView: View {
                         Text("Not a valid requirement"))
             }
 
-            Button(action: { viewStore.send(.saveRequirement(viewStore.selectedScheme)) }) {
+            Button(action: {
+                hideKeyboard()
+
+                viewStore.send(.saveRequirement(viewStore.selectedScheme))
+            }) {
                 switch viewStore.requirementSaved {
                 case .loading:
                     LoadingView()
                 case .loaded, .none:
-                    Text("SAVE")
+                    Text("Save")
                 case .error:
-                    Text("ERROR")
+                    Text("Error")
                 }
             }
             .padding()
@@ -103,6 +113,7 @@ struct CreateRequirementView: View {
     }
 }
 
+#if DEBUG
 struct CreateRequirementView_Previews: PreviewProvider {
     static var previews: some View {
         CreateRequirementView(
@@ -113,3 +124,4 @@ struct CreateRequirementView_Previews: PreviewProvider {
         )
     }
 }
+#endif
