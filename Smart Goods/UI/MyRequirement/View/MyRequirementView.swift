@@ -39,6 +39,7 @@ struct MyRequirementView: View {
                                 requirementBody(requirement)
                             }
                             .listRowSeparator(.hidden)
+                            .listRowBackground(EmptyView())
                         }
 
                     case let .error(error):
@@ -50,7 +51,7 @@ struct MyRequirementView: View {
                 }
                 .frame(maxHeight: .infinity)
                 .navigationTitle(Text("Smart Goods"))
-                .background(AppColor.background.color)
+                .background(.clear)
                 .scrollContentBackground(.hidden)
                 .refreshable {
                     viewStore.send(.fetchRequirements)
@@ -81,7 +82,7 @@ struct MyRequirementView: View {
 
             if requirement.ruppScheme {
                 Text("OK")
-                    .foregroundColor(.green)
+                    .foregroundColor(AppColor.success.color)
                     .bold()
             }
         }

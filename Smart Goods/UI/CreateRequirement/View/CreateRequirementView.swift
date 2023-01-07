@@ -112,7 +112,7 @@ struct CreateRequirementView: View {
 
                         Image(systemName: "checkmark.circle.fill")
                             .renderingMode(.template)
-                            .foregroundColor(.green)
+                            .foregroundColor(AppColor.success.color)
                     }
 
                 case .none:
@@ -123,7 +123,7 @@ struct CreateRequirementView: View {
 
                         Image(systemName: "xmark.circle.fill")
                             .renderingMode(.template)
-                            .foregroundColor(.red)
+                            .foregroundColor(AppColor.error.color)
                     }
                 }
             }

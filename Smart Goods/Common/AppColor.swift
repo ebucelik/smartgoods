@@ -14,4 +14,7 @@ struct AppColor {
     static let quaternary = #colorLiteral(red: 0.3490196078, green: 0.7215686275, blue: 0.6156862745, alpha: 1)
     static let quinary = #colorLiteral(red: 0.8509803922, green: 0.8392156863, blue: 0.8588235294, alpha: 1)
     static let background = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+
+    static let success = #colorLiteral(red: 0.2823529412, green: 0.631372549, blue: 0.3019607843, alpha: 1)
+    static let error = #colorLiteral(red: 0.7019607843, green: 0.2470588235, blue: 0.2509803922, alpha: 1)
 }
