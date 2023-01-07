@@ -51,6 +51,9 @@ struct CreateRequirementView: View {
                 .navigationTitle(Text("Create Requirement"))
                 .padding(.vertical, 24)
                 .padding(.horizontal, 20)
+                .onDisappear {
+                    viewStore.send(.resetState)
+                }
             }
         }
     }
@@ -84,9 +87,15 @@ struct CreateRequirementView: View {
             .foregroundColor(AppColor.secondary.color)
             .font(.body.monospaced().bold())
             .alert(isPresented: viewStore.binding(\.$showCheckAlert)) {
-                Alert(title: viewStore.requirementChecked == .loaded(true) ?
-                      Text("Valid requirement") :
-                        Text("Not a valid requirement"))
+                Alert(
+                    title: viewStore.requirementChecked == .loaded(true) ?
+                    Text("Valid requirement") : Text("Not a valid requirement"),
+                    message: viewStore.requirementChecked == .loaded(true) ?
+                    Text("The requirement does conform to Rupp's scheme.") : Text("The requirement does not conform to Rupp's scheme."),
+                    dismissButton: .default(
+                        Text("Ok")
+                    )
+                )
             }
 
             Button(action: {
@@ -97,10 +106,25 @@ struct CreateRequirementView: View {
                 switch viewStore.requirementSaved {
                 case .loading:
                     LoadingView()
-                case .loaded, .none:
+                case .loaded:
+                    HStack {
+                        Text("Save")
+
+                        Image(systemName: "checkmark.circle.fill")
+                            .renderingMode(.template)
+                            .foregroundColor(.green)
+                    }
+
+                case .none:
                     Text("Save")
                 case .error:
-                    Text("Error")
+                    HStack {
+                        Text("Error")
+
+                        Image(systemName: "xmark.circle.fill")
+                            .renderingMode(.template)
+                            .foregroundColor(.red)
+                    }
                 }
             }
             .padding()

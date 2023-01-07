@@ -35,6 +35,8 @@ struct CreateRequirementCore: ReducerProtocol {
         case checkRequirement(Scheme)
         case requirementCheckedStateChange(Loadable<Bool>)
 
+        case resetState
+
         case binding(BindingAction<State>)
     }
     
@@ -85,6 +87,12 @@ struct CreateRequirementCore: ReducerProtocol {
 
             case let .requirementCheckedStateChange(requirementCheckedState):
                 state.requirementChecked = requirementCheckedState
+
+                return .none
+
+            case .resetState:
+                state.requirementSaved = .none
+                state.requirementChecked = .none
 
                 return .none
 
