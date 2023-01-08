@@ -51,7 +51,7 @@ class MyRequirementCore: ReducerProtocol {
                     await send(.requirementsStateChanged(.error(.error(error.localizedDescription))))
                 }
             }
-            .debounce(id: DebounceId(), for: 1, scheduler: self.scheduler)
+            .debounce(id: DebounceId(), for: 2, scheduler: self.scheduler)
             .prepend(.requirementsStateChanged(.loading))
             .eraseToEffect()
 
