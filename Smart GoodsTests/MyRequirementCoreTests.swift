@@ -29,7 +29,7 @@ final class MyRequirementCoreTests: XCTestCase {
             state.requirementsState = .loading
         }
 
-        _ = XCTWaiter.wait(for: [expectation(description: "loading")], timeout: 1)
+        _ = XCTWaiter.wait(for: [expectation(description: "loading")], timeout: 2)
 
         await store.receive(.requirementsStateChanged(.loaded(expectedRequirements))) {
             state in

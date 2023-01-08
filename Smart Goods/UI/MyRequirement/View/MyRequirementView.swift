@@ -84,6 +84,10 @@ struct MyRequirementView: View {
                 Text("OK")
                     .foregroundColor(AppColor.success.color)
                     .bold()
+            } else {
+                Text("NOT OK")
+                    .foregroundColor(AppColor.error.color)
+                    .bold()
             }
         }
         .padding()

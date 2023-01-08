@@ -91,7 +91,7 @@ struct CreateRequirementView: View {
                     title: viewStore.requirementChecked == .loaded(true) ?
                     Text("Valid requirement") : Text("Not a valid requirement"),
                     message: viewStore.requirementChecked == .loaded(true) ?
-                    Text("The requirement does conform to Rupp's scheme.") : Text("The requirement does not conform to Rupp's scheme."),
+                    Text("The requirement conforms to Rupp's scheme.") : Text("The requirement does not conform to Rupp's scheme."),
                     dismissButton: .default(
                         Text("Ok")
                     )
