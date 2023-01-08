@@ -15,7 +15,6 @@ struct Message: Codable, Equatable {
     }
 }
 
-#if DEBUG
 extension Message {
     static var mockSuccess: Message {
         Message(message: "Success message.")
@@ -25,4 +24,3 @@ extension Message {
         Message(message: "Failure message.")
     }
 }
-#endif
