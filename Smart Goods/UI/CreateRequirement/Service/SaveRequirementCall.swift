@@ -8,7 +8,7 @@
 import Foundation
 
 struct SaveRequirementCall: Call {
-    var path: String = "/smartgoods/save"
+    var path: String = "/requirement/save/"
     
     var httpMethod: HTTPMethod = .POST
     

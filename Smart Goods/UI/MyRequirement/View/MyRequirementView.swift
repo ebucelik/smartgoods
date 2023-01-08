@@ -39,6 +39,7 @@ struct MyRequirementView: View {
                                 requirementBody(requirement)
                             }
                             .listRowSeparator(.hidden)
+                            .listRowBackground(EmptyView())
                         }
 
                     case let .error(error):
@@ -50,7 +51,7 @@ struct MyRequirementView: View {
                 }
                 .frame(maxHeight: .infinity)
                 .navigationTitle(Text("Smart Goods"))
-                .background(AppColor.background.color)
+                .background(.clear)
                 .scrollContentBackground(.hidden)
                 .refreshable {
                     viewStore.send(.fetchRequirements)
@@ -79,12 +80,11 @@ struct MyRequirementView: View {
 
             Spacer()
 
-            // TODO: Check status from backend. Talk to backend.
-//            if requirement.status {
-//                Image(systemName: "checkmark.square.fill").foregroundColor(.green)
-//            } else {
-//                Image(systemName: "xmark.square.fill").foregroundColor(.red)
-//            }
+            if requirement.ruppScheme {
+                Text("OK")
+                    .foregroundColor(AppColor.success.color)
+                    .bold()
+            }
         }
         .padding()
         .listRowInsets(EdgeInsets(top: 8, leading: 1, bottom: 8, trailing: 5))
@@ -93,6 +93,7 @@ struct MyRequirementView: View {
     }
 }
 
+#if DEBUG
 struct MyRequirementView_Previews: PreviewProvider {
     static var previews: some View {
         MyRequirementView(
@@ -103,4 +104,4 @@ struct MyRequirementView_Previews: PreviewProvider {
         )
     }
 }
-
+#endif

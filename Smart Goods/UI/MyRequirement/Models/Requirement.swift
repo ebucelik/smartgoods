@@ -8,10 +8,9 @@
 import Foundation
 
 struct Requirement: Codable, Identifiable, Equatable {
-    let id: Int?
+    let id: Int
     let requirement: String
-    let userUUID: String
-    let isRupp: Bool?
+    let ruppScheme: Bool
 }
 
 extension Requirement {
@@ -19,27 +18,23 @@ extension Requirement {
         Requirement(
             id: 0,
             requirement: "The system shall be able to check requirements",
-            userUUID: "uuid",
-            isRupp: true
+            ruppScheme: true
         ),
         Requirement(
             id: 1,
             requirement: "The system should be process data quickly",
-            userUUID: "uuid",
-            isRupp: true
+            ruppScheme: true
         ),
         Requirement(
             id: 2,
             requirement: "The system can do something",
-            userUUID: "uuid",
-            isRupp: false
+            ruppScheme: false
         )
     ]
     
     static let mockRequirement = Requirement(
         id: 0,
         requirement: "The system shall be able to check requirements",
-        userUUID: "uuid",
-        isRupp: true
+        ruppScheme: true
     )
 }

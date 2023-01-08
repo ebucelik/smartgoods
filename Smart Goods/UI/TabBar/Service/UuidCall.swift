@@ -8,7 +8,9 @@
 import Foundation
 
 struct UuidCall: Call {
-    var path = "/user/registration/"
+    var path = "/user/register/"
 
     let httpMethod: HTTPMethod = .POST
+
+    let httpBody: Encodable?
 }
