@@ -17,9 +17,9 @@ public protocol Call {
 }
 
 public extension Call {
-    var httpScheme: String { "https://" }
+    var httpScheme: String { "http://" }
 
-    var host: String { "smartgoods.osc-fr1.scalingo.io" }
+    var host: String { "localhost" }
 
     var httpMethod: HTTPMethod { .GET }
 

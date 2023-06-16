@@ -17,4 +17,5 @@ struct AppColor {
 
     static let success = #colorLiteral(red: 0.2823529412, green: 0.631372549, blue: 0.3019607843, alpha: 1)
     static let error = #colorLiteral(red: 0.7019607843, green: 0.2470588235, blue: 0.2509803922, alpha: 1)
+    static let info = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
 }

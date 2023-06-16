@@ -14,6 +14,11 @@
 		710E2D85291196E6003AC591 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710E2D84291196E6003AC591 /* SceneDelegate.swift */; };
 		710E2D8C291196E7003AC591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 710E2D8B291196E7003AC591 /* Assets.xcassets */; };
 		710E2D8F291196E7003AC591 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 710E2D8D291196E7003AC591 /* LaunchScreen.storyboard */; };
+		712C07362A3CBC380034D657 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C07352A3CBC380034D657 /* Account.swift */; };
+		712C073B2A3CBD2A0034D657 /* LoginCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C073A2A3CBD2A0034D657 /* LoginCore.swift */; };
+		712C073D2A3CBD760034D657 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C073C2A3CBD760034D657 /* LoginView.swift */; };
+		712C073F2A3CC2630034D657 /* SmartGoodsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C073E2A3CC2630034D657 /* SmartGoodsTextField.swift */; };
+		712C07412A3CCA350034D657 /* SmartGoodsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C07402A3CCA350034D657 /* SmartGoodsButton.swift */; };
 		71469DA2293B6EE000EF8225 /* CreateRequirementCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71469DA1293B6EE000EF8225 /* CreateRequirementCore.swift */; };
 		71469DA5293B6F5900EF8225 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71469DA4293B6F5900EF8225 /* Loadable.swift */; };
 		714FCC7B29699A0400AA3F48 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FCC7A29699A0400AA3F48 /* View+Extensions.swift */; };
@@ -76,6 +81,11 @@
 		710E2D8B291196E7003AC591 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		710E2D8E291196E7003AC591 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		710E2D90291196E7003AC591 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		712C07352A3CBC380034D657 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		712C073A2A3CBD2A0034D657 /* LoginCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCore.swift; sourceTree = "<group>"; };
+		712C073C2A3CBD760034D657 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		712C073E2A3CC2630034D657 /* SmartGoodsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartGoodsTextField.swift; sourceTree = "<group>"; };
+		712C07402A3CCA350034D657 /* SmartGoodsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartGoodsButton.swift; sourceTree = "<group>"; };
 		71469DA1293B6EE000EF8225 /* CreateRequirementCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementCore.swift; sourceTree = "<group>"; };
 		71469DA4293B6F5900EF8225 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		714FCC7A29699A0400AA3F48 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
@@ -174,6 +184,39 @@
 			path = "Smart Goods";
 			sourceTree = "<group>";
 		};
+		712C07342A3CBC2A0034D657 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				712C07352A3CBC380034D657 /* Account.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		712C07372A3CBCFC0034D657 /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				712C07392A3CBD0B0034D657 /* Register */,
+				712C07382A3CBD060034D657 /* Login */,
+			);
+			path = Entry;
+			sourceTree = "<group>";
+		};
+		712C07382A3CBD060034D657 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				712C073A2A3CBD2A0034D657 /* LoginCore.swift */,
+				712C073C2A3CBD760034D657 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		712C07392A3CBD0B0034D657 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		71469DA0293B6EC900EF8225 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +236,8 @@
 				71CB9DBE29479A48004C37D3 /* AppColor.swift */,
 				716DB8CA295C57B9003BF4A9 /* ErrorView.swift */,
 				71CC1AA9295D00CA0095B55C /* Environment.swift */,
+				712C073E2A3CC2630034D657 /* SmartGoodsTextField.swift */,
+				712C07402A3CCA350034D657 /* SmartGoodsButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -285,6 +330,7 @@
 		71754E282916ED6E001A3176 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				712C07372A3CBCFC0034D657 /* Entry */,
 				71BA43BF294DD352003534B6 /* Account */,
 				71E775AD2933EA560016FC15 /* CreateRequirement */,
 				934C77952916F6E800ED21DE /* MyRequirement */,
@@ -323,6 +369,7 @@
 		71BA43BF294DD352003534B6 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				712C07342A3CBC2A0034D657 /* Model */,
 				71BA43C1294DD369003534B6 /* View */,
 				71BA43C0294DD35E003534B6 /* Core */,
 			);
@@ -512,9 +559,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				712C07412A3CCA350034D657 /* SmartGoodsButton.swift in Sources */,
 				93E453AE295F7BEC00F43259 /* CheckRequirementCall.swift in Sources */,
+				712C07362A3CBC380034D657 /* Account.swift in Sources */,
 				716DB8C3295C4C22003BF4A9 /* UuidCall.swift in Sources */,
 				716DB8C1295C4B77003BF4A9 /* TabBarService.swift in Sources */,
+				712C073D2A3CBD760034D657 /* LoginView.swift in Sources */,
 				71469DA2293B6EE000EF8225 /* CreateRequirementCore.swift in Sources */,
 				71469DA5293B6F5900EF8225 /* Loadable.swift in Sources */,
 				934C77982916F76C00ED21DE /* MyRequirementView.swift in Sources */,
@@ -541,10 +591,12 @@
 				71F1CA1C293CC3F0005300C2 /* LoadingView.swift in Sources */,
 				716DB8C9295C5461003BF4A9 /* DispatchQueue+Extensions.swift in Sources */,
 				71742B5D291AF5260026B389 /* HTTPError.swift in Sources */,
+				712C073B2A3CBD2A0034D657 /* LoginCore.swift in Sources */,
 				71CC1AAA295D00CA0095B55C /* Environment.swift in Sources */,
 				93E453A6295F2EDD00F43259 /* CreateRequirementServiceProtocol.swift in Sources */,
 				716DB8D6295C95A3003BF4A9 /* Requirement.swift in Sources */,
 				71E775B02933EAC20016FC15 /* CreateRequirementView.swift in Sources */,
+				712C073F2A3CC2630034D657 /* SmartGoodsTextField.swift in Sources */,
 				71BA43C3294DD37F003534B6 /* AccountView.swift in Sources */,
 				71F1CA1E293CC72D005300C2 /* RoundedVStack.swift in Sources */,
 				710E2D83291196E6003AC591 /* AppDelegate.swift in Sources */,
