@@ -15,7 +15,7 @@ public enum Loadable<Item>: Equatable where Item: Codable, Item: Equatable {
 
     var isLoading: Bool {
         switch self {
-        case .loading, .none:
+        case .loading:
             return true
         default:
             return false

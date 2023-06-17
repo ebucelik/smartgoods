@@ -14,11 +14,6 @@ extension DependencyValues {
         set { self[DispatchQueue.self] = newValue }
     }
 
-    var tabBarService: TabBarService {
-        get { self[TabBarService.self] }
-        set { self[TabBarService.self] = newValue }
-    }
-
     var myRequirementService: MyRequirementService {
         get { self[MyRequirementService.self] }
         set { self[MyRequirementService.self] = newValue }
@@ -27,5 +22,15 @@ extension DependencyValues {
     var createRequirementService: CreateRequirementService {
         get { self[CreateRequirementService.self] }
         set { self[CreateRequirementService.self] = newValue }
+    }
+
+    var loginService: LoginService {
+        get { self[LoginService.self] }
+        set { self[LoginService.self] = newValue }
+    }
+
+    var registerService: RegisterService {
+        get { self[RegisterService.self] }
+        set { self[RegisterService.self] = newValue }
     }
 }

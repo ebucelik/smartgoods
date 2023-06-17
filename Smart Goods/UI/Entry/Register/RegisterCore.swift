@@ -1,26 +1,26 @@
 //
-//  LoginCore.swift
+//  RegisterCore.swift
 //  Smart Goods
 //
-//  Created by Ing. Ebu Celik, BSc on 16.06.23.
+//  Created by Ing. Ebu Celik, BSc on 17.06.23.
 //
 
 import ComposableArchitecture
 
-struct LoginCore: ReducerProtocol {
+struct RegisterCore: ReducerProtocol {
     struct State: Equatable {
-        @BindingState var login: Login = .empty
+        @BindingState var register: Register = .empty
         var account: Loadable<Account> = .none
     }
 
     enum Action: BindableAction, Equatable {
-        case login
+        case register
         case accountStateChanged(Loadable<Account>)
-        case showRegister
+        case showLogin
         case binding(BindingAction<State>)
     }
 
-    @Dependency(\.loginService) var service
+    @Dependency(\.registerService) var service
     @Dependency(\.mainScheduler) var mainScheduler
 
     struct DebounceId: Hashable {}
@@ -30,29 +30,28 @@ struct LoginCore: ReducerProtocol {
 
         Reduce { state, action in
             switch action {
-            case .login:
-                if state.login.username.isEmpty || state.login.password.isEmpty {
+            case .register:
+                if state.register.username.isEmpty || state.register.password.isEmpty {
                     return .none
                 }
 
                 return .run { [state = state] send in
                     await send(.accountStateChanged(.loading))
 
-                    try await Task.sleep(for: .seconds(1))
-
-                    let account = try await self.service.login(state.login)
+                    let account = try await self.service.register(state.register)
 
                     await send(.accountStateChanged(.loaded(account)))
                 } catch: { error, send in
                     await send(.accountStateChanged(.error(.error(error.localizedDescription))))
                 }
+                .debounce(id: DebounceId(), for: 1, scheduler: self.mainScheduler)
 
             case let .accountStateChanged(accountState):
                 state.account = accountState
 
                 return .none
 
-            case .showRegister:
+            case .showLogin:
                 return .none
 
             case .binding:
@@ -61,3 +60,4 @@ struct LoginCore: ReducerProtocol {
         }
     }
 }
+

@@ -16,28 +16,13 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     let viewStore: ViewStore<TabBarCore.State, TabBarCore.Action>
     var cancellables: Set<AnyCancellable> = []
 
-    // MARK: Views
-    let loadingView: UIView = {
-        let loadingView = UIHostingController(rootView: LoadingView(tint: AppColor.primary.color))
-        loadingView.view.translatesAutoresizingMaskIntoConstraints = false
-        loadingView.view.backgroundColor = AppColor.background
-        loadingView.view.isHidden = true
-        return loadingView.view
-    }()
-
-    let errorView: UIView = {
-        let errorView = UIHostingController(rootView: ErrorView())
-        errorView.view.translatesAutoresizingMaskIntoConstraints = false
-        errorView.view.backgroundColor = AppColor.background
-        errorView.view.isHidden = false
-        return errorView.view
-    }()
-
     public init(store: Store<TabBarCore.State, TabBarCore.Action>) {
         self.store = store
         self.viewStore = ViewStore(store)
 
         super.init(nibName: nil, bundle: nil)
+
+        viewStore.send(.checkAccount)
     }
 
     required init?(coder: NSCoder) {
@@ -48,29 +33,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
 
         self.delegate = self
-
-        configureView()
-
-        setupConstraints()
-    }
-
-    private func configureView() {
-        view.addSubview(loadingView)
-        view.addSubview(errorView)
-    }
-
-    private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            loadingView.topAnchor.constraint(equalTo: view.topAnchor),
-            loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-
-            errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            errorView.topAnchor.constraint(equalTo: view.topAnchor),
-            errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            errorView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -81,37 +43,19 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
         configureStateObservation()
 
-        checkUuid()
-
         setupNavigationBar()
-
-        setupTabBarViews()
     }
 
     private func configureStateObservation() {
-        viewStore.publisher.uuidState
-            .sink { [self] uuidState in
-                switch uuidState {
-                case .loaded:
-                    loadingView.isHidden = true
-                    errorView.isHidden = true
-
-                case .loading, .none:
-                    loadingView.isHidden = false
-                    errorView.isHidden = true
-
-                case let .error(error):
-                    loadingView.isHidden = true
-                    errorView.isHidden = false // TODO: Show the incoming error in the view.
-
-                    print(error)
+        viewStore.publisher.account
+            .sink { [self] account in
+                if let account = account {
+                    setupTabBarViews(account: account)
+                } else {
+                    setupEntryView()
                 }
             }
             .store(in: &cancellables)
-    }
-
-    private func checkUuid() {
-        viewStore.send(.checkUuidAvailability("uuid"))
     }
 
     private func setupNavigationBar() {
@@ -126,7 +70,22 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
 
-    private func setupTabBarViews() {
+    private func setupEntryView() {
+        let entryViewController = UIHostingController(
+            rootView: EntryView(
+                store: store.scope(
+                    state: \.entry,
+                    action: TabBarCore.Action.entry
+                )
+            )
+        )
+
+        viewControllers = [
+            entryViewController
+        ]
+    }
+
+    private func setupTabBarViews(account: Account) {
         // MARK: My Requirement Tab
         let myRequirementViewController = UIHostingController(
             rootView: MyRequirementView(

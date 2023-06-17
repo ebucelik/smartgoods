@@ -1,16 +1,15 @@
 //
-//  LoginView.swift
+//  RegisterView.swift
 //  Smart Goods
 //
-//  Created by Ing. Ebu Celik, BSc on 16.06.23.
+//  Created by Ing. Ebu Celik, BSc on 17.06.23.
 //
 
 import SwiftUI
 import ComposableArchitecture
 
-struct LoginView: View {
-
-    let store: StoreOf<LoginCore>
+struct RegisterView: View {
+    let store: StoreOf<RegisterCore>
 
     var body: some View {
         WithViewStore(store) { viewStore in
@@ -24,33 +23,47 @@ struct LoginView: View {
 
                 SmartGoodsTextField(
                     imageName: "person.fill",
+                    placeholderText: "firstname",
+                    text: viewStore.binding(\.$register.firstName),
+                    isSecure: false
+                )
+
+                SmartGoodsTextField(
+                    imageName: "person.fill",
+                    placeholderText: "lastname",
+                    text: viewStore.binding(\.$register.lastName),
+                    isSecure: false
+                )
+
+                SmartGoodsTextField(
+                    imageName: "person.fill",
                     placeholderText: "username",
-                    text: viewStore.binding(\.$login.username),
+                    text: viewStore.binding(\.$register.username),
                     isSecure: false
                 )
 
                 SmartGoodsTextField(
                     imageName: "lock.fill",
                     placeholderText: "password",
-                    text: viewStore.binding(\.$login.password),
+                    text: viewStore.binding(\.$register.password),
                     isSecure: true
                 )
 
-                Text("Don't have an account? Sign up now.")
+                Text("Already have an account? Sign in now.")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(AppColor.info.color)
                     .font(.subheadline)
                     .onTapGesture {
-                        viewStore.send(.showRegister)
+                        viewStore.send(.showLogin)
                     }
 
                 Spacer()
 
                 SmartGoodsButton(
-                    text: "LOGIN",
+                    text: "REGISTER",
                     isLoading: viewStore.account.isLoading,
                     action: {
-                        viewStore.send(.login)
+                        viewStore.send(.register)
                     }
                 )
             }
@@ -59,12 +72,12 @@ struct LoginView: View {
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(
+        RegisterView(
             store: Store(
-                initialState: LoginCore.State(),
-                reducer: LoginCore()
+                initialState: RegisterCore.State(),
+                reducer: RegisterCore()
             )
         )
     }

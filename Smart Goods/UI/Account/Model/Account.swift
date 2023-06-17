@@ -11,12 +11,12 @@ public struct Account: Codable, Equatable {
     public var firstName: String
     public var lastName: String
     public var username: String
-    public var password: String
+    public var password: String?
 
     public init(firstName: String,
                 lastName: String,
                 username: String,
-                password: String) {
+                password: String?) {
         self.firstName = firstName
         self.lastName = lastName
         self.username = username
@@ -39,7 +39,7 @@ extension Account {
             firstName: "Ebu",
             lastName: "Bekir",
             username: "ebucelik",
-            password: ""
+            password: nil
         )
     }
 
@@ -48,7 +48,7 @@ extension Account {
             firstName: "",
             lastName: "",
             username: "",
-            password: ""
+            password: nil
         )
     }
 }

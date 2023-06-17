@@ -23,11 +23,13 @@ struct SmartGoodsTextField: View {
                     placeholderText,
                     text: $text
                 )
+                .textInputAutocapitalization(.never)
             } else {
                 TextField(
                     placeholderText,
                     text: $text
                 )
+                .textInputAutocapitalization(.never)
             }
         }
         .padding()

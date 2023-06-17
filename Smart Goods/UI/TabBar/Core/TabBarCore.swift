@@ -10,65 +10,48 @@ import ComposableArchitecture
 
 struct TabBarCore: ReducerProtocol {
     struct State: Equatable {
-        var uuidState: Loadable<String> = .none
+        var account: Account?
+        var entry: EntryCore.State = EntryCore.State()
     }
 
     enum Action: Equatable {
-        case checkUuidAvailability(String)
-        case createUuid(String)
-        case createRemoteUser(String)
-        case uuidStateChanged(Loadable<String>)
+        case entry(EntryCore.Action)
+        case checkAccount
     }
 
-    @Dependency(\.tabBarService) var service
-    @Dependency(\.mainScheduler) var scheduler
+    var body: some ReducerProtocol<State, Action> {
+        Scope(
+            state: \.entry,
+            action: /Action.entry
+        ) {
+            EntryCore()
+        }
+        
+        Reduce { state, action in
+            switch action {
+            case let .entry(action):
 
-    struct DebounceId: Hashable {}
+                switch action {
+                case let .loaded(account):
+                    state.account = account
 
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
-        switch action {
-        case let .checkUuidAvailability(forKey):
-
-            guard let uuid = UserDefaults.standard.object(forKey: forKey) as? String else {
-                return EffectTask(value: .createUuid(forKey))
-            }
-
-            return EffectTask(value: .uuidStateChanged(.loaded(uuid)))
-
-        case let .createUuid(forKey):
-            let uuid: String
-
-            if isRunningTest {
-                uuid = "uuid"
-            } else {
-                uuid = UUID().uuidString
-
-                UserDefaults.standard.set(uuid, forKey: forKey)
-            }
-
-            return EffectTask(value: .createRemoteUser(uuid))
-
-        case let .createRemoteUser(uuid):
-
-            return EffectTask.run { [uuid = uuid] send in
-                try await service.setUuid(with: uuid)
-
-                await send(.uuidStateChanged(.loaded(uuid)))
-            } catch: { error, send in
-                if let httpError = error as? HTTPError {
-                    await send(.uuidStateChanged(.error(httpError)))
-                } else {
-                    await send(.uuidStateChanged(.error(.error(error.localizedDescription))))
+                default:
+                    return .none
                 }
+
+                return .none
+
+            case .checkAccount:
+                if let accountData = UserDefaults.standard.data(forKey: "account") {
+                    do {
+                        state.account = try JSONDecoder().decode(Account.self, from: accountData)
+                    } catch {
+                        print("Decoding failed")
+                    }
+                }
+
+                return .none
             }
-            .debounce(id: DebounceId(), for: 1, scheduler: self.scheduler)
-            .prepend(.uuidStateChanged(.loading))
-            .eraseToEffect()
-
-        case let .uuidStateChanged(uuidState):
-            state.uuidState = uuidState
-
-            return .none
         }
     }
 }

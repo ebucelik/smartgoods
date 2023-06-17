@@ -14,13 +14,26 @@ struct SmartGoodsButton: View {
 
     var body: some View {
         HStack {
-            Text(text)
-                .frame(maxWidth: .infinity)
-                .padding()
+            if isLoading {
+                ProgressView()
+                    .tint(.white)
+                    .progressViewStyle(.circular)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+            } else {
+                Text(text)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .foregroundColor(.white)
+                    .bold()
+            }
         }
         .background(AppColor.primary.color.opacity(0.9))
         .cornerRadius(8)
         .padding()
+        .onTapGesture {
+            action()
+        }
     }
 }
 

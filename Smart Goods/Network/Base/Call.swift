@@ -19,7 +19,7 @@ public protocol Call {
 public extension Call {
     var httpScheme: String { "http://" }
 
-    var host: String { "localhost" }
+    var host: String { "localhost:8080/api/v2" }
 
     var httpMethod: HTTPMethod { .GET }
 

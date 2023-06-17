@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7103E136292A6AC100A007A7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 7103E135292A6AC100A007A7 /* ComposableArchitecture */; };
 		7103E138292A6AC100A007A7 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 7103E137292A6AC100A007A7 /* Dependencies */; };
 		7103E13A292A6B4700A007A7 /* TabBarCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103E139292A6B4700A007A7 /* TabBarCore.swift */; };
 		710E2D83291196E6003AC591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710E2D82291196E6003AC591 /* AppDelegate.swift */; };
@@ -19,15 +18,15 @@
 		712C073D2A3CBD760034D657 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C073C2A3CBD760034D657 /* LoginView.swift */; };
 		712C073F2A3CC2630034D657 /* SmartGoodsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C073E2A3CC2630034D657 /* SmartGoodsTextField.swift */; };
 		712C07412A3CCA350034D657 /* SmartGoodsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C07402A3CCA350034D657 /* SmartGoodsButton.swift */; };
+		712DB61F2A3DD5B20024DDE6 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DB61E2A3DD5B20024DDE6 /* Login.swift */; };
+		712DB6212A3DD6320024DDE6 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DB6202A3DD6320024DDE6 /* LoginService.swift */; };
+		712DB6232A3DD66D0024DDE6 /* LoginCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DB6222A3DD66D0024DDE6 /* LoginCall.swift */; };
+		712DB6252A3DDAEF0024DDE6 /* EntryCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DB6242A3DDAEF0024DDE6 /* EntryCore.swift */; };
 		71469DA2293B6EE000EF8225 /* CreateRequirementCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71469DA1293B6EE000EF8225 /* CreateRequirementCore.swift */; };
 		71469DA5293B6F5900EF8225 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71469DA4293B6F5900EF8225 /* Loadable.swift */; };
 		714FCC7B29699A0400AA3F48 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FCC7A29699A0400AA3F48 /* View+Extensions.swift */; };
-		714FCC7E2969ADE300AA3F48 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FCC7D2969ADE300AA3F48 /* Register.swift */; };
 		714FCC812969AE8600AA3F48 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FCC802969AE8600AA3F48 /* Message.swift */; };
-		716DB8C1295C4B77003BF4A9 /* TabBarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8C0295C4B77003BF4A9 /* TabBarService.swift */; };
-		716DB8C3295C4C22003BF4A9 /* UuidCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8C2295C4C22003BF4A9 /* UuidCall.swift */; };
 		716DB8C5295C4F13003BF4A9 /* DependencyValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8C4295C4F13003BF4A9 /* DependencyValues.swift */; };
-		716DB8C7295C4F3A003BF4A9 /* TabBarServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8C6295C4F3A003BF4A9 /* TabBarServiceProtocol.swift */; };
 		716DB8C9295C5461003BF4A9 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8C8295C5461003BF4A9 /* DispatchQueue+Extensions.swift */; };
 		716DB8CB295C57B9003BF4A9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8CA295C57B9003BF4A9 /* ErrorView.swift */; };
 		716DB8CD295C5A99003BF4A9 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8CC295C5A99003BF4A9 /* UserDefaults+Extensions.swift */; };
@@ -45,13 +44,19 @@
 		71BA43C5294DD60E003534B6 /* AccountCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BA43C4294DD60E003534B6 /* AccountCore.swift */; };
 		71CB9DBF29479A48004C37D3 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CB9DBE29479A48004C37D3 /* AppColor.swift */; };
 		71CB9DC12947A345004C37D3 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CB9DC02947A345004C37D3 /* UIColor+Extensions.swift */; };
-		71CC1AA6295CFC6B0095B55C /* TabBarServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC1AA5295CFC6B0095B55C /* TabBarServiceMock.swift */; };
 		71CC1AA8295CFED10095B55C /* MyRequirementServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC1AA7295CFED10095B55C /* MyRequirementServiceMock.swift */; };
 		71CC1AAA295D00CA0095B55C /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC1AA9295D00CA0095B55C /* Environment.swift */; };
 		71CC1AAC295D083F0095B55C /* MyRequirementCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC1AAB295D083F0095B55C /* MyRequirementCoreTests.swift */; };
 		71E775B02933EAC20016FC15 /* CreateRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775AF2933EAC20016FC15 /* CreateRequirementView.swift */; };
 		71E775B22933EAD00016FC15 /* SubviewRupp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775B12933EAD00016FC15 /* SubviewRupp.swift */; };
 		71E775B42933EAD90016FC15 /* SubviewNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E775B32933EAD90016FC15 /* SubviewNone.swift */; };
+		71E79B2C2A3DE14B00882AEA /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 71E79B2B2A3DE14B00882AEA /* ComposableArchitecture */; };
+		71E79B2E2A3DE29200882AEA /* RegisterCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E79B2D2A3DE29200882AEA /* RegisterCore.swift */; };
+		71E79B302A3DE2B700882AEA /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E79B2F2A3DE2B700882AEA /* Register.swift */; };
+		71E79B322A3DE3DF00882AEA /* RegisterCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E79B312A3DE3DF00882AEA /* RegisterCall.swift */; };
+		71E79B342A3DE40E00882AEA /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E79B332A3DE40E00882AEA /* RegisterService.swift */; };
+		71E79B362A3DE4A700882AEA /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E79B352A3DE4A700882AEA /* RegisterView.swift */; };
+		71E79B382A3DE55400882AEA /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E79B372A3DE55400882AEA /* EntryView.swift */; };
 		71F1CA1C293CC3F0005300C2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F1CA1B293CC3F0005300C2 /* LoadingView.swift */; };
 		71F1CA1E293CC72D005300C2 /* RoundedVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F1CA1D293CC72D005300C2 /* RoundedVStack.swift */; };
 		71F1CA20293CD4BB005300C2 /* CreateRequirementCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F1CA1F293CD4BB005300C2 /* CreateRequirementCoreTests.swift */; };
@@ -86,15 +91,15 @@
 		712C073C2A3CBD760034D657 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		712C073E2A3CC2630034D657 /* SmartGoodsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartGoodsTextField.swift; sourceTree = "<group>"; };
 		712C07402A3CCA350034D657 /* SmartGoodsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartGoodsButton.swift; sourceTree = "<group>"; };
+		712DB61E2A3DD5B20024DDE6 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		712DB6202A3DD6320024DDE6 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		712DB6222A3DD66D0024DDE6 /* LoginCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCall.swift; sourceTree = "<group>"; };
+		712DB6242A3DDAEF0024DDE6 /* EntryCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCore.swift; sourceTree = "<group>"; };
 		71469DA1293B6EE000EF8225 /* CreateRequirementCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementCore.swift; sourceTree = "<group>"; };
 		71469DA4293B6F5900EF8225 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		714FCC7A29699A0400AA3F48 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
-		714FCC7D2969ADE300AA3F48 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		714FCC802969AE8600AA3F48 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		716DB8C0295C4B77003BF4A9 /* TabBarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarService.swift; sourceTree = "<group>"; };
-		716DB8C2295C4C22003BF4A9 /* UuidCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuidCall.swift; sourceTree = "<group>"; };
 		716DB8C4295C4F13003BF4A9 /* DependencyValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyValues.swift; sourceTree = "<group>"; };
-		716DB8C6295C4F3A003BF4A9 /* TabBarServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarServiceProtocol.swift; sourceTree = "<group>"; };
 		716DB8C8295C5461003BF4A9 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
 		716DB8CA295C57B9003BF4A9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		716DB8CC295C5A99003BF4A9 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
@@ -112,13 +117,18 @@
 		71BA43C4294DD60E003534B6 /* AccountCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCore.swift; sourceTree = "<group>"; };
 		71CB9DBE29479A48004C37D3 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		71CB9DC02947A345004C37D3 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
-		71CC1AA5295CFC6B0095B55C /* TabBarServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarServiceMock.swift; sourceTree = "<group>"; };
 		71CC1AA7295CFED10095B55C /* MyRequirementServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequirementServiceMock.swift; sourceTree = "<group>"; };
 		71CC1AA9295D00CA0095B55C /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		71CC1AAB295D083F0095B55C /* MyRequirementCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequirementCoreTests.swift; sourceTree = "<group>"; };
 		71E775AF2933EAC20016FC15 /* CreateRequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementView.swift; sourceTree = "<group>"; };
 		71E775B12933EAD00016FC15 /* SubviewRupp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewRupp.swift; sourceTree = "<group>"; };
 		71E775B32933EAD90016FC15 /* SubviewNone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewNone.swift; sourceTree = "<group>"; };
+		71E79B2D2A3DE29200882AEA /* RegisterCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCore.swift; sourceTree = "<group>"; };
+		71E79B2F2A3DE2B700882AEA /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		71E79B312A3DE3DF00882AEA /* RegisterCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCall.swift; sourceTree = "<group>"; };
+		71E79B332A3DE40E00882AEA /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
+		71E79B352A3DE4A700882AEA /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		71E79B372A3DE55400882AEA /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		71E8DA1D29301A6C0075F9F3 /* Smart GoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart GoodsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71F1CA1B293CC3F0005300C2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		71F1CA1D293CC72D005300C2 /* RoundedVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedVStack.swift; sourceTree = "<group>"; };
@@ -136,7 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7103E136292A6AC100A007A7 /* ComposableArchitecture in Frameworks */,
+				71E79B2C2A3DE14B00882AEA /* ComposableArchitecture in Frameworks */,
 				7103E138292A6AC100A007A7 /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,6 +167,7 @@
 				710E2D81291196E6003AC591 /* Smart Goods */,
 				71E8DA1E29301A6C0075F9F3 /* Smart GoodsTests */,
 				710E2D80291196E6003AC591 /* Products */,
+				71E79B2A2A3DE14B00882AEA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,6 +208,8 @@
 			children = (
 				712C07392A3CBD0B0034D657 /* Register */,
 				712C07382A3CBD060034D657 /* Login */,
+				712DB6242A3DDAEF0024DDE6 /* EntryCore.swift */,
+				71E79B372A3DE55400882AEA /* EntryView.swift */,
 			);
 			path = Entry;
 			sourceTree = "<group>";
@@ -206,6 +219,9 @@
 			children = (
 				712C073A2A3CBD2A0034D657 /* LoginCore.swift */,
 				712C073C2A3CBD760034D657 /* LoginView.swift */,
+				712DB61E2A3DD5B20024DDE6 /* Login.swift */,
+				712DB6202A3DD6320024DDE6 /* LoginService.swift */,
+				712DB6222A3DD66D0024DDE6 /* LoginCall.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -213,6 +229,11 @@
 		712C07392A3CBD0B0034D657 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				71E79B2D2A3DE29200882AEA /* RegisterCore.swift */,
+				71E79B2F2A3DE2B700882AEA /* Register.swift */,
+				71E79B312A3DE3DF00882AEA /* RegisterCall.swift */,
+				71E79B332A3DE40E00882AEA /* RegisterService.swift */,
+				71E79B352A3DE4A700882AEA /* RegisterView.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -253,31 +274,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		714FCC7C2969ADD300AA3F48 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				714FCC7D2969ADE300AA3F48 /* Register.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		714FCC7F2969AE7E00AA3F48 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				714FCC802969AE8600AA3F48 /* Message.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		716DB8BF295C4B54003BF4A9 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				716DB8C6295C4F3A003BF4A9 /* TabBarServiceProtocol.swift */,
-				716DB8C0295C4B77003BF4A9 /* TabBarService.swift */,
-				716DB8C2295C4C22003BF4A9 /* UuidCall.swift */,
-				71CC1AA5295CFC6B0095B55C /* TabBarServiceMock.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		716DB8CE295C953B003BF4A9 /* Core */ = {
@@ -342,8 +344,6 @@
 		71754E292916EDB6001A3176 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				714FCC7C2969ADD300AA3F48 /* Models */,
-				716DB8BF295C4B54003BF4A9 /* Service */,
 				71754E2C2916EDDE001A3176 /* Core */,
 				71754E2A2916EDC5001A3176 /* View */,
 			);
@@ -412,6 +412,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		71E79B2A2A3DE14B00882AEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		71E8DA1E29301A6C0075F9F3 /* Smart GoodsTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,8 +476,8 @@
 			);
 			name = "Smart Goods";
 			packageProductDependencies = (
-				7103E135292A6AC100A007A7 /* ComposableArchitecture */,
 				7103E137292A6AC100A007A7 /* Dependencies */,
+				71E79B2B2A3DE14B00882AEA /* ComposableArchitecture */,
 			);
 			productName = "Smart Goods";
 			productReference = 710E2D7F291196E6003AC591 /* Smart Goods.app */;
@@ -562,15 +569,15 @@
 				712C07412A3CCA350034D657 /* SmartGoodsButton.swift in Sources */,
 				93E453AE295F7BEC00F43259 /* CheckRequirementCall.swift in Sources */,
 				712C07362A3CBC380034D657 /* Account.swift in Sources */,
-				716DB8C3295C4C22003BF4A9 /* UuidCall.swift in Sources */,
-				716DB8C1295C4B77003BF4A9 /* TabBarService.swift in Sources */,
 				712C073D2A3CBD760034D657 /* LoginView.swift in Sources */,
 				71469DA2293B6EE000EF8225 /* CreateRequirementCore.swift in Sources */,
 				71469DA5293B6F5900EF8225 /* Loadable.swift in Sources */,
 				934C77982916F76C00ED21DE /* MyRequirementView.swift in Sources */,
 				716DB8C5295C4F13003BF4A9 /* DependencyValues.swift in Sources */,
+				71E79B322A3DE3DF00882AEA /* RegisterCall.swift in Sources */,
 				71CB9DBF29479A48004C37D3 /* AppColor.swift in Sources */,
 				716DB8CB295C57B9003BF4A9 /* ErrorView.swift in Sources */,
+				71E79B302A3DE2B700882AEA /* Register.swift in Sources */,
 				716DB8D1295C9551003BF4A9 /* MyRequirementCore.swift in Sources */,
 				714FCC812969AE8600AA3F48 /* Message.swift in Sources */,
 				714FCC7B29699A0400AA3F48 /* View+Extensions.swift in Sources */,
@@ -579,31 +586,36 @@
 				716DB8D3295C955B003BF4A9 /* MyRequirementServiceProtocol.swift in Sources */,
 				716DB8D8295C9668003BF4A9 /* MyRequirementService.swift in Sources */,
 				93E453AA295F33DE00F43259 /* CreateRequirementService.swift in Sources */,
-				716DB8C7295C4F3A003BF4A9 /* TabBarServiceProtocol.swift in Sources */,
+				712DB61F2A3DD5B20024DDE6 /* Login.swift in Sources */,
 				71E775B22933EAD00016FC15 /* SubviewRupp.swift in Sources */,
-				714FCC7E2969ADE300AA3F48 /* Register.swift in Sources */,
 				71CB9DC12947A345004C37D3 /* UIColor+Extensions.swift in Sources */,
+				712DB6252A3DDAEF0024DDE6 /* EntryCore.swift in Sources */,
 				716DB8CD295C5A99003BF4A9 /* UserDefaults+Extensions.swift in Sources */,
 				716DB8DA295C968C003BF4A9 /* MyRequirementCall.swift in Sources */,
-				71CC1AA6295CFC6B0095B55C /* TabBarServiceMock.swift in Sources */,
+				71E79B342A3DE40E00882AEA /* RegisterService.swift in Sources */,
 				71754E2E2916EDF9001A3176 /* TabBarController.swift in Sources */,
+				71E79B382A3DE55400882AEA /* EntryView.swift in Sources */,
 				71E775B42933EAD90016FC15 /* SubviewNone.swift in Sources */,
 				71F1CA1C293CC3F0005300C2 /* LoadingView.swift in Sources */,
 				716DB8C9295C5461003BF4A9 /* DispatchQueue+Extensions.swift in Sources */,
 				71742B5D291AF5260026B389 /* HTTPError.swift in Sources */,
+				712DB6212A3DD6320024DDE6 /* LoginService.swift in Sources */,
 				712C073B2A3CBD2A0034D657 /* LoginCore.swift in Sources */,
 				71CC1AAA295D00CA0095B55C /* Environment.swift in Sources */,
+				712DB6232A3DD66D0024DDE6 /* LoginCall.swift in Sources */,
 				93E453A6295F2EDD00F43259 /* CreateRequirementServiceProtocol.swift in Sources */,
 				716DB8D6295C95A3003BF4A9 /* Requirement.swift in Sources */,
 				71E775B02933EAC20016FC15 /* CreateRequirementView.swift in Sources */,
 				712C073F2A3CC2630034D657 /* SmartGoodsTextField.swift in Sources */,
 				71BA43C3294DD37F003534B6 /* AccountView.swift in Sources */,
+				71E79B362A3DE4A700882AEA /* RegisterView.swift in Sources */,
 				71F1CA1E293CC72D005300C2 /* RoundedVStack.swift in Sources */,
 				710E2D83291196E6003AC591 /* AppDelegate.swift in Sources */,
 				93E453AC295F385900F43259 /* CreateRequirementServiceMock.swift in Sources */,
 				71742B55291AEC840026B389 /* HTTPClient.swift in Sources */,
 				7103E13A292A6B4700A007A7 /* TabBarCore.swift in Sources */,
 				71CC1AA8295CFED10095B55C /* MyRequirementServiceMock.swift in Sources */,
+				71E79B2E2A3DE29200882AEA /* RegisterCore.swift in Sources */,
 				93E453A8295F300F00F43259 /* SaveRequirementCall.swift in Sources */,
 				71BA43C5294DD60E003534B6 /* AccountCore.swift in Sources */,
 				710E2D85291196E6003AC591 /* SceneDelegate.swift in Sources */,
@@ -902,22 +914,22 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
 			requirement = {
-				kind = exactVersion;
-				version = 0.46.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.46.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7103E135292A6AC100A007A7 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7103E134292A6AC100A007A7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
 		7103E137292A6AC100A007A7 /* Dependencies */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7103E134292A6AC100A007A7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = Dependencies;
+		};
+		71E79B2B2A3DE14B00882AEA /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7103E134292A6AC100A007A7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
