@@ -102,7 +102,7 @@ struct MyRequirementView_Previews: PreviewProvider {
     static var previews: some View {
         MyRequirementView(
             store: Store(
-                initialState: MyRequirementCore.State(),
+                initialState: MyRequirementCore.State(account: .mock),
                 reducer: MyRequirementCore()
             )
         )

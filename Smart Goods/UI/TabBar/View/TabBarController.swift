@@ -90,7 +90,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let myRequirementViewController = UIHostingController(
             rootView: MyRequirementView(
                 store: Store(
-                    initialState: MyRequirementCore.State(),
+                    initialState: MyRequirementCore.State(account: account),
                     reducer: MyRequirementCore()
                 )
             )
@@ -108,7 +108,11 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let createRequirementViewController = UIHostingController(
             rootView: CreateRequirementView(
                 store: Store(
-                    initialState: CreateRequirementCore.State(customRequirement: "", requirement: ""),
+                    initialState: CreateRequirementCore.State(
+                        account: account,
+                        customRequirement: "",
+                        requirement: ""
+                    ),
                     reducer: CreateRequirementCore()
                 )
             )
@@ -123,27 +127,38 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         createRequirementViewController.tabBarItem = createRequirementTabBarItem
 
         // MARK: Account Tab
-        let accountViewController = UIHostingController(
-            rootView: AccountView(
-                store: Store(
-                    initialState: AccountCore.State(),
-                    reducer: AccountCore()
-                )
+        store
+            .scope(
+                state: \.accountState,
+                action: TabBarCore.Action.account
             )
-        )
+            .ifLet(
+                then: { accountStore in
+                    let accountViewController = UIHostingController(
+                        rootView: AccountView(
+                            store: accountStore
+                        )
+                    )
 
-        let accountTabBarItem = UITabBarItem(
-            title: nil,
-            image: UIImage(systemName: "person.fill"),
-            tag: 2
-        )
+                    let accountTabBarItem = UITabBarItem(
+                        title: nil,
+                        image: UIImage(systemName: "person.fill"),
+                        tag: 2
+                    )
 
-        accountViewController.tabBarItem = accountTabBarItem
+                    accountViewController.tabBarItem = accountTabBarItem
 
-        self.viewControllers = [
-            myRequirementViewController,
-            createRequirementViewController,
-            accountViewController
-        ]
+                    self.viewControllers = [
+                        myRequirementViewController,
+                        createRequirementViewController,
+                        accountViewController
+                    ]
+                }, else: {
+                    self.viewControllers = [
+                        myRequirementViewController,
+                        createRequirementViewController
+                    ]
+                }
+            ).store(in: &cancellables)
     }
 }

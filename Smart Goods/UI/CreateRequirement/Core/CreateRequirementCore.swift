@@ -18,19 +18,21 @@ struct CreateRequirementCore: ReducerProtocol {
     }
     
     struct State: Equatable {
-        @BindableState var customRequirement: String
-        @BindableState var requirement: String
-        
-        @BindableState var selectedScheme: Scheme = .rupp
-        @BindableState var showCheckAlert: Bool = false
+        let account: Account
 
-        var requirementSaved: Loadable<Message> = .none
+        @BindingState var customRequirement: String
+        @BindingState var requirement: String
+        
+        @BindingState var selectedScheme: Scheme = .rupp
+        @BindingState var showCheckAlert: Bool = false
+
+        var requirementSaved: Loadable<Info> = .none
         var requirementChecked: Loadable<Bool> = .none
     }
 
     enum Action: BindableAction, Equatable {
         case saveRequirement(Scheme)
-        case requirementSavedStateChange(Loadable<Message>)
+        case requirementSavedStateChange(Loadable<Info>)
 
         case checkRequirement(Scheme)
         case requirementCheckedStateChange(Loadable<Bool>)

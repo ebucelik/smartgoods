@@ -14,51 +14,66 @@ struct AccountView: View {
     var body: some View {
         WithViewStore(store) { viewStore in
             NavigationStack {
-                VStack(spacing: 24) {
-                    switch viewStore.state.uuid {
-                    case .loading:
-                        ProgressView()
-                            .progressViewStyle(.circular)
-                    case let .loaded(uuid):
-                        loggedInBody(uuid)
+                VStack(spacing: 10) {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Firstname")
+                            .bold()
 
-                    default:
-                        loggedOutBody()
+                        Text(viewStore.account.firstName)
+                            .padding(.leading, 8)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Lastname")
+                            .bold()
+
+                        Text(viewStore.account.lastName)
+                            .padding(.leading, 8)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Username")
+                            .bold()
+
+                        Text(viewStore.account.username)
+                            .padding(.leading, 8)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                    Spacer()
+                        .frame(height: 25)
+
+                    Text("Change password")
+                        .foregroundColor(AppColor.info.color)
+                        .onTapGesture {
+                            viewStore.send(.showNewPassword)
+                        }
+
+                    Spacer()
+                }
+                .padding()
+                .navigationTitle("Account")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Image(systemName: "rectangle.portrait.and.arrow.forward")
+                            .foregroundColor(.white)
+                            .onTapGesture {
+                                viewStore.send(.logout)
+                            }
                     }
                 }
-                .padding(.horizontal, 16)
-                .navigationTitle("Account")
-                .onAppear {
-                    if case .none = viewStore.uuid {
-                        viewStore.send(.checkIfUuidAvailable("uuid"))
-                    }
+                .sheet(
+                    store: store.scope(
+                        state: \.$newPassword,
+                        action: AccountCore.Action.newPassword
+                    )
+                ) { newPasswordStore in
+                    NewPasswordView(store: newPasswordStore)
                 }
             }
         }
-    }
-
-    @ViewBuilder
-    private func loggedInBody(_ uuid: String) -> some View {
-        Image(systemName: "person.crop.circle").renderingMode(.template)
-            .resizable()
-            .frame(maxWidth: 100, maxHeight: 100)
-            .foregroundColor(AppColor.quinary.color)
-            .padding(.top, 24)
-
-        Text("Your UUID is \(uuid)")
-            .padding()
-
-        Spacer()
-    }
-
-    @ViewBuilder func loggedOutBody() -> some View {
-        Image(systemName: "info.circle").renderingMode(.template)
-            .resizable()
-            .frame(maxWidth: 100, maxHeight: 100)
-            .foregroundColor(AppColor.quinary.color)
-
-        Text("Uups, you are not logged in.")
-            .padding()
     }
 }
 
@@ -67,7 +82,7 @@ struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
         AccountView(
             store: Store(
-                initialState: AccountCore.State(),
+                initialState: AccountCore.State(account: .mock),
                 reducer: AccountCore()
             )
         )

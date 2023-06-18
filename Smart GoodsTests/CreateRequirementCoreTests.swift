@@ -20,7 +20,7 @@ final class CreateRequirementCoreTests: XCTestCase {
             ),
             reducer: CreateRequirementCore()
         )
-        let expectedMessage = Message.mockSuccess
+        let expectedMessage = Info.mockSuccess
 
         //Arrange
         await store.send(.saveRequirement(.rupp))
@@ -78,7 +78,7 @@ final class CreateRequirementCoreTests: XCTestCase {
             ),
             reducer: CreateRequirementCore()
         )
-        let mockMessage = Message.mockSuccess
+        let mockMessage = Info.mockSuccess
         let mockCheck = true
 
         //Arrange

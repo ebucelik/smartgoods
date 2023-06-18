@@ -11,6 +11,7 @@ import ComposableArchitecture
 class MyRequirementCore: ReducerProtocol {
 
     struct State: Equatable {
+        let account: Account
         var requirementsState: Loadable<[Requirement]> = .none
         var requirements: [Requirement] = []
     }

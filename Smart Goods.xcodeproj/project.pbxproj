@@ -25,7 +25,7 @@
 		71469DA2293B6EE000EF8225 /* CreateRequirementCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71469DA1293B6EE000EF8225 /* CreateRequirementCore.swift */; };
 		71469DA5293B6F5900EF8225 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71469DA4293B6F5900EF8225 /* Loadable.swift */; };
 		714FCC7B29699A0400AA3F48 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FCC7A29699A0400AA3F48 /* View+Extensions.swift */; };
-		714FCC812969AE8600AA3F48 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FCC802969AE8600AA3F48 /* Message.swift */; };
+		714FCC812969AE8600AA3F48 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FCC802969AE8600AA3F48 /* Info.swift */; };
 		716DB8C5295C4F13003BF4A9 /* DependencyValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8C4295C4F13003BF4A9 /* DependencyValues.swift */; };
 		716DB8C9295C5461003BF4A9 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8C8295C5461003BF4A9 /* DispatchQueue+Extensions.swift */; };
 		716DB8CB295C57B9003BF4A9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DB8CA295C57B9003BF4A9 /* ErrorView.swift */; };
@@ -42,6 +42,11 @@
 		71754E2E2916EDF9001A3176 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71754E2D2916EDF9001A3176 /* TabBarController.swift */; };
 		71BA43C3294DD37F003534B6 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BA43C2294DD37F003534B6 /* AccountView.swift */; };
 		71BA43C5294DD60E003534B6 /* AccountCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BA43C4294DD60E003534B6 /* AccountCore.swift */; };
+		71BE2B022A3F1649004DAD31 /* NewPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE2B012A3F1649004DAD31 /* NewPassword.swift */; };
+		71BE2B052A3F16C3004DAD31 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE2B042A3F16C3004DAD31 /* AccountService.swift */; };
+		71BE2B072A3F17AF004DAD31 /* NewPasswordCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE2B062A3F17AF004DAD31 /* NewPasswordCall.swift */; };
+		71BE2B092A3F214A004DAD31 /* NewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE2B082A3F214A004DAD31 /* NewPasswordView.swift */; };
+		71BE2B0B2A3F215E004DAD31 /* NewPasswordCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE2B0A2A3F215E004DAD31 /* NewPasswordCore.swift */; };
 		71CB9DBF29479A48004C37D3 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CB9DBE29479A48004C37D3 /* AppColor.swift */; };
 		71CB9DC12947A345004C37D3 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CB9DC02947A345004C37D3 /* UIColor+Extensions.swift */; };
 		71CC1AA8295CFED10095B55C /* MyRequirementServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC1AA7295CFED10095B55C /* MyRequirementServiceMock.swift */; };
@@ -98,7 +103,7 @@
 		71469DA1293B6EE000EF8225 /* CreateRequirementCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementCore.swift; sourceTree = "<group>"; };
 		71469DA4293B6F5900EF8225 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		714FCC7A29699A0400AA3F48 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
-		714FCC802969AE8600AA3F48 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		714FCC802969AE8600AA3F48 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		716DB8C4295C4F13003BF4A9 /* DependencyValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyValues.swift; sourceTree = "<group>"; };
 		716DB8C8295C5461003BF4A9 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
 		716DB8CA295C57B9003BF4A9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -115,6 +120,11 @@
 		71754E2D2916EDF9001A3176 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		71BA43C2294DD37F003534B6 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		71BA43C4294DD60E003534B6 /* AccountCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCore.swift; sourceTree = "<group>"; };
+		71BE2B012A3F1649004DAD31 /* NewPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPassword.swift; sourceTree = "<group>"; };
+		71BE2B042A3F16C3004DAD31 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		71BE2B062A3F17AF004DAD31 /* NewPasswordCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordCall.swift; sourceTree = "<group>"; };
+		71BE2B082A3F214A004DAD31 /* NewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordView.swift; sourceTree = "<group>"; };
+		71BE2B0A2A3F215E004DAD31 /* NewPasswordCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordCore.swift; sourceTree = "<group>"; };
 		71CB9DBE29479A48004C37D3 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		71CB9DC02947A345004C37D3 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		71CC1AA7295CFED10095B55C /* MyRequirementServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequirementServiceMock.swift; sourceTree = "<group>"; };
@@ -199,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				712C07352A3CBC380034D657 /* Account.swift */,
+				71BE2B012A3F1649004DAD31 /* NewPassword.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -277,7 +288,7 @@
 		714FCC7F2969AE7E00AA3F48 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				714FCC802969AE8600AA3F48 /* Message.swift */,
+				714FCC802969AE8600AA3F48 /* Info.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -369,6 +380,7 @@
 		71BA43BF294DD352003534B6 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				71BE2B032A3F16B7004DAD31 /* Service */,
 				712C07342A3CBC2A0034D657 /* Model */,
 				71BA43C1294DD369003534B6 /* View */,
 				71BA43C0294DD35E003534B6 /* Core */,
@@ -380,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				71BA43C4294DD60E003534B6 /* AccountCore.swift */,
+				71BE2B0A2A3F215E004DAD31 /* NewPasswordCore.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -388,8 +401,18 @@
 			isa = PBXGroup;
 			children = (
 				71BA43C2294DD37F003534B6 /* AccountView.swift */,
+				71BE2B082A3F214A004DAD31 /* NewPasswordView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		71BE2B032A3F16B7004DAD31 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				71BE2B042A3F16C3004DAD31 /* AccountService.swift */,
+				71BE2B062A3F17AF004DAD31 /* NewPasswordCall.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		71E775AD2933EA560016FC15 /* CreateRequirement */ = {
@@ -566,6 +589,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71BE2B0B2A3F215E004DAD31 /* NewPasswordCore.swift in Sources */,
 				712C07412A3CCA350034D657 /* SmartGoodsButton.swift in Sources */,
 				93E453AE295F7BEC00F43259 /* CheckRequirementCall.swift in Sources */,
 				712C07362A3CBC380034D657 /* Account.swift in Sources */,
@@ -574,12 +598,14 @@
 				71469DA5293B6F5900EF8225 /* Loadable.swift in Sources */,
 				934C77982916F76C00ED21DE /* MyRequirementView.swift in Sources */,
 				716DB8C5295C4F13003BF4A9 /* DependencyValues.swift in Sources */,
+				71BE2B052A3F16C3004DAD31 /* AccountService.swift in Sources */,
 				71E79B322A3DE3DF00882AEA /* RegisterCall.swift in Sources */,
 				71CB9DBF29479A48004C37D3 /* AppColor.swift in Sources */,
 				716DB8CB295C57B9003BF4A9 /* ErrorView.swift in Sources */,
+				71BE2B092A3F214A004DAD31 /* NewPasswordView.swift in Sources */,
 				71E79B302A3DE2B700882AEA /* Register.swift in Sources */,
 				716DB8D1295C9551003BF4A9 /* MyRequirementCore.swift in Sources */,
-				714FCC812969AE8600AA3F48 /* Message.swift in Sources */,
+				714FCC812969AE8600AA3F48 /* Info.swift in Sources */,
 				714FCC7B29699A0400AA3F48 /* View+Extensions.swift in Sources */,
 				71742B57291AECC50026B389 /* Call.swift in Sources */,
 				71742B59291AECF80026B389 /* HTTPMethod.swift in Sources */,
@@ -597,6 +623,7 @@
 				71E79B382A3DE55400882AEA /* EntryView.swift in Sources */,
 				71E775B42933EAD90016FC15 /* SubviewNone.swift in Sources */,
 				71F1CA1C293CC3F0005300C2 /* LoadingView.swift in Sources */,
+				71BE2B022A3F1649004DAD31 /* NewPassword.swift in Sources */,
 				716DB8C9295C5461003BF4A9 /* DispatchQueue+Extensions.swift in Sources */,
 				71742B5D291AF5260026B389 /* HTTPError.swift in Sources */,
 				712DB6212A3DD6320024DDE6 /* LoginService.swift in Sources */,
@@ -605,6 +632,7 @@
 				712DB6232A3DD66D0024DDE6 /* LoginCall.swift in Sources */,
 				93E453A6295F2EDD00F43259 /* CreateRequirementServiceProtocol.swift in Sources */,
 				716DB8D6295C95A3003BF4A9 /* Requirement.swift in Sources */,
+				71BE2B072A3F17AF004DAD31 /* NewPasswordCall.swift in Sources */,
 				71E775B02933EAC20016FC15 /* CreateRequirementView.swift in Sources */,
 				712C073F2A3CC2630034D657 /* SmartGoodsTextField.swift in Sources */,
 				71BA43C3294DD37F003534B6 /* AccountView.swift in Sources */,

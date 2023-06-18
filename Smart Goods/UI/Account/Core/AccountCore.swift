@@ -10,37 +10,43 @@ import ComposableArchitecture
 
 struct AccountCore: ReducerProtocol {
     struct State: Equatable {
-        var uuid: Loadable<String> = .none
+        let account: Account
+        @PresentationState var newPassword: NewPasswordCore.State?
     }
 
     enum Action: Equatable {
-        case checkIfUuidAvailable(String)
-        case uuidStateChanged(uuidState: Loadable<String>)
+        case logout
+        case showNewPassword
+        case newPassword(PresentationAction<NewPasswordCore.Action>)
     }
 
-    struct Environment {
+    var body: some ReducerProtocol<State, Action> {
+        Reduce { state, action in
+            switch action {
+            case .logout:
+                return .none
 
-    }
+            case .showNewPassword:
+                state.newPassword = NewPasswordCore.State(account: state.account)
 
-    struct Debouncer: Hashable { }
+                return .none
 
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
-        switch action {
-        case let .checkIfUuidAvailable(key):
+            case .newPassword(.dismiss):
+                return .none
 
-            guard let uuid = UserDefaults.standard.object(forKey: key) as? String else {
-                return EffectTask(value: .uuidStateChanged(uuidState: .error(.notFound)))
+            case let .newPassword(.presented(action)):
+                if case .changePasswordStateChanged(.loaded) = action {
+                    state.newPassword = nil
+                }
+
+                return .none
             }
-
-            return EffectTask(value: .uuidStateChanged(uuidState: .loaded(uuid)))
-                .debounce(id: Debouncer(), for: 1, scheduler: DispatchQueue.main)
-                .prepend(.uuidStateChanged(uuidState: .loading))
-                .eraseToEffect()
-
-        case let .uuidStateChanged(uuidState):
-            state.uuid = uuidState
-
-            return .none
+        }
+        .ifLet(
+            \.$newPassword,
+             action: /Action.newPassword
+        ) {
+            NewPasswordCore()
         }
     }
 }

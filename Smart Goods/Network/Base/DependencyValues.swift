@@ -33,4 +33,9 @@ extension DependencyValues {
         get { self[RegisterService.self] }
         set { self[RegisterService.self] = newValue }
     }
+
+    var accountService: AccountService {
+        get { self[AccountService.self] }
+        set { self[AccountService.self] = newValue }
+    }
 }

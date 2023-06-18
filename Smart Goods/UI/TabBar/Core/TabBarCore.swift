@@ -12,10 +12,12 @@ struct TabBarCore: ReducerProtocol {
     struct State: Equatable {
         var account: Account?
         var entry: EntryCore.State = EntryCore.State()
+        var accountState: AccountCore.State?
     }
 
     enum Action: Equatable {
         case entry(EntryCore.Action)
+        case account(AccountCore.Action)
         case checkAccount
     }
 
@@ -33,6 +35,7 @@ struct TabBarCore: ReducerProtocol {
 
                 switch action {
                 case let .loaded(account):
+                    state.accountState = AccountCore.State(account: account)
                     state.account = account
 
                 default:
@@ -44,14 +47,32 @@ struct TabBarCore: ReducerProtocol {
             case .checkAccount:
                 if let accountData = UserDefaults.standard.data(forKey: "account") {
                     do {
-                        state.account = try JSONDecoder().decode(Account.self, from: accountData)
+                        let account = try JSONDecoder().decode(Account.self, from: accountData)
+                        state.accountState = AccountCore.State(account: account)
+                        state.account = account
                     } catch {
                         print("Decoding failed")
                     }
                 }
 
                 return .none
+
+            case let .account(action):
+                if case .logout = action {
+                    state.accountState = nil
+                    state.entry = EntryCore.State()
+                    UserDefaults.removeAllDataFromUserDefaults()
+                    state.account = nil
+                }
+
+                return .none
             }
+        }
+        .ifLet(
+            \.accountState,
+             action: /Action.account
+        ) {
+            AccountCore()
         }
     }
 }
