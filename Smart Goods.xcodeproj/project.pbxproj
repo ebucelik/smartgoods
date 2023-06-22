@@ -25,6 +25,8 @@
 		7110B6622A44A7CC00E7DEAB /* CreateProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7110B6612A44A7CC00E7DEAB /* CreateProjectView.swift */; };
 		7110B6642A44C7A300E7DEAB /* EditProjectCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7110B6632A44C7A300E7DEAB /* EditProjectCore.swift */; };
 		7110B6662A44CD5700E7DEAB /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7110B6652A44CD5700E7DEAB /* EditProjectView.swift */; };
+		7110B6692A44E2E900E7DEAB /* CreateRequirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7110B6682A44E2E900E7DEAB /* CreateRequirement.swift */; };
+		7110B66B2A44E37700E7DEAB /* CreateRequirementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7110B66A2A44E37700E7DEAB /* CreateRequirementResponse.swift */; };
 		712C07362A3CBC380034D657 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C07352A3CBC380034D657 /* Account.swift */; };
 		712C073B2A3CBD2A0034D657 /* LoginCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C073A2A3CBD2A0034D657 /* LoginCore.swift */; };
 		712C073D2A3CBD760034D657 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C073C2A3CBD760034D657 /* LoginView.swift */; };
@@ -116,6 +118,8 @@
 		7110B6612A44A7CC00E7DEAB /* CreateProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectView.swift; sourceTree = "<group>"; };
 		7110B6632A44C7A300E7DEAB /* EditProjectCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectCore.swift; sourceTree = "<group>"; };
 		7110B6652A44CD5700E7DEAB /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
+		7110B6682A44E2E900E7DEAB /* CreateRequirement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirement.swift; sourceTree = "<group>"; };
+		7110B66A2A44E37700E7DEAB /* CreateRequirementResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequirementResponse.swift; sourceTree = "<group>"; };
 		712C07352A3CBC380034D657 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		712C073A2A3CBD2A0034D657 /* LoginCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCore.swift; sourceTree = "<group>"; };
 		712C073C2A3CBD760034D657 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -288,6 +292,15 @@
 				7110B6502A44A23100E7DEAB /* ProjectService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		7110B6672A44E2DA00E7DEAB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7110B6682A44E2E900E7DEAB /* CreateRequirement.swift */,
+				7110B66A2A44E37700E7DEAB /* CreateRequirementResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		712C07342A3CBC2A0034D657 /* Model */ = {
@@ -505,6 +518,7 @@
 		71E775AD2933EA560016FC15 /* CreateRequirement */ = {
 			isa = PBXGroup;
 			children = (
+				7110B6672A44E2DA00E7DEAB /* Models */,
 				93E453A4295F2EB700F43259 /* Service */,
 				71469DA0293B6EC900EF8225 /* Core */,
 				71E775AE2933EAB40016FC15 /* View */,
@@ -678,6 +692,7 @@
 			files = (
 				71BE2B0B2A3F215E004DAD31 /* NewPasswordCore.swift in Sources */,
 				712C07412A3CCA350034D657 /* SmartGoodsButton.swift in Sources */,
+				7110B66B2A44E37700E7DEAB /* CreateRequirementResponse.swift in Sources */,
 				93E453AE295F7BEC00F43259 /* CheckRequirementCall.swift in Sources */,
 				712C07362A3CBC380034D657 /* Account.swift in Sources */,
 				712C073D2A3CBD760034D657 /* LoginView.swift in Sources */,
@@ -723,6 +738,7 @@
 				7110B6512A44A23100E7DEAB /* ProjectService.swift in Sources */,
 				712C073B2A3CBD2A0034D657 /* LoginCore.swift in Sources */,
 				71CC1AAA295D00CA0095B55C /* Environment.swift in Sources */,
+				7110B6692A44E2E900E7DEAB /* CreateRequirement.swift in Sources */,
 				7110B6622A44A7CC00E7DEAB /* CreateProjectView.swift in Sources */,
 				712DB6232A3DD66D0024DDE6 /* LoginCall.swift in Sources */,
 				7110B65E2A44A64800E7DEAB /* DeleteProjectCall.swift in Sources */,

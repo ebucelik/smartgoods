@@ -25,8 +25,9 @@ struct SubviewRupp: View {
     }
 
     @Binding var requirement: String
+    @Binding var project: Project
+    @Binding var systemName: String
 
-    @State private var systemName = "The system"
     @State private var prioritySelected: priorityOptions = .shall
     @State private var verbSelected: verbOptions = .process
 
@@ -37,7 +38,7 @@ struct SubviewRupp: View {
     var body: some View {
         VStack (alignment: .leading) {
             RoundedVStack {
-                TextField("The System", text: $systemName)
+                TextField(project.projectName, text: $systemName)
                     .textInputAutocapitalization(.never)
                     .padding()
             }
@@ -105,6 +106,9 @@ struct SubviewRupp: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
+        .onChange(of: project) { newProject in
+            systemName = newProject.projectName
+        }
     }
 
     private func buildRequirement(prioritySelected: String, verbSelected: String, object: String, processVerb: String) -> String {
@@ -130,6 +134,10 @@ struct SubviewRupp: View {
 
 struct SubviewRupp_Previews: PreviewProvider {
     static var previews: some View {
-        SubviewRupp(requirement: .constant(""))
+        SubviewRupp(
+            requirement: .constant(""),
+            project: .constant(.empty),
+            systemName: .constant("")
+        )
     }
 }

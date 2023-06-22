@@ -26,23 +26,32 @@ struct CreateRequirementCore: ReducerProtocol {
         @BindingState var selectedScheme: Scheme = .rupp
         @BindingState var showCheckAlert: Bool = false
 
-        var requirementSaved: Loadable<Info> = .none
+        var requirementSaved: Loadable<CreateRequirementResponse> = .none
         var requirementChecked: Loadable<RequirementResponse> = .none
+
+        var projects: Loadable<[Project]> = .none
+        @BindingState var selectedProject: Project
+
+        @BindingState var systemName: String = ""
     }
 
     enum Action: BindableAction, Equatable {
         case saveRequirement(Scheme)
-        case requirementSavedStateChange(Loadable<Info>)
+        case requirementSavedStateChange(Loadable<CreateRequirementResponse>)
 
         case checkRequirement(Scheme)
         case requirementCheckedStateChange(Loadable<RequirementResponse>)
 
         case resetState
 
+        case getProjects
+        case getProjectsStateChanged(Loadable<[Project]>)
+
         case binding(BindingAction<State>)
     }
     
     @Dependency(\.createRequirementService) var service
+    @Dependency(\.projectService) var projectService
     @Dependency(\.mainScheduler) var scheduler
     
     struct DebounceId: Hashable { }
@@ -55,10 +64,15 @@ struct CreateRequirementCore: ReducerProtocol {
             case let .saveRequirement(scheme):
 
                 let requirement = getRequirement(by: scheme, state)
-                let uuid = getUuid()
+
+                let createRequirement = CreateRequirement(
+                    projectName: state.systemName,
+                    requirement: requirement,
+                    username: state.account.username
+                )
                 
                 return EffectTask.run { send in
-                    let requirement = try await service.saveRequirement(requirement, for: uuid)
+                    let requirement = try await service.saveRequirement(createRequirement)
                     
                     await send(.requirementSavedStateChange(.loaded(requirement)))
                 } catch: { error, send in
@@ -96,6 +110,30 @@ struct CreateRequirementCore: ReducerProtocol {
             case .resetState:
                 state.requirementSaved = .none
                 state.requirementChecked = .none
+
+                return .none
+
+            case .getProjects:
+                if state.account.username.isEmpty {
+                    return .none
+                }
+
+                return .run { [state = state] send in
+                    await send(.getProjectsStateChanged(.loading))
+
+                    let project = try await self.projectService.getProjects(username: state.account.username)
+
+                    await send(.getProjectsStateChanged(.loaded(project)))
+                } catch: { error, send in
+                    await send(.getProjectsStateChanged(.error(.error(error.localizedDescription))))
+                }
+
+            case let .getProjectsStateChanged(getProjectsState):
+                state.projects = getProjectsState
+
+                if case let .loaded(projects) = getProjectsState {
+                    state.selectedProject = projects.first ?? .empty
+                }
 
                 return .none
 

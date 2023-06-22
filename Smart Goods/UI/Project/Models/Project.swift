@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Project: Codable, Equatable, Identifiable {
+struct Project: Codable, Hashable, Identifiable {
     let id: Int
     let username: String?
     let projectName: String
-    let requirements: [String]
+    let requirements: [Requirement]
 }
 
 extension Project {

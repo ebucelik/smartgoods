@@ -8,9 +8,13 @@
 import Foundation
 
 struct SaveRequirementCall: Call {
-    var path: String = "/requirement/save/"
+    var path: String = "/requirements"
     
     var httpMethod: HTTPMethod = .POST
     
     var httpBody: Encodable?
+
+    init(createRequirement: CreateRequirement) {
+        httpBody = createRequirement
+    }
 }

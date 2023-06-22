@@ -129,7 +129,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
                     initialState: CreateRequirementCore.State(
                         account: account,
                         customRequirement: "",
-                        requirement: ""
+                        requirement: "",
+                        selectedProject: .empty
                     ),
                     reducer: CreateRequirementCore()
                 )

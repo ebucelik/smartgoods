@@ -10,11 +10,10 @@ import ComposableArchitecture
 
 class CreateRequirementService: HTTPClient, CreateRequirementServiceProtocol {
     
-    func saveRequirement(_ requirement: String, for uuid: String) async throws -> Info {
-        var call = SaveRequirementCall(httpBody: requirement)
-        call.path.append(uuid)
+    func saveRequirement(_ createRequirement: CreateRequirement) async throws -> CreateRequirementResponse {
+        let call = SaveRequirementCall(createRequirement: createRequirement)
         
-        return try await sendRequest(call: call, responseModel: Info.self)
+        return try await sendRequest(call: call, responseModel: CreateRequirementResponse.self)
     }
     
     func checkRequirement(_ requirement: String) async throws -> RequirementResponse {

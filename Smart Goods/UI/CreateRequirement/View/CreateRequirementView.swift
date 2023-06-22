@@ -33,7 +33,41 @@ struct CreateRequirementView: View {
                             case .none:
                                 SubviewNone(requirement: viewStore.binding(\.$customRequirement))
                             case .rupp:
-                                SubviewRupp(requirement: viewStore.binding(\.$requirement))
+                                HStack {
+                                    switch viewStore.projects {
+                                    case let .loaded(projects):
+                                        Text("Projects:")
+
+                                        Picker("",
+                                               selection: viewStore.binding(\.$selectedProject)) {
+                                            ForEach(projects, id: \.self) { project in
+                                                Text(project.projectName)
+                                            }
+                                        }
+                                               .pickerStyle(.menu)
+                                               .tint(AppColor.primary.color)
+                                               .bold()
+
+                                        Spacer()
+
+                                    case .none, .loading:
+                                        ProgressView()
+                                            .progressViewStyle(.circular)
+
+                                    case .error:
+                                        Text("Error occured while loading projects.")
+                                    }
+                                }
+                                .padding()
+                                .onAppear {
+                                    viewStore.send(.getProjects)
+                                }
+
+                                SubviewRupp(
+                                    requirement: viewStore.binding(\.$requirement),
+                                    project: viewStore.binding(\.$selectedProject),
+                                    systemName: viewStore.binding(\.$systemName)
+                                )
                             }
                         }
                         .padding()
@@ -166,7 +200,8 @@ struct CreateRequirementView_Previews: PreviewProvider {
                 initialState: CreateRequirementCore.State(
                     account: .mock,
                     customRequirement: "",
-                    requirement: ""
+                    requirement: "",
+                    selectedProject: .empty
                 ),
                 reducer: CreateRequirementCore()
             )

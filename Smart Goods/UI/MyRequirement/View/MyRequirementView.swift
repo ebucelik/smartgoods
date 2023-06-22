@@ -80,7 +80,7 @@ struct MyRequirementView: View {
 
             Spacer()
 
-            if requirement.ruppScheme {
+            if requirement.isRuppScheme == "true" {
                 Text("OK")
                     .foregroundColor(AppColor.success.color)
                     .bold()
