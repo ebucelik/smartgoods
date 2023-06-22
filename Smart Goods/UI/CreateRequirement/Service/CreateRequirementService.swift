@@ -17,10 +17,10 @@ class CreateRequirementService: HTTPClient, CreateRequirementServiceProtocol {
         return try await sendRequest(call: call, responseModel: Info.self)
     }
     
-    func checkRequirement(_ requirement: String) async throws -> Bool {
+    func checkRequirement(_ requirement: String) async throws -> RequirementResponse {
         let call = CheckRequirementCall(httpBody: requirement)
         
-        return try await sendRequest(call: call, responseModel: Bool.self)
+        return try await sendRequest(call: call, responseModel: RequirementResponse.self)
     }
 }
 

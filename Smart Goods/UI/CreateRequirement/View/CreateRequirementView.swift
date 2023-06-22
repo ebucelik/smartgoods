@@ -88,10 +88,8 @@ struct CreateRequirementView: View {
             .font(.body.monospaced().bold())
             .alert(isPresented: viewStore.binding(\.$showCheckAlert)) {
                 Alert(
-                    title: viewStore.requirementChecked == .loaded(true) ?
-                    Text("Valid requirement") : Text("Not a valid requirement"),
-                    message: viewStore.requirementChecked == .loaded(true) ?
-                    Text("The requirement conforms to Rupp's scheme.") : Text("The requirement does not conform to Rupp's scheme."),
+                    title: alertTitle(viewStore),
+                    message: alertMessage(viewStore),
                     dismissButton: .default(
                         Text("Ok")
                     )
@@ -135,6 +133,29 @@ struct CreateRequirementView: View {
             .font(.body.monospaced().bold())
         }
     }
+
+    private func alertTitle(_ viewStore: ViewStoreOf<CreateRequirementCore>) -> Text {
+        if case let .loaded(requirementResponse) = viewStore.requirementChecked {
+            return requirementResponse.ruppScheme ? Text("Valid requirement") :
+            Text("Not a valid requirement")
+        }
+
+        return Text("Not a valid requirement")
+    }
+
+    private func alertMessage(_ viewStore: ViewStoreOf<CreateRequirementCore>) -> Text {
+        if case let .loaded(requirementResponse) = viewStore.requirementChecked {
+            if requirementResponse.ruppScheme {
+                return requirementResponse.hint.isEmpty ? Text("The requirement conforms to Rupp's scheme.") :
+                Text("Hint: \(requirementResponse.hint)")
+            } else {
+                return requirementResponse.hint.isEmpty ? Text("The requirement does not conform to Rupp's scheme.") :
+                Text("Hint: \(requirementResponse.hint)")
+            }
+        }
+
+        return Text("The requirement does not conform to Rupp's scheme.")
+    }
 }
 
 #if DEBUG
@@ -142,7 +163,11 @@ struct CreateRequirementView_Previews: PreviewProvider {
     static var previews: some View {
         CreateRequirementView(
             store: Store(
-                initialState: CreateRequirementCore.State(account: .mock, customRequirement: "", requirement: ""),
+                initialState: CreateRequirementCore.State(
+                    account: .mock,
+                    customRequirement: "",
+                    requirement: ""
+                ),
                 reducer: CreateRequirementCore()
             )
         )

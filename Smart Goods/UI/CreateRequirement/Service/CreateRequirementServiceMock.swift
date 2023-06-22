@@ -12,7 +12,7 @@ class CreateRequirementServiceMock: CreateRequirementService {
         return Info.mockSuccess
     }
     
-    override func checkRequirement(_ requirement: String) async throws -> Bool {
-        return true
+    override func checkRequirement(_ requirement: String) async throws -> RequirementResponse {
+        return .empty
     }
 }

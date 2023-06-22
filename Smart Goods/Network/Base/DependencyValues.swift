@@ -38,4 +38,9 @@ extension DependencyValues {
         get { self[AccountService.self] }
         set { self[AccountService.self] = newValue }
     }
+
+    var projectService: ProjectService {
+        get { self[ProjectService.self] }
+        set { self[ProjectService.self] = newValue }
+    }
 }

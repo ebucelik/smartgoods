@@ -27,7 +27,7 @@ struct CreateRequirementCore: ReducerProtocol {
         @BindingState var showCheckAlert: Bool = false
 
         var requirementSaved: Loadable<Info> = .none
-        var requirementChecked: Loadable<Bool> = .none
+        var requirementChecked: Loadable<RequirementResponse> = .none
     }
 
     enum Action: BindableAction, Equatable {
@@ -35,7 +35,7 @@ struct CreateRequirementCore: ReducerProtocol {
         case requirementSavedStateChange(Loadable<Info>)
 
         case checkRequirement(Scheme)
-        case requirementCheckedStateChange(Loadable<Bool>)
+        case requirementCheckedStateChange(Loadable<RequirementResponse>)
 
         case resetState
 
@@ -78,9 +78,9 @@ struct CreateRequirementCore: ReducerProtocol {
                 let requirement = getRequirement(by: scheme, state)
                 
                 return EffectTask.run { send in
-                    let isValid = try await service.checkRequirement(requirement)
+                    let requirementResponse = try await service.checkRequirement(requirement)
                     
-                    await send(.requirementCheckedStateChange(.loaded(isValid)))
+                    await send(.requirementCheckedStateChange(.loaded(requirementResponse)))
                 } catch: { error, send in
                     await send(.requirementCheckedStateChange(.error(.error(error.localizedDescription))))
                 }

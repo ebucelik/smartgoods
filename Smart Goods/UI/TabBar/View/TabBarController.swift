@@ -104,6 +104,24 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
         myRequirementViewController.tabBarItem = myRequirementTabBarItem
 
+        // MARK: Create Project Tab
+        let createProjectViewController = UIHostingController(
+            rootView: CreateProjectView(
+                store: Store(
+                    initialState: CreateProjectCore.State(account: account),
+                    reducer: CreateProjectCore()
+                )
+            )
+        )
+
+        let createProjectTabBarItem = UITabBarItem(
+            title: nil,
+            image: UIImage(systemName: "folder.fill"),
+            tag: 0
+        )
+
+        createProjectViewController.tabBarItem = createProjectTabBarItem
+
         // MARK: Create Requirement Tab
         let createRequirementViewController = UIHostingController(
             rootView: CreateRequirementView(
@@ -150,14 +168,12 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
                     self.viewControllers = [
                         myRequirementViewController,
+                        createProjectViewController,
                         createRequirementViewController,
                         accountViewController
                     ]
                 }, else: {
-                    self.viewControllers = [
-                        myRequirementViewController,
-                        createRequirementViewController
-                    ]
+                    self.setupEntryView()
                 }
             ).store(in: &cancellables)
     }

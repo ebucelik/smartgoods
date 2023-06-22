@@ -8,7 +8,7 @@
 import Foundation
 
 struct CheckRequirementCall: Call {
-    var path: String = "/requirement/check"
+    var path: String = "/requirements/check"
     
     var httpMethod: HTTPMethod = .POST
     
