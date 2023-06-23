@@ -43,6 +43,7 @@ struct LoginView: View {
                     .onTapGesture {
                         viewStore.send(.showRegister)
                     }
+                    .padding(.bottom, 20)
 
                 if case .error = viewStore.account {
                     Text("Username or password are incorrect.")

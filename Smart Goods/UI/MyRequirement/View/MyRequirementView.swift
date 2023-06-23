@@ -23,14 +23,14 @@ struct MyRequirementView: View {
                     switch viewStore.projectsState {
                     case .loaded, .loading, .none:
                         if viewStore.projects.isEmpty {
-                            Text("Currently no projects created.")
+                            Text("Currently no projects available.")
                                 .font(.body.monospaced())
                                 .foregroundColor(AppColor.primary.color)
                                 .padding(.top, 24)
                         }
 
                         ForEach(viewStore.projects.sorted(by: { $0.id > $1.id }), id: \.self) { project in
-                            projectBody(project)
+                            projectBody(project, viewStore)
                         }
                         .listRowSeparator(.hidden)
                         .listRowBackground(EmptyView())
@@ -61,19 +61,31 @@ struct MyRequirementView: View {
             .onAppear {
                 viewStore.send(.fetchProjects)
             }
+            .sheet(
+                store: store.scope(
+                    state: \.$editRequirement,
+                    action: MyRequirementCore.Action.editRequirement
+                )
+            ) { editRequirementStore in
+                EditRequirementView(store: editRequirementStore)
+            }
         }
     }
 
     @ViewBuilder
-    private func projectBody(_ project: Project) -> some View {
+    private func projectBody(_ project: Project, _ viewStore: ViewStoreOf<MyRequirementCore>) -> some View {
         Section {
             if project.requirements.isEmpty {
-                Text("Currently no requirements for this project created.")
+                Text("Currently no requirements for this project available.")
                     .font(.caption)
                     .foregroundColor(AppColor.primary.color)
             } else {
                 ForEach(project.requirements.sorted(by: { $0.id > $1.id }).prefix(3), id: \.self) { requirement in
-                    requirementBody(requirement)
+                    requirementBody(
+                        requirement,
+                        project,
+                        viewStore
+                    )
                 }
             }
         } header: {
@@ -94,17 +106,28 @@ struct MyRequirementView: View {
     }
 
     @ViewBuilder
-    private func requirementBody(_ requirement: Requirement) -> some View {
+    private func requirementBody(_ requirement: Requirement,
+                                 _ project: Project,
+                                 _ viewStore: ViewStoreOf<MyRequirementCore>) -> some View {
         HStack {
             Text(requirement.requirement)
 
             Spacer()
 
             Image(systemName: "square.and.pencil")
+                .onTapGesture {
+                    viewStore.send(.showEditRequirementView(project.projectName, requirement))
+                }
 
             if !requirement.hint.isEmpty {
-                Image(systemName: "info.circle.fill")
+                Image(systemName: "info.circle")
             }
+
+            Image(systemName: "trash.fill")
+                .foregroundColor(AppColor.error.color)
+                .onTapGesture {
+                    viewStore.send(.deleteRequirement(requirement.id))
+                }
 
 //            if requirement.isRuppScheme == "true" {
 //                Text("OK")
