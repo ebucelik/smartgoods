@@ -16,9 +16,11 @@ class MyRequirementCore: ReducerProtocol {
         var projects: [Project] = []
 
         @PresentationState var editRequirement: EditRequirementCore.State? = nil
+        @BindingState var showHintAlert: Bool = false
+        var requirement: Requirement = .empty
     }
 
-    enum Action: Equatable {
+    enum Action: BindableAction, Equatable {
         case fetchProjects
         case projectsStateChanged(Loadable<[Project]>)
 
@@ -27,6 +29,9 @@ class MyRequirementCore: ReducerProtocol {
 
         case showEditRequirementView(String, Requirement)
         case editRequirement(PresentationAction<EditRequirementCore.Action>)
+
+        case showHint(Requirement)
+        case binding(BindingAction<State>)
     }
 
     @Dependency(\.myRequirementService) var service
@@ -35,6 +40,8 @@ class MyRequirementCore: ReducerProtocol {
     struct DebounceId: Hashable {}
 
     var body: some ReducerProtocol<State, Action> {
+        BindingReducer()
+
         Reduce { state, action in
             switch action {
             case .fetchProjects:
@@ -110,6 +117,15 @@ class MyRequirementCore: ReducerProtocol {
                     return .send(.fetchProjects)
                 }
 
+                return .none
+
+            case let .showHint(requirement):
+                state.requirement = requirement
+                state.showHintAlert = true
+
+                return .none
+
+            case .binding:
                 return .none
             }
         }

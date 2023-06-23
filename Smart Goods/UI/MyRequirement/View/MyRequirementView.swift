@@ -69,6 +69,15 @@ struct MyRequirementView: View {
             ) { editRequirementStore in
                 EditRequirementView(store: editRequirementStore)
             }
+            .alert(isPresented: viewStore.binding(\.$showHintAlert)) {
+                Alert(
+                    title: alertTitle(viewStore.requirement),
+                    message: alertMessage(viewStore.requirement),
+                    dismissButton: .default(
+                        Text("Ok")
+                    )
+                )
+            }
         }
     }
 
@@ -121,6 +130,9 @@ struct MyRequirementView: View {
 
             if !requirement.hint.isEmpty {
                 Image(systemName: "info.circle")
+                    .onTapGesture {
+                        viewStore.send(.showHint(requirement))
+                    }
             }
 
             Image(systemName: "trash.fill")
@@ -143,6 +155,21 @@ struct MyRequirementView: View {
         .listRowInsets(EdgeInsets(top: 8, leading: 1, bottom: 8, trailing: 5))
         .background(AppColor.secondary.color)
         .cornerRadius(15)
+    }
+
+    private func alertTitle(_ requirement: Requirement) -> Text {
+        return requirement.isRuppScheme == "true" ? Text("Valid requirement") :
+        Text("Not a valid requirement")
+    }
+
+    private func alertMessage(_ requirement: Requirement) -> Text {
+        if requirement.isRuppScheme == "true" {
+            return requirement.hint.isEmpty ? Text("The requirement conforms to Rupp's scheme.") :
+            Text("Hint: \(requirement.hint)")
+        } else {
+            return requirement.hint.isEmpty ? Text("The requirement does not conform to Rupp's scheme.") :
+            Text("Hint: \(requirement.hint)")
+        }
     }
 }
 

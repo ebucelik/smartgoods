@@ -22,6 +22,15 @@ public struct Requirement: Codable, Identifiable, Hashable {
 }
 
 extension Requirement {
+    static var empty: Requirement {
+        Requirement(
+            id: 0,
+            isRuppScheme: "",
+            requirement: "",
+            hint: ""
+        )
+    }
+    
     static let mockRequirements = [
         Requirement(
             id: 0,
