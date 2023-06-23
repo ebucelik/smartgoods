@@ -8,5 +8,10 @@
 import Foundation
 
 struct MyRequirementCall: Call {
-    var path = "/requirement/list/all/"
+    var path = ""
+    var httpMethod: HTTPMethod = .GET
+
+    init(username: String) {
+        self.path = "/projects/\(username)"
+    }
 }

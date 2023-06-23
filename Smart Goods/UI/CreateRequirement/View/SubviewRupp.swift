@@ -38,7 +38,7 @@ struct SubviewRupp: View {
     var body: some View {
         VStack (alignment: .leading) {
             RoundedVStack {
-                TextField(project.projectName, text: $systemName)
+                TextField("The System", text: $systemName)
                     .textInputAutocapitalization(.never)
                     .padding()
             }
@@ -108,6 +108,11 @@ struct SubviewRupp: View {
         }
         .onChange(of: project) { newProject in
             systemName = newProject.projectName
+        }
+        .onAppear {
+            if systemName.isEmpty {
+                systemName = "The System"
+            }
         }
     }
 

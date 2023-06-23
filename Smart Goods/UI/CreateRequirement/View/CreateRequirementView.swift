@@ -36,19 +36,25 @@ struct CreateRequirementView: View {
                                 HStack {
                                     switch viewStore.projects {
                                     case let .loaded(projects):
-                                        Text("Projects:")
+                                        VStack {
+                                            HStack {
+                                                Text("Select a project:")
+                                                    .font(.headline)
 
-                                        Picker("",
-                                               selection: viewStore.binding(\.$selectedProject)) {
-                                            ForEach(projects, id: \.self) { project in
-                                                Text(project.projectName)
+                                                Spacer()
                                             }
-                                        }
-                                               .pickerStyle(.menu)
-                                               .tint(AppColor.primary.color)
-                                               .bold()
 
-                                        Spacer()
+                                            Picker("",
+                                                   selection: viewStore.binding(\.$selectedProject)) {
+                                                ForEach(projects, id: \.self) { project in
+                                                    Text(project.projectName)
+                                                }
+                                            }
+                                                   .pickerStyle(.menu)
+                                                   .tint(AppColor.primary.color)
+                                                   .bold()
+                                        }
+                                        .frame(maxWidth: .infinity, alignment: .leading)
 
                                     case .none, .loading:
                                         ProgressView()
@@ -58,7 +64,6 @@ struct CreateRequirementView: View {
                                         Text("Error occured while loading projects.")
                                     }
                                 }
-                                .padding()
                                 .onAppear {
                                     viewStore.send(.getProjects)
                                 }
@@ -165,6 +170,8 @@ struct CreateRequirementView: View {
             .cornerRadius(8)
             .foregroundColor(AppColor.secondary.color)
             .font(.body.monospaced().bold())
+            .disabled(viewStore.selectedProject.projectName.isEmpty)
+            .opacity(viewStore.selectedProject.projectName.isEmpty ? 0.7 : 1)
         }
     }
 

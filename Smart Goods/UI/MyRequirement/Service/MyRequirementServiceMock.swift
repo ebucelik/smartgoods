@@ -8,7 +8,7 @@
 import Foundation
 
 class MyRequirementServiceMock: MyRequirementService {
-    override func getRequirements(by uuid: String) async throws -> [Requirement] {
-        return Requirement.mockRequirements
+    override func getProjects(username: String) async throws -> [Project] {
+        return [Project.mock]
     }
 }

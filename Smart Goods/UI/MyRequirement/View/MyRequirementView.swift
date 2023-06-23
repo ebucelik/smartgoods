@@ -20,32 +20,25 @@ struct MyRequirementView: View {
         WithViewStore(store) { viewStore in
             NavigationView {
                 List {
-                    switch viewStore.requirementsState {
+                    switch viewStore.projectsState {
                     case .loaded, .loading, .none:
-                        Section(
-                            header: Text("Your Requirements")
-                                .font(.body.monospaced().bold())
+                        if viewStore.projects.isEmpty {
+                            Text("Currently no projects created.")
+                                .font(.body.monospaced())
                                 .foregroundColor(AppColor.primary.color)
                                 .padding(.top, 24)
-                        ) {
-                            if viewStore.requirements.isEmpty {
-                                Text("Currently no requirements created.")
-                                    .font(.body.monospaced())
-                                    .foregroundColor(AppColor.primary.color)
-                                    .padding(.top, 24)
-                            }
-
-                            ForEach(viewStore.requirements) { requirement in
-                                requirementBody(requirement)
-                            }
-                            .listRowSeparator(.hidden)
-                            .listRowBackground(EmptyView())
                         }
+
+                        ForEach(viewStore.projects.sorted(by: { $0.id > $1.id }), id: \.self) { project in
+                            projectBody(project)
+                        }
+                        .listRowSeparator(.hidden)
+                        .listRowBackground(EmptyView())
 
                     case let .error(error):
                         ErrorView(
                             error: error.localizedDescription,
-                            action: { viewStore.send(.fetchRequirements) }
+                            action: { viewStore.send(.fetchProjects) }
                         )
                     }
                 }
@@ -54,10 +47,10 @@ struct MyRequirementView: View {
                 .background(.clear)
                 .scrollContentBackground(.hidden)
                 .refreshable {
-                    viewStore.send(.fetchRequirements)
+                    viewStore.send(.fetchProjects)
                 }
                 .overlay {
-                    if viewStore.requirementsState.isLoading {
+                    if viewStore.projectsState.isLoading {
                         LoadingView(
                             tint: AppColor.primary.color,
                             fullScreen: true
@@ -66,8 +59,35 @@ struct MyRequirementView: View {
                 }
             }
             .onAppear {
-                if case .none = viewStore.requirementsState {
-                    viewStore.send(.fetchRequirements)
+                viewStore.send(.fetchProjects)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func projectBody(_ project: Project) -> some View {
+        Section {
+            if project.requirements.isEmpty {
+                Text("Currently no requirements for this project created.")
+                    .font(.caption)
+                    .foregroundColor(AppColor.primary.color)
+            } else {
+                ForEach(project.requirements.sorted(by: { $0.id > $1.id }).prefix(3), id: \.self) { requirement in
+                    requirementBody(requirement)
+                }
+            }
+        } header: {
+            HStack {
+                Text(project.projectName)
+                    .font(.body.monospaced().bold())
+                    .foregroundColor(AppColor.primary.color)
+
+                Spacer()
+
+                if !project.requirements.isEmpty {
+                    Image(systemName: "arrow.right.circle")
+                        .resizable()
+                        .frame(width: 20, height: 20)
                 }
             }
         }
@@ -80,15 +100,21 @@ struct MyRequirementView: View {
 
             Spacer()
 
-            if requirement.isRuppScheme == "true" {
-                Text("OK")
-                    .foregroundColor(AppColor.success.color)
-                    .bold()
-            } else {
-                Text("NOT OK")
-                    .foregroundColor(AppColor.error.color)
-                    .bold()
+            Image(systemName: "square.and.pencil")
+
+            if !requirement.hint.isEmpty {
+                Image(systemName: "info.circle.fill")
             }
+
+//            if requirement.isRuppScheme == "true" {
+//                Text("OK")
+//                    .foregroundColor(AppColor.success.color)
+//                    .bold()
+//            } else {
+//                Text("NOT OK")
+//                    .foregroundColor(AppColor.error.color)
+//                    .bold()
+//            }
         }
         .padding()
         .listRowInsets(EdgeInsets(top: 8, leading: 1, bottom: 8, trailing: 5))

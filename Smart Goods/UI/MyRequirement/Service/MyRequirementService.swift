@@ -9,11 +9,10 @@ import Foundation
 import ComposableArchitecture
 
 class MyRequirementService: HTTPClient, MyRequirementServiceProtocol {
-    func getRequirements(by uuid: String) async throws -> [Requirement] {
-        var call = MyRequirementCall()
-        call.path.append(uuid)
+    func getProjects(username: String) async throws -> [Project] {
+        let call = MyRequirementCall(username: username)
 
-        return try await sendRequest(call: call, responseModel: [Requirement].self)
+        return try await sendRequest(call: call, responseModel: [Project].self)
     }
 }
 

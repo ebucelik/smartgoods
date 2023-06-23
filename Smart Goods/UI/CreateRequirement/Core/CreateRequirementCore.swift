@@ -66,7 +66,7 @@ struct CreateRequirementCore: ReducerProtocol {
                 let requirement = getRequirement(by: scheme, state)
 
                 let createRequirement = CreateRequirement(
-                    projectName: state.systemName,
+                    projectName: state.selectedProject.projectName,
                     requirement: requirement,
                     username: state.account.username
                 )

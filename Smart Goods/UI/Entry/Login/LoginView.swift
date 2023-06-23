@@ -44,6 +44,13 @@ struct LoginView: View {
                         viewStore.send(.showRegister)
                     }
 
+                if case .error = viewStore.account {
+                    Text("Username or password are incorrect.")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundColor(AppColor.error.color)
+                        .font(.subheadline)
+                }
+
                 Spacer()
 
                 SmartGoodsButton(

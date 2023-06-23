@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MyRequirementServiceProtocol {
-    func getRequirements(by uuid: String) async throws -> [Requirement]
+    func getProjects(username: String) async throws -> [Project]
 }

@@ -12,13 +12,13 @@ class MyRequirementCore: ReducerProtocol {
 
     struct State: Equatable {
         let account: Account
-        var requirementsState: Loadable<[Requirement]> = .none
-        var requirements: [Requirement] = []
+        var projectsState: Loadable<[Project]> = .none
+        var projects: [Project] = []
     }
 
     enum Action: Equatable {
-        case fetchRequirements
-        case requirementsStateChanged(Loadable<[Requirement]>)
+        case fetchProjects
+        case projectsStateChanged(Loadable<[Project]>)
     }
 
     @Dependency(\.myRequirementService) var service
@@ -28,39 +28,31 @@ class MyRequirementCore: ReducerProtocol {
 
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
-        case .fetchRequirements:
-            let uuid: String
-
-            if isRunningTest {
-                uuid = "uuid"
-            } else {
-                guard let uuidString = UserDefaults.standard.object(forKey: "uuid") as? String else {
-                    return EffectTask(value: .requirementsStateChanged(.error(.notFound)))
-                }
-
-                uuid = uuidString
+        case .fetchProjects:
+            if state.account.username.isEmpty {
+                return .none
             }
 
-            return EffectTask.run { [self, uuid = uuid] send in
-                let requirements = try await service.getRequirements(by: uuid)
+            return EffectTask.run { [state = state] send in
+                let projects = try await self.service.getProjects(username: state.account.username)
 
-                await send(.requirementsStateChanged(.loaded(requirements)))
+                await send(.projectsStateChanged(.loaded(projects)))
             } catch: { error, send in
                 if let httpError = error as? HTTPError {
-                    await send(.requirementsStateChanged(.error(httpError)))
+                    await send(.projectsStateChanged(.error(httpError)))
                 } else {
-                    await send(.requirementsStateChanged(.error(.error(error.localizedDescription))))
+                    await send(.projectsStateChanged(.error(.error(error.localizedDescription))))
                 }
             }
-            .debounce(id: DebounceId(), for: 2, scheduler: self.scheduler)
-            .prepend(.requirementsStateChanged(.loading))
+            .debounce(id: DebounceId(), for: 0.4, scheduler: self.scheduler)
+            .prepend(.projectsStateChanged(.loading))
             .eraseToEffect()
 
-        case let .requirementsStateChanged(requirementsState):
-            state.requirementsState = requirementsState
+        case let .projectsStateChanged(projectsState):
+            state.projectsState = projectsState
 
-            if case let .loaded(requirements) = requirementsState {
-                state.requirements = requirements
+            if case let .loaded(projects) = projectsState {
+                state.projects = projects
             }
 
             return .none

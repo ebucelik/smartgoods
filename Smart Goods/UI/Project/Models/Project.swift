@@ -23,4 +23,13 @@ extension Project {
             requirements: []
         )
     }
+
+    static var mock: Project {
+        Project(
+            id: 0,
+            username: "ebu",
+            projectName: "the system",
+            requirements: Requirement.mockRequirements
+        )
+    }
 }
