@@ -18,7 +18,7 @@ struct MyRequirementView: View {
     
     var body: some View {
         WithViewStore(store) { viewStore in
-            NavigationView {
+            NavigationStack {
                 List {
                     switch viewStore.projectsState {
                     case .loaded, .loading, .none:
@@ -106,9 +106,25 @@ struct MyRequirementView: View {
                 Spacer()
 
                 if !project.requirements.isEmpty {
-                    Image(systemName: "arrow.right.circle")
-                        .resizable()
-                        .frame(width: 20, height: 20)
+                    NavigationLink {
+                        MyRequirementsView(
+                            store: Store(
+                                initialState: MyRequirementsCore.State(
+                                    account: viewStore.account,
+                                    project: project,
+                                    onDismiss: {
+                                        viewStore.send(.fetchProjects)
+                                    }
+                                ),
+                                reducer: MyRequirementsCore()
+                            )
+                        )
+                    } label: {
+                        Image(systemName: "arrow.right.circle")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(AppColor.primary.color)
+                    }
                 }
             }
         }

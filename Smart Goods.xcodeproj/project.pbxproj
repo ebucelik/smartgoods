@@ -60,6 +60,8 @@
 		718D7B1D2A45FBE900229859 /* EditRequirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D7B1C2A45FBE900229859 /* EditRequirement.swift */; };
 		718D7B1F2A45FCFE00229859 /* EditRequirementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D7B1E2A45FCFE00229859 /* EditRequirementResponse.swift */; };
 		718D7B212A45FD6400229859 /* EditRequirementCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D7B202A45FD6400229859 /* EditRequirementCall.swift */; };
+		718D7B232A46103300229859 /* MyRequirementsCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D7B222A46103300229859 /* MyRequirementsCore.swift */; };
+		718D7B252A46114C00229859 /* MyRequirementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D7B242A46114C00229859 /* MyRequirementsView.swift */; };
 		71BA43C3294DD37F003534B6 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BA43C2294DD37F003534B6 /* AccountView.swift */; };
 		71BA43C5294DD60E003534B6 /* AccountCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BA43C4294DD60E003534B6 /* AccountCore.swift */; };
 		71BE2B022A3F1649004DAD31 /* NewPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE2B012A3F1649004DAD31 /* NewPassword.swift */; };
@@ -159,6 +161,8 @@
 		718D7B1C2A45FBE900229859 /* EditRequirement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRequirement.swift; sourceTree = "<group>"; };
 		718D7B1E2A45FCFE00229859 /* EditRequirementResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRequirementResponse.swift; sourceTree = "<group>"; };
 		718D7B202A45FD6400229859 /* EditRequirementCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRequirementCall.swift; sourceTree = "<group>"; };
+		718D7B222A46103300229859 /* MyRequirementsCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequirementsCore.swift; sourceTree = "<group>"; };
+		718D7B242A46114C00229859 /* MyRequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequirementsView.swift; sourceTree = "<group>"; };
 		71BA43C2294DD37F003534B6 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		71BA43C4294DD60E003534B6 /* AccountCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCore.swift; sourceTree = "<group>"; };
 		71BE2B012A3F1649004DAD31 /* NewPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPassword.swift; sourceTree = "<group>"; };
@@ -408,6 +412,7 @@
 			children = (
 				716DB8D0295C9551003BF4A9 /* MyRequirementCore.swift */,
 				718D7B1A2A45FBA100229859 /* EditRequirementCore.swift */,
+				718D7B222A46103300229859 /* MyRequirementsCore.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -585,6 +590,7 @@
 			children = (
 				934C77972916F76C00ED21DE /* MyRequirementView.swift */,
 				718D7B182A45FB9600229859 /* EditRequirementView.swift */,
+				718D7B242A46114C00229859 /* MyRequirementsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -714,6 +720,7 @@
 				7110B66B2A44E37700E7DEAB /* CreateRequirementResponse.swift in Sources */,
 				93E453AE295F7BEC00F43259 /* CheckRequirementCall.swift in Sources */,
 				712C07362A3CBC380034D657 /* Account.swift in Sources */,
+				718D7B232A46103300229859 /* MyRequirementsCore.swift in Sources */,
 				712C073D2A3CBD760034D657 /* LoginView.swift in Sources */,
 				71469DA2293B6EE000EF8225 /* CreateRequirementCore.swift in Sources */,
 				71469DA5293B6F5900EF8225 /* Loadable.swift in Sources */,
@@ -752,6 +759,7 @@
 				71E79B382A3DE55400882AEA /* EntryView.swift in Sources */,
 				71E775B42933EAD90016FC15 /* SubviewNone.swift in Sources */,
 				71F1CA1C293CC3F0005300C2 /* LoadingView.swift in Sources */,
+				718D7B252A46114C00229859 /* MyRequirementsView.swift in Sources */,
 				71BE2B022A3F1649004DAD31 /* NewPassword.swift in Sources */,
 				718D7B1F2A45FCFE00229859 /* EditRequirementResponse.swift in Sources */,
 				716DB8C9295C5461003BF4A9 /* DispatchQueue+Extensions.swift in Sources */,
