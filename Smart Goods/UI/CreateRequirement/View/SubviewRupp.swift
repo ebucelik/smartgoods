@@ -109,17 +109,12 @@ struct SubviewRupp: View {
         .onChange(of: project) { newProject in
             systemName = newProject.projectName
         }
-        .onAppear {
-            if systemName.isEmpty {
-                systemName = "The System"
-            }
-        }
     }
 
     private func buildRequirement(prioritySelected: String, verbSelected: String, object: String, processVerb: String) -> String {
         var requirement: String = ""
 
-        requirement = systemName + " " + prioritySelected + " "
+        requirement = (systemName.isEmpty ? "The System" : systemName) + " " + prioritySelected + " "
 
         if (verbSelected == "provide <whom>") {
             requirement += "provide " + object + " with the ability to "
