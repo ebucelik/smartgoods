@@ -51,8 +51,16 @@ class EntryCore: ReducerProtocol {
                     state.login = LoginCore.State()
                 }
 
-                if case .accountStateChanged(.loaded) = action {
-                    return .send(.register(.showLogin))
+                if case let .accountStateChanged(.loaded(account)) = action {
+                    do {
+                        let accountData = try JSONEncoder().encode(account)
+
+                        UserDefaults.standard.set(accountData, forKey: "account")
+                    } catch {
+                        print("Encoding failed")
+                    }
+
+                    return .send(.loaded(account))
                 }
 
                 return .none
