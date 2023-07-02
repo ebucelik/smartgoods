@@ -172,6 +172,8 @@ struct CreateRequirementView: View {
             .font(.body.monospaced().bold())
             .disabled(viewStore.selectedProject.projectName.isEmpty)
             .opacity(viewStore.selectedProject.projectName.isEmpty ? 0.7 : 1)
+            .accessibilityElement()
+            .accessibilityIdentifier("SaveRequirementButton")
         }
     }
 

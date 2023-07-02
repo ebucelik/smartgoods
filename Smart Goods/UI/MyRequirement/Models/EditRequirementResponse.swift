@@ -13,3 +13,14 @@ struct EditRequirementResponse: Codable, Equatable {
     let requirement: String
     let ruppScheme: Bool
 }
+
+extension EditRequirementResponse {
+    static var mock: EditRequirementResponse {
+        EditRequirementResponse(
+            id: 0,
+            hint: "Something",
+            requirement: "The system shall be able to look good.",
+            ruppScheme: false
+        )
+    }
+}

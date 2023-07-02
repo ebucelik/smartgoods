@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SubviewRupp: View {
-    enum priorityOptions: String, CaseIterable, Identifiable {
+    enum PriorityOptions: String, CaseIterable, Identifiable {
         case shall = "shall"
         case should = "should"
         case will = "will"
@@ -16,7 +16,7 @@ struct SubviewRupp: View {
         var id: Self { self }
     }
 
-    enum verbOptions: String, CaseIterable, Identifiable {
+    enum VerbOptions: String, CaseIterable, Identifiable {
         case process = "<process verb>"
         case provide = "provide <whom>"
         case able = "be able to"
@@ -28,8 +28,8 @@ struct SubviewRupp: View {
     @Binding var project: Project
     @Binding var systemName: String
 
-    @State private var prioritySelected: priorityOptions = .shall
-    @State private var verbSelected: verbOptions = .process
+    @State private var prioritySelected: PriorityOptions = .shall
+    @State private var verbSelected: VerbOptions = .process
 
     @State private var object = ""
     @State private var processVerb = ""
@@ -45,7 +45,7 @@ struct SubviewRupp: View {
 
             RoundedVStack {
                 Picker("Priority", selection: $prioritySelected) {
-                    ForEach(priorityOptions.allCases) { priority in
+                    ForEach(PriorityOptions.allCases) { priority in
                         Text(priority.rawValue)
                     }
                 }
@@ -56,7 +56,7 @@ struct SubviewRupp: View {
 
             RoundedVStack {
                 Picker("Verb", selection: $verbSelected) {
-                    ForEach(verbOptions.allCases) { verb in
+                    ForEach(VerbOptions.allCases) { verb in
                         Text(verb.rawValue)
                     }
                 }

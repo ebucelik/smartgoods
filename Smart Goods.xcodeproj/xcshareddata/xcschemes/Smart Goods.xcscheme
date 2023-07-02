@@ -39,6 +39,17 @@
                ReferencedContainer = "container:Smart Goods.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "71E2669F2A517B05004BF2BB"
+               BuildableName = "Smart Goods UITests.xctest"
+               BlueprintName = "Smart Goods UITests"
+               ReferencedContainer = "container:Smart Goods.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

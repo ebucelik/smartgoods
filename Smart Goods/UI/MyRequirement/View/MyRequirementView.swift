@@ -156,6 +156,8 @@ struct MyRequirementView: View {
                 .onTapGesture {
                     viewStore.send(.deleteRequirement(requirement.id))
                 }
+                .accessibilityElement()
+                .accessibilityIdentifier("DeleteRequirementButton")
 
 //            if requirement.isRuppScheme == "true" {
 //                Text("OK")

@@ -29,6 +29,8 @@ struct CreateProjectView: View {
                     ) {
                         viewStore.send(.createProject)
                     }
+                    .accessibilityElement()
+                    .accessibilityIdentifier("CreateProjectButton")
 
                     Spacer()
 

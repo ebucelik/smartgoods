@@ -26,7 +26,18 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "710E2D7E291196E6003AC591"
+            BuildableName = "Smart Goods.app"
+            BlueprintName = "Smart Goods"
+            ReferencedContainer = "container:Smart Goods.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -35,6 +46,17 @@
                BlueprintIdentifier = "71E8DA1C29301A6C0075F9F3"
                BuildableName = "Smart GoodsTests.xctest"
                BlueprintName = "Smart GoodsTests"
+               ReferencedContainer = "container:Smart Goods.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "71E2669F2A517B05004BF2BB"
+               BuildableName = "Smart Goods UITests.xctest"
+               BlueprintName = "Smart Goods UITests"
                ReferencedContainer = "container:Smart Goods.xcodeproj">
             </BuildableReference>
          </TestableReference>
